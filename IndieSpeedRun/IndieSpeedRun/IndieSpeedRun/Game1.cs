@@ -21,6 +21,7 @@ namespace IndieSpeedRun
 
         public Game1()
         {
+            GraphicsAdapter.UseReferenceDevice = true;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
