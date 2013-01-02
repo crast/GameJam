@@ -3,15 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace IndieSpeedRun
 {
     class MapParser
     {
+        public static void ReadInMapData(Game1 game)
+        {
+            ReadInMapDataTL(game);
+            //ReadInMapDataOld(game);
+        }
+
+        public static void ReadInMapDataTL(Game1 game) {
+            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap.json";
+            JObject root = JObject.Parse(File.ReadAllText(filePath, Encoding.UTF8));
+            JObject layers = (JObject) root["layers"][0];
+            game.currentMap.Height = (int) layers["height"];
+            int width = (int) layers["width"];
+            JArray blockData = (JArray) layers["data"];
+            for (int y = 0; y < game.currentMap.Height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int pos = y * width + x;
+                    int curItem = (int)blockData[pos];
+                    if (curItem == 0) continue;
+                    game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, new Sprite(game.textures["tile1"])));
+                }
+            }
+        }
+        
         /// <summary>
         /// Read in map data from an XML file
         /// </summary>
-        public static void ReadInMapData(Game1 game)
+        public static void ReadInMapDataOld(Game1 game)
         {
             //Creates XML Reader
             XmlReader rdr;
