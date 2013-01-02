@@ -33,7 +33,9 @@ namespace IndieSpeedRun
 
         public Game1()
         {
-            //GraphicsAdapter.UseReferenceDevice = true;
+            if (System.IO.File.Exists(@"..\..\..\..\james.txt")) {
+                GraphicsAdapter.UseReferenceDevice = true;
+            }
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 35 * TILE_SIZE;
             graphics.PreferredBackBufferHeight = 20 * TILE_SIZE;
