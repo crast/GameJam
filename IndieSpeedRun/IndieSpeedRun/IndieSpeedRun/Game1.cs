@@ -104,6 +104,14 @@ namespace IndieSpeedRun
             textures.Add(destName, this.Content.Load<Texture2D>(src));
         }
 
+        public Texture2D ConditionalLoadSprite(String destName, String src)
+        {
+            if (!textures.ContainsKey(destName)) {
+                LoadSprite(destName, src);
+            }
+            return textures[destName];  
+        }
+
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload

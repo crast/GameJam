@@ -18,11 +18,17 @@ namespace IndieSpeedRun
 
         public static void ReadInMapDataTL(Game1 game) {
             String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap.json";
-            JObject root = JObject.Parse(File.ReadAllText(filePath, Encoding.UTF8));
-            JObject layers = (JObject) root["layers"][0];
-            game.currentMap.Height = (int) layers["height"];
-            int width = (int) layers["width"];
-            JArray blockData = (JArray) layers["data"];
+            JObject root = getMapRoot(filePath);
+            var tileinfo = parseTileSets((JArray)root["tilesets"]);
+            handleLayer(game, (JObject)root["layers"][0], tileinfo);
+       
+        }
+
+        private static void handleLayer(Game1 game, JObject layer, Dictionary<int, TileInfo> tileinfo)
+        {
+            game.currentMap.Height = (int)layer["height"];
+            int width = (int)layer["width"];
+            JArray blockData = (JArray)layer["data"];
             for (int y = 0; y < game.currentMap.Height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -30,9 +36,27 @@ namespace IndieSpeedRun
                     int pos = y * width + x;
                     int curItem = (int)blockData[pos];
                     if (curItem == 0) continue;
-                    game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, new Sprite(game.textures["tile1"])));
+                    TileInfo ti = tileinfo[curItem];
+                    Sprite sprite = new Sprite(game.ConditionalLoadSprite(ti.Loc, ti.Path));
+                    game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, sprite));
                 }
             }
+        }
+
+        private static Dictionary<int, TileInfo> parseTileSets(JArray tilesets)
+        {
+            var d = new Dictionary<int, TileInfo>();
+            foreach (JObject o in tilesets) {
+                String path = ((String) o["image"]).TrimStart(new char[] {'.', '\\', '/'}).Replace('/', '\\').Replace(".png", "");
+                TileInfo info = new TileInfo(path, (String)o["name"]);
+                d.Add((int)o["firstgid"], info);
+            }
+            return d;
+        }
+
+        private static JObject getMapRoot(String filePath)
+        {
+            return JObject.Parse(File.ReadAllText(filePath, Encoding.UTF8));
         }
         
         /// <summary>
@@ -110,5 +134,16 @@ namespace IndieSpeedRun
             }
         }
 
+    }
+
+    class TileInfo
+    {
+        public string Path { get; set; }
+        public string Loc { get; set; }
+        public TileInfo(String path, String loc)
+        {
+            this.Path = path;
+            this.Loc = loc;
+        }
     }
 }
