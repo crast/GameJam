@@ -58,33 +58,12 @@ namespace IndieSpeedRun
             base.Update(gameTime);
         }
 
-
-        public bool checkKickCollision(float x, float y)
-        {
-            /*
-            Rectangle target1 = new Rectangle((int)(CenterX + kick.X*sm), (int)(CenterY + kick.Y*sm), 4, 4);
-            Rectangle target2 = new Rectangle((int)(CenterX + kick.X*lg), (int)(CenterY + kick.Y*lg), 4, 4);
-
-            foreach (Block block in game.currentMap.Blocks)
-            {
-                if (target1.Intersects(block.Rectangle) || target2.Intersects(block.Rectangle))
-                {
-                    return true;
-                }
-            }
-
-            return false;*/
-
-            return true;
-        }
-
         public override void Draw(SpriteBatch spriteBatch)
         {
 
             base.Draw(spriteBatch);
 
-           
-            spriteBatch.Draw(Sprite.Texture, new Rectangle((int)(CenterX)-4, (int)(CenterY)-4, 10, 10), Color.Black);
+            spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
             
         }
 
