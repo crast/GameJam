@@ -34,7 +34,7 @@ namespace IndieSpeedRun
         {
             GraphicsAdapter.UseReferenceDevice = true;
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 30 * TILE_SIZE;
+            graphics.PreferredBackBufferWidth = 35 * TILE_SIZE;
             graphics.PreferredBackBufferHeight = 20 * TILE_SIZE;
             //graphics.ApplyChanges(); //only needed outside of constructor!
             Content.RootDirectory = "Content";
@@ -55,7 +55,7 @@ namespace IndieSpeedRun
             Input.Initialize();
 
             //initialize map object
-            //currentMap = new Map();
+            currentMap = new Map();
 
             base.Initialize();
         }
@@ -70,14 +70,14 @@ namespace IndieSpeedRun
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //load all textures into a dictionary
-            /*string[] textureNames = { "Block"};
+            string[] textureNames = { "tile1"};
             for (int i = 0; i < textureNames.Length; i++)
             {
                 textures.Add(textureNames[i], this.Content.Load<Texture2D>(textureNames[i]));
-            }*/
+            }
 
             //reads in map data from XML
-            //readInMapData();
+            readInMapData();
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace IndieSpeedRun
             settings.IgnoreWhitespace = true;
             settings.IgnoreComments = true;
 
-            rdr = XmlReader.Create(@"..\..\..\..\ZeroGContent\test.xml", settings);
+            rdr = XmlReader.Create(@"..\..\..\..\IndieSpeedRunContent\test.xml", settings);
 
             while (rdr.Read())
             {
@@ -136,12 +136,13 @@ namespace IndieSpeedRun
                         {
                             if (rdr.Value.Substring(x, 1) == "#")
                             {
-                                currentMap.Blocks.Add(new Block(x * TILE_SIZE, y * TILE_SIZE, new Sprite(textures["Block"])));
+                                currentMap.Blocks.Add(new Block(x * TILE_SIZE, y * TILE_SIZE, new Sprite(textures["tile1"])));
                             }
+                            /*
                             else if (rdr.Value.Substring(x, 1) == "P")
                             {
                                 player = new Player(x * TILE_SIZE, y * TILE_SIZE, new Sprite(textures["HeroBall"]), this);
-                            }
+                            }*/
                         }
                         rdr.Read();
                         if (rdr.Name.ToUpper() == "ROW")
@@ -175,7 +176,7 @@ namespace IndieSpeedRun
                 this.Exit();
 
             // TODO: Add your update logic here
-            //Input.Update(gameTime); //update keyboard/mouse/gamepad states
+            Input.Update(gameTime); //update keyboard/mouse/gamepad states
             //player.Update(gameTime); //update player info
 
             base.Update(gameTime);
@@ -187,11 +188,11 @@ namespace IndieSpeedRun
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Gray); //background color
+            GraphicsDevice.Clear(Color.Black); //background color
 
             spriteBatch.Begin();//BEGIN
             //player.Draw(spriteBatch);
-            //currentMap.Draw(spriteBatch);
+            currentMap.Draw(spriteBatch);
             spriteBatch.End();//END!
 
             base.Draw(gameTime);

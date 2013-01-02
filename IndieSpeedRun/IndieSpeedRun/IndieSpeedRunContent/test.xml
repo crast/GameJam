@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+  <Map name = "Test Map">
+    <Blocks height ="20">
+      <row>##########      ##            #####</row>
+      <row>#        #      #             #   #</row>
+      <row>#        #      #             #   #</row>
+      <row>#  #     #      #             #   #</row>
+      <row>#  #     #                    #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #         #</row>
+      <row>#  #                    #         #</row>
+      <row>#  #                    #         #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>#  #     #              #     #   #</row>
+      <row>###################################</row>
+    </Blocks>
+  </Map>
+</XnaContent>
