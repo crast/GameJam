@@ -61,12 +61,12 @@ namespace IndieSpeedRun
             acceleration += new Vector2(0, 5); //gravity
             velocity += acceleration;
 
-            if (PositionY + Sprite.Height*2 > 20 * Game1.TILE_SIZE)
+            /*if (PositionY + Sprite.Height > game.mapHeight)
             {
-                PositionY = (20 * Game1.TILE_SIZE) - Sprite.Height*2;
+                PositionY = game.mapHeight - Sprite.Height;
                 acceleration = Vector2.Zero;
                 velocity.Y = 0;
-            }
+            }*/
 
             Vector2 dPad = Vector2.Zero;
             speed = 20f;

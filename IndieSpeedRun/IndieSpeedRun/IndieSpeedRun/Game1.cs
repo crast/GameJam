@@ -22,7 +22,17 @@ namespace IndieSpeedRun
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         public const int TILE_SIZE = 32;
+
         GraphicsDeviceManager graphics;
+        public int mapWidth
+        {
+            get { return graphics.PreferredBackBufferWidth; }
+        }
+        public int mapHeight
+        {
+            get { return graphics.PreferredBackBufferHeight; }
+        }
+
         SpriteBatch spriteBatch;
 
         //holds all textures after loading for easy access
@@ -85,7 +95,7 @@ namespace IndieSpeedRun
             //reads in map data from XML
             MapParser.ReadInMapData(this);
 
-            player = new Player(0, 0, new Sprite(textures["char1"]), this);
+            player = new Player(0, 0, new Sprite(textures["char1"],TILE_SIZE,TILE_SIZE*2), this);
             player.PositionX = 10 * TILE_SIZE;
             player.PositionY = 10 * TILE_SIZE;
         }
