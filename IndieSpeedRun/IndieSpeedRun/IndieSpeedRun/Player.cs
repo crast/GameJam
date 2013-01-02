@@ -14,6 +14,8 @@ namespace IndieSpeedRun
         private Vector2 startPosition;
         private Game1 game;
 
+        private float speed;
+
         private Vector2 velocity;
         public Vector2 Velocity
         {
@@ -27,6 +29,7 @@ namespace IndieSpeedRun
             get { return acceleration; }
             set { velocity = value; }
         }
+
         public Player(int x, int y, Sprite sprite, Game1 g)
             :base(x, y, sprite)
         {
@@ -55,24 +58,31 @@ namespace IndieSpeedRun
             }*/
             //Position += velocity
 
-            float speed = 80f;
+            acceleration += new Vector2(0, 5); //gravity
+            velocity += acceleration;
 
-            if (Input.KeyDown(Keys.A))
-                velocity.X = -speed;
-            else if (Input.KeyDown(Keys.D))
-                velocity.X = speed;
-            else
-                velocity.X = 0;
-
-            if (Input.KeyDown(Keys.S))
-                velocity.Y = speed;
-            else if (Input.KeyDown(Keys.W))
-                velocity.Y = -speed;
-            else
+            if (PositionY + Sprite.Height*2 > 20 * Game1.TILE_SIZE)
+            {
+                PositionY = (20 * Game1.TILE_SIZE) - Sprite.Height*2;
+                acceleration = Vector2.Zero;
                 velocity.Y = 0;
+            }
+
+            Vector2 dPad = Vector2.Zero;
+            speed = 20f;
+            float maxSpeed = 300;
+            if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
+                dPad.X = -speed;
+            else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
+                dPad.X = speed;
+            else
+                dPad.X = 0;
+            velocity += dPad;
+
+            if (Input.KeyDown(Keys.W) || Input.KeyDown(Keys.K))
+                velocity.Y = -200;
 
             Position += Vector2.Multiply(velocity, dt);
-                
 
             base.Update(gameTime);
         }
