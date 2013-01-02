@@ -86,15 +86,16 @@ namespace IndieSpeedRun
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //LEGACY
             //load all textures into a dictionary
-            // LEGACY
+            //LoadSprite("char1", @"sprites\ninja_large");
             LoadSprite("char1", @"sprites\char1");
             LoadSprite("tile1", @"tiles\tile1");
 
             //reads in map data from XML
             MapParser.ReadInMapData(this);
 
-            player = new Player(0, 0, new Sprite(textures["char1"],TILE_SIZE,TILE_SIZE*2), this);
+            player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this);
             player.PositionX = 10 * TILE_SIZE;
             player.PositionY = 10 * TILE_SIZE;
         }

@@ -58,14 +58,22 @@ namespace IndieSpeedRun
 
             //MOVE with WASD
             Vector2 dPad = Vector2.Zero;
-            speed = 20f;
+            speed = 10f;
             float maxSpeed = 300;
             if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
                 dPad.X = -speed;
             else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
                 dPad.X = speed;
             else
-                dPad.X = 0;
+            {
+                //REDUCE the speed when not pressed
+                if (velocity.X < -20)
+                    dPad.X = 5;
+                else if (dPad.X > 20)
+                    velocity.X *= .2f;
+                else
+                    dPad.X = 0;
+            }
             velocity += dPad;
 
             if (Input.KeyPressed(Keys.W) || Input.KeyPressed(Keys.K))
