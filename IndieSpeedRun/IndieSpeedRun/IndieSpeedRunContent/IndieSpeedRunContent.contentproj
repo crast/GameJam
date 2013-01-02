@@ -42,11 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tiles\char1.png">
-      <Name>char1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="tiles\tile1.png">
       <Name>tile1</Name>
       <Importer>TextureImporter</Importer>
@@ -61,6 +56,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="maps\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\char1.png">
+      <Name>char1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

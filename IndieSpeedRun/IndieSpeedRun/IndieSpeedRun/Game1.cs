@@ -43,6 +43,7 @@ namespace IndieSpeedRun
 
         public Game1()
         {
+            Console.WriteLine(System.IO.Path.GetDirectoryName(@"..\..\..\..\"));
             if (System.IO.File.Exists(@"..\..\..\..\james.txt")) {
                 GraphicsAdapter.UseReferenceDevice = true;
             }
@@ -86,11 +87,9 @@ namespace IndieSpeedRun
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //load all textures into a dictionary
-            string[] textureNames = {"tile1", "char1"};
-            for (int i = 0; i < textureNames.Length; i++)
-            {
-                textures.Add(textureNames[i], this.Content.Load<Texture2D>(textureNames[i]));
-            }
+            // LEGACY
+            LoadSprite("char1", @"sprites\char1");
+            LoadSprite("tile1", @"tiles\tile1");
 
             //reads in map data from XML
             MapParser.ReadInMapData(this);
@@ -98,6 +97,11 @@ namespace IndieSpeedRun
             player = new Player(0, 0, new Sprite(textures["char1"],TILE_SIZE,TILE_SIZE*2), this);
             player.PositionX = 10 * TILE_SIZE;
             player.PositionY = 10 * TILE_SIZE;
+        }
+
+        public void LoadSprite(string destName, string src)
+        {
+            textures.Add(destName, this.Content.Load<Texture2D>(src));
         }
 
 
