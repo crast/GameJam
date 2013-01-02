@@ -89,7 +89,7 @@ csx
 AppPackages/
 
 # Others
-Thumbs.db
+*Thumbs.db
 .DS_Store
 [Bb]in
 [Oo]bj
