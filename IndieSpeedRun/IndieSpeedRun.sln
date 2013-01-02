@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieSpeedRun", "IndieSpeedRun\IndieSpeedRun\IndieSpeedRun.csproj", "{8582BC8F-E8FD-4734-90C6-2D88EB83533F}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "IndieSpeedRunContent", "IndieSpeedRun\IndieSpeedRunContent\IndieSpeedRunContent.contentproj", "{B5AF1328-351D-4E3B-AFFD-1684DE03C805}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndieSpeedRunContent", "IndieSpeedRun\IndieSpeedRunContent\IndieSpeedRunContent.contentproj", "{B5AF1328-351D-4E3B-AFFD-1684DE03C805}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiledLib", "IndieSpeedRun\TiledLib\TiledLib.csproj", "{EC3F6988-459C-4783-89E9-F34C0CC731C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{8582BC8F-E8FD-4734-90C6-2D88EB83533F}.Release|x86.Build.0 = Release|x86
 		{B5AF1328-351D-4E3B-AFFD-1684DE03C805}.Debug|x86.ActiveCfg = Debug|x86
 		{B5AF1328-351D-4E3B-AFFD-1684DE03C805}.Release|x86.ActiveCfg = Release|x86
+		{EC3F6988-459C-4783-89E9-F34C0CC731C7}.Debug|x86.ActiveCfg = Debug|x86
+		{EC3F6988-459C-4783-89E9-F34C0CC731C7}.Debug|x86.Build.0 = Debug|x86
+		{EC3F6988-459C-4783-89E9-F34C0CC731C7}.Release|x86.ActiveCfg = Release|x86
+		{EC3F6988-459C-4783-89E9-F34C0CC731C7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
