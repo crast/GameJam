@@ -89,6 +89,7 @@ csx
 AppPackages/
 
 # Others
+*.csproj.Debug.cachefile
 *james.txt
 *Thumbs.db
 .DS_Store
