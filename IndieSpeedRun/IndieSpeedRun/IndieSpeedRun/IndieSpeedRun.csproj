@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="Blocks\WallBlock.cs" />
+    <Compile Include="MapParser.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Map.cs" />
