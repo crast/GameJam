@@ -55,10 +55,22 @@ namespace IndieSpeedRun
                 }
                 if (test.Count == 3)
                 {
+                    //whoa nelly... this works right now but it may not in super special cases.
+                    FixCollisions(combine(combine(test[0], test[1]),test[2]), p); //COMBINES into one block!!
+                    
+                    /*
                     //with three, separate collisions
                     FixCollisions((Rectangle)test[0], p);
                     FixCollisions((Rectangle)test[1], p);
+                    FixCollisions((Rectangle)test[2], p);*/
+                }
+                if (test.Count == 4)
+                {
+                    //with four, separate collisions
+                    FixCollisions((Rectangle)test[0], p);
+                    FixCollisions((Rectangle)test[1], p);
                     FixCollisions((Rectangle)test[2], p);
+                    FixCollisions((Rectangle)test[3], p);
                 }
             }
 
