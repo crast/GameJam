@@ -65,7 +65,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="tiles\tile2.png">
       <Name>tile2</Name>
       <Importer>TextureImporter</Importer>
@@ -73,10 +72,11 @@
     </Compile>
     <Compile Include="tiles\tile3.png">
       <Name>tile3</Name>
-=======
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="sprites\ninja_large.png">
       <Name>ninja_large</Name>
->>>>>>> big ninja and movement changes (in progress)
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
