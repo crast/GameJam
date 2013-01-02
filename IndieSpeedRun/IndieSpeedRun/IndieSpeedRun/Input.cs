@@ -19,6 +19,7 @@ namespace IndieSpeedRun
         /// The current state of the keyboard buttons.
         /// </summary>
         private static KeyboardState keyboard;
+        private static KeyboardState previousKeyboard;
 
         /// <summary>
         /// The current state of the mouse buttons and position.
@@ -34,7 +35,6 @@ namespace IndieSpeedRun
         /// The current state of the gamepad
         /// </summary>
         public static GamePadState gamePad;
-
         private static GamePadState previousGamePad;
         
 
@@ -57,6 +57,8 @@ namespace IndieSpeedRun
         public static void Update(GameTime gameTime) {
             previousMouse = mouse;
             mouse = Mouse.GetState();
+
+            previousKeyboard = keyboard;
             keyboard = Keyboard.GetState();
 
             previousGamePad = gamePad;
@@ -70,6 +72,14 @@ namespace IndieSpeedRun
         /// </summary>
         public static bool KeyDown(Keys key) {
             return keyboard.IsKeyDown(key);
+        }
+
+        /// <summary>
+        /// Checks if a key was JUST PRESSED.
+        /// </summary>
+        public static bool KeyPressed(Keys key)
+        {
+            return keyboard.IsKeyDown(key) && !previousKeyboard.IsKeyDown(key);
         }
 
 

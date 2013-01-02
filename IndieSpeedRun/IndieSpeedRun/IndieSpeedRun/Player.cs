@@ -47,27 +47,16 @@ namespace IndieSpeedRun
 
         public override void Update(GameTime gameTime)
         {
+
+
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             acceleration = Vector2.Zero;
 
-            //velocity += acceleration;
-            /*if (velocity.Length() >= 25f) //velocity clamping?
-            {
-                velocity.Normalize();
-                Vector2.Multiply(velocity, 25);
-            }*/
-            //Position += velocity
 
             acceleration += new Vector2(0, 5); //gravity
             velocity += acceleration;
 
-            /*if (PositionY + Sprite.Height > game.mapHeight)
-            {
-                PositionY = game.mapHeight - Sprite.Height;
-                acceleration = Vector2.Zero;
-                velocity.Y = 0;
-            }*/
-
+            //MOVE with WASD
             Vector2 dPad = Vector2.Zero;
             speed = 20f;
             float maxSpeed = 300;
@@ -79,7 +68,7 @@ namespace IndieSpeedRun
                 dPad.X = 0;
             velocity += dPad;
 
-            if (Input.KeyDown(Keys.W) || Input.KeyDown(Keys.K))
+            if (Input.KeyPressed(Keys.W) || Input.KeyPressed(Keys.K))
                 velocity.Y = -200;
 
             Position += Vector2.Multiply(velocity, dt);
