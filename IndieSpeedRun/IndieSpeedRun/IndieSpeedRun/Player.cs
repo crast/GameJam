@@ -47,24 +47,41 @@ namespace IndieSpeedRun
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             acceleration = Vector2.Zero;
 
-            velocity += acceleration;
+            //velocity += acceleration;
             /*if (velocity.Length() >= 25f) //velocity clamping?
             {
                 velocity.Normalize();
                 Vector2.Multiply(velocity, 25);
             }*/
-            Position += velocity;
+            //Position += velocity
+
+            float speed = 80f;
+
+            if (Input.KeyDown(Keys.A))
+                velocity.X = -speed;
+            else if (Input.KeyDown(Keys.D))
+                velocity.X = speed;
+            else
+                velocity.X = 0;
+
+            if (Input.KeyDown(Keys.S))
+                velocity.Y = speed;
+            else if (Input.KeyDown(Keys.W))
+                velocity.Y = -speed;
+            else
+                velocity.Y = 0;
+
+            Position += Vector2.Multiply(velocity, dt);
+                
 
             base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            //spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
 
             base.Draw(spriteBatch);
-
-            spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
-            
         }
 
 

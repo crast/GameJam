@@ -32,7 +32,7 @@ namespace IndieSpeedRun
 
         public Game1()
         {
-            GraphicsAdapter.UseReferenceDevice = true;
+            //GraphicsAdapter.UseReferenceDevice = true;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 35 * TILE_SIZE;
             graphics.PreferredBackBufferHeight = 20 * TILE_SIZE;
@@ -70,7 +70,7 @@ namespace IndieSpeedRun
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //load all textures into a dictionary
-            string[] textureNames = { "tile1"};
+            string[] textureNames = {"tile1", "char1"};
             for (int i = 0; i < textureNames.Length; i++)
             {
                 textures.Add(textureNames[i], this.Content.Load<Texture2D>(textureNames[i]));
@@ -78,6 +78,10 @@ namespace IndieSpeedRun
 
             //reads in map data from XML
             MapParser.ReadInMapData(this);
+
+            player = new Player(0, 0, new Sprite(textures["char1"]), this);
+            player.PositionX = 10 * TILE_SIZE;
+            player.PositionY = 10 * TILE_SIZE;
         }
 
 
@@ -103,7 +107,7 @@ namespace IndieSpeedRun
 
             // TODO: Add your update logic here
             Input.Update(gameTime); //update keyboard/mouse/gamepad states
-            //player.Update(gameTime); //update player info
+            player.Update(gameTime); //update player info
 
             base.Update(gameTime);
         }
@@ -114,11 +118,11 @@ namespace IndieSpeedRun
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black); //background color
+            GraphicsDevice.Clear(Color.LightGray); //background color
 
             spriteBatch.Begin();//BEGIN
-            //player.Draw(spriteBatch);
             currentMap.Draw(spriteBatch);
+            player.Draw(spriteBatch);
             spriteBatch.End();//END!
 
             base.Draw(gameTime);
