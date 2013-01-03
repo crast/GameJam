@@ -24,6 +24,8 @@ namespace IndieSpeedRun
         private const float minVelocity = 150;
         private const float heatForDoubleJump = 20;
 
+        private Sprite punchSprite;
+
         private bool canDoubleJump = false;
         public bool isSliding = false;
 
@@ -63,6 +65,7 @@ namespace IndieSpeedRun
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
             this.viewArea = viewArea;
+            //this.punchSprite = new Sprite(g.ConditionalLoadSprite("punch", "sprites/punch"));
         }
 
         public void LoadPlayer()
@@ -228,6 +231,12 @@ namespace IndieSpeedRun
         public override void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             //spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
+
+            //spriteBatch.Draw(new Texture2D(graphicsDevice.
+            Vector2 merp = Position - offset;
+            spriteBatch.Draw(Sprite.Texture, new Rectangle((int)merp.X-20,(int)merp.Y+32, 10, 10), Color.Green);
+            //punchSprite.Draw(spriteBatch, Position - offset, Rotation);
+
             base.Draw(spriteBatch, offset);
         }
 
