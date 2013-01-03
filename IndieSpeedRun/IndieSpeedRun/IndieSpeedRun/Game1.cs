@@ -41,6 +41,7 @@ namespace IndieSpeedRun
         public PhysicsEngine physics;
         public Dictionary<String, Texture2D> textures;
         private Player player;
+        private Hud hud;
 
         public Game1()
         {
@@ -75,6 +76,8 @@ namespace IndieSpeedRun
             physics = new PhysicsEngine(currentMap);
 
             viewArea = new ViewArea(mapWidth, mapHeight);
+
+            this.hud = new Hud(player);
 
             base.Initialize();
         }
@@ -162,6 +165,7 @@ namespace IndieSpeedRun
             currentMap.Draw(spriteBatch, viewArea.Offset);
             player.Draw(spriteBatch, viewArea.Offset);
             currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
+            hud.Draw(spriteBatch);
             spriteBatch.End();//END!
 
             base.Draw(gameTime);
