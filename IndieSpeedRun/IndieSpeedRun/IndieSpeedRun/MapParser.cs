@@ -18,10 +18,18 @@ namespace IndieSpeedRun
         }
 
         public static void ReadInMapDataTL(Game1 game) {
-            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap.json";
+            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap3.json";
             JObject root = getMapRoot(filePath);
             var tileinfo = parseTileSets((JArray)root["tilesets"]);
-            handleLayer(game, (JObject)root["layers"][0], tileinfo);
+            JArray layers = (JArray)root["layers"];
+            if (layers.Count == 3)
+            {
+                handleLayer(game, (JObject)layers[1], tileinfo);
+            }
+            else
+            {
+                handleLayer(game, (JObject)layers[0], tileinfo);
+            }
        
         }
 
