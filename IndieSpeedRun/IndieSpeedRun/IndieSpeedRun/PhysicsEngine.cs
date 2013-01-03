@@ -174,6 +174,7 @@ namespace IndieSpeedRun
                     p.PositionX -= minDist-1;
                 }
 
+                p.isSliding = true;
                 p.Velocity *= new Vector2(0, 1); //stop all velocity in the X direction
             }
             else
