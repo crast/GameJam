@@ -164,6 +164,7 @@ namespace IndieSpeedRun
                         velocity.Y = -400;
                         velocity.X = -300;
                         Console.WriteLine("wallJump Left");
+                        sprite.Effects = SpriteEffects.None;
                     }
                     else if (game.currentMap.ContainsCoordinate(PositionX - 2, PositionY + sprite.Height))
                     {
@@ -171,6 +172,7 @@ namespace IndieSpeedRun
                         velocity.Y = -400;
                         velocity.X = 300;
                         Console.WriteLine("wallJump Right");
+                        sprite.Effects = SpriteEffects.FlipHorizontally;
                     }
                 }
             }
