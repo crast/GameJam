@@ -18,11 +18,16 @@ namespace IndieSpeedRun
 
         private Facing facing = Facing.LEFT;
         private float speed;
+
+        //heat values
         private float heat;
         private const float heatFromJump = 1.5f;
         private const float heatDamper = .02f;
+        private const float heatToDoubleJump = 15;
+        private const float heatToPunch = 10;
+        private const float heatBuffer = 2;
+
         private const float minVelocity = 150;
-        private const float heatForDoubleJump = 20;
 
         private Sprite punchSprite;
         private float punchSeconds = .3f;
@@ -143,11 +148,11 @@ namespace IndieSpeedRun
             }
 
             //PUNCH code
-            if (Input.KeyPressed(Keys.J) && !(playerState == (int)states.PUNCHING) && heat >= 10)
+            if (Input.KeyPressed(Keys.J) && !(playerState == (int)states.PUNCHING) && heat >= heatToPunch + heatBuffer)
             {
                 Console.WriteLine("punch start");
                 playerState = (int)states.PUNCHING;
-                heat -= 20;
+                heat -= heatToPunch;
             }
             if (playerState == (int)states.PUNCHING)
             {
@@ -197,12 +202,12 @@ namespace IndieSpeedRun
                         sprite.Effects = SpriteEffects.FlipHorizontally;
                         facing = Facing.RIGHT;
                     }
-                    else if (heat > heatForDoubleJump && canDoubleJump && velocity.Y > -20)
+                    else if (heat > heatToDoubleJump+heatBuffer && canDoubleJump && velocity.Y > -20)
                     {
                         
                         velocity.Y = -400;
                         Console.WriteLine("DOUBLE JUMP!!!");
-                        heat -= heatForDoubleJump;
+                        heat -= heatToDoubleJump;
                         canDoubleJump = false;
                     }
                 }
