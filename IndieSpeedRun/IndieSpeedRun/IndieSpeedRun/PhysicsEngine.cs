@@ -189,7 +189,9 @@ namespace IndieSpeedRun
                 {
                     //Console.WriteLine("top");
                     p.PositionY -= minDist-1;
-                    p.PlayerState = 0; //set back to RUNNING
+
+                    if(p.PlayerState != 2)
+                        p.PlayerState = 0; //set back to RUNNING
                 }
 
                 p.Velocity *= new Vector2(1,0); //stop all velocity in the Y direction

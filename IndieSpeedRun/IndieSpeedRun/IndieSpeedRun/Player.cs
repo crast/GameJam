@@ -25,11 +25,14 @@ namespace IndieSpeedRun
         private const float heatForDoubleJump = 20;
 
         private Sprite punchSprite;
+        private float punchSeconds = .5f;
+        private float punchCounter = 0;
 
         private bool canDoubleJump = false;
         public bool isSliding = false;
+        private bool facingRight = true;
 
-        private enum states {RUNNING=0, JUMPING=1};
+        private enum states {RUNNING=0, JUMPING=1, PUNCHING=2};
         private int playerState = 0;
         public int PlayerState
         {
@@ -100,11 +103,13 @@ namespace IndieSpeedRun
                 {
                     dPad.X = -speed;
                     sprite.Effects = SpriteEffects.None;
+                    facingRight = false;
                 }
                 else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
                 {
                     dPad.X = speed;
                     sprite.Effects = SpriteEffects.FlipHorizontally;
+                    facingRight = true;
                 }
                 else
                 {
@@ -136,6 +141,24 @@ namespace IndieSpeedRun
                 velocity += dPad;
             }
 
+            //PUNCH code
+            if (Input.KeyPressed(Keys.J) && !(playerState == (int)states.PUNCHING))
+            {
+                Console.WriteLine("punch start");
+                playerState = (int)states.PUNCHING;
+            }
+            if (playerState == (int)states.PUNCHING)
+            {
+                punchCounter += dt;
+
+                if (punchCounter >= punchSeconds)
+                {
+                    Console.WriteLine("punch finished");
+                    punchCounter = 0;
+                    playerState = (int)states.JUMPING;
+                }
+            }
+
             //JUMP code!
             if (Input.KeyPressed(Keys.K))
             {
@@ -148,23 +171,19 @@ namespace IndieSpeedRun
 
                     canDoubleJump = true;
                 }
-                else if (playerState == (int)states.JUMPING && heat > heatForDoubleJump && canDoubleJump && velocity.Y > -20)
-                {
-                    velocity.Y = -400;
-                    Console.WriteLine("DOUBLE JUMP!!!");
-                    heat -= heatForDoubleJump;
-
-                    canDoubleJump = false;
-                }
                 else if(playerState == (int)states.JUMPING)
                 {
+                    //while jumping, can only perform a walljump or double jump
+
                     if (game.currentMap.ContainsCoordinate(PositionX + sprite.Width + 3, PositionY + sprite.Height))
                     {
                         PositionX -= 1;
                         velocity.Y = -400;
                         velocity.X = -300;
                         Console.WriteLine("wallJump Left");
+                        heat += heatFromJump;
                         sprite.Effects = SpriteEffects.None;
+                        facingRight = false;
                     }
                     else if (game.currentMap.ContainsCoordinate(PositionX - 2, PositionY + sprite.Height))
                     {
@@ -172,7 +191,17 @@ namespace IndieSpeedRun
                         velocity.Y = -400;
                         velocity.X = 300;
                         Console.WriteLine("wallJump Right");
+                        heat += heatFromJump;
                         sprite.Effects = SpriteEffects.FlipHorizontally;
+                        facingRight = true;
+                    }
+                    else if (heat > heatForDoubleJump && canDoubleJump && velocity.Y > -20)
+                    {
+                        
+                        velocity.Y = -400;
+                        Console.WriteLine("DOUBLE JUMP!!!");
+                        heat -= heatForDoubleJump;
+                        canDoubleJump = false;
                     }
                 }
             }
@@ -235,8 +264,15 @@ namespace IndieSpeedRun
             //spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
 
             //spriteBatch.Draw(new Texture2D(graphicsDevice.
-            Vector2 merp = Position - offset;
-            spriteBatch.Draw(Sprite.Texture, new Rectangle((int)merp.X-20,(int)merp.Y+32, 10, 10), Color.Green);
+            
+            if (playerState == (int)states.PUNCHING)
+            {
+                Vector2 merp = Position - offset;
+                if (facingRight)
+                    spriteBatch.Draw(Sprite.Texture, new Rectangle((int)merp.X + sprite.Width, (int)merp.Y + 32, 20, 20), Color.Green);
+                else
+                    spriteBatch.Draw(Sprite.Texture, new Rectangle((int)merp.X - 20, (int)merp.Y + 32, 20, 20), Color.Green);
+            }
             //punchSprite.Draw(spriteBatch, Position - offset, Rotation);
 
             base.Draw(spriteBatch, offset);
