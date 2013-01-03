@@ -23,6 +23,7 @@ namespace IndieSpeedRun
         private const float heatForDoubleJump = 20;
 
         private bool canDoubleJump = false;
+        public bool isSliding = false;
 
         private enum states {RUNNING=0, JUMPING=1};
         private int playerState = 0;
