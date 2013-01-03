@@ -189,11 +189,11 @@ namespace IndieSpeedRun
             base.Update(gameTime);
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             //spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
 
-            base.Draw(spriteBatch);
+            base.Draw(spriteBatch, offset);
         }
 
 

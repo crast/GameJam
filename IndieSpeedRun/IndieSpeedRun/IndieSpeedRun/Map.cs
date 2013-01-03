@@ -92,11 +92,11 @@ namespace IndieSpeedRun
         /// <summary>
         /// Draws map items
         /// </summary>
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             foreach (Block block in mapBlocks)
             {
-                block.Draw(spriteBatch);
+                block.Draw(spriteBatch, offset);
             }
         }
 

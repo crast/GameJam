@@ -140,11 +140,11 @@ namespace IndieSpeedRun
         /// Draws the entity if it is alive.
         /// </summary>
         /// <param name="spriteBatch">The settings used to draw the entity's sprite.</param>
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             if (alive)
             {
-                sprite.Draw(spriteBatch, Position, Rotation);
+                sprite.Draw(spriteBatch, Position - offset, Rotation);
             }
         }
 

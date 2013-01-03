@@ -150,11 +150,12 @@ namespace IndieSpeedRun
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            viewArea.Update(100, viewArea.Top + 1);
             GraphicsDevice.Clear(Color.LightGray); //background color
 
             spriteBatch.Begin();//BEGIN
-            currentMap.Draw(spriteBatch);
-            player.Draw(spriteBatch);
+            currentMap.Draw(spriteBatch, viewArea.Offset);
+            player.Draw(spriteBatch, viewArea.Offset);
             spriteBatch.End();//END!
 
             base.Draw(gameTime);
