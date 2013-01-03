@@ -10,7 +10,9 @@ namespace IndieSpeedRun
 {
     public class Player:MovingEntity
     {
-
+        const int HScrollThreshold = 350;
+        const int VScrollThreshold = 200;
+            
         private Vector2 startPosition;
         private Game1 game;
 
@@ -41,13 +43,15 @@ namespace IndieSpeedRun
         }
 
         private Vector2 acceleration;
+        private ViewArea viewArea;
+
         public Vector2 Acceleration
         {
             get { return acceleration; }
             set { velocity = value; }
         }
 
-        public Player(int x, int y, Sprite sprite, Game1 g)
+        public Player(int x, int y, Sprite sprite, Game1 g, ViewArea viewArea)
             :base(x, y, sprite)
         {
             startPosition = new Vector2(x, y);
@@ -58,6 +62,7 @@ namespace IndieSpeedRun
 
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
+            this.viewArea = viewArea;
         }
 
         public void LoadPlayer()
@@ -186,7 +191,42 @@ namespace IndieSpeedRun
                 heat = 100;//or activate SUPER!
 
             Console.WriteLine("heat: " + heat);
+            recenterView();
             base.Update(gameTime);
+        }
+
+        protected void recenterView()
+        {
+            int offsetX = 0;
+            int offsetY = 0;
+            /** Deal with X scrolling */
+
+            int diffX = ((int)PositionX) - viewArea.Left;
+            int boxRight = game.mapWidth - HScrollThreshold;
+            if (diffX > boxRight)
+            {
+                offsetX = Math.Max(15, diffX - boxRight);
+            }
+            else if (diffX < HScrollThreshold)
+            {
+                offsetX = diffX - HScrollThreshold;
+            }
+
+            /* Deal with Y scrolling */
+            int diffY = ((int) PositionY) - viewArea.Top;
+            int boxBottom = game.mapHeight - VScrollThreshold;
+            if (diffY > boxBottom) {
+                offsetY = Math.Max(15, diffY - boxBottom);
+            }
+            else if (diffY < VScrollThreshold)
+            {
+                offsetY = VScrollThreshold - diffY;
+            }
+            /* Now re-center */
+            if (offsetX != 0 || offsetY != 0)
+            {
+                viewArea.Update(viewArea.Left + offsetX, viewArea.Top + offsetY);
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 offset)

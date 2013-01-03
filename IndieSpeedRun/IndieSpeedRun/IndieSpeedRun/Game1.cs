@@ -97,7 +97,7 @@ namespace IndieSpeedRun
             //reads in map data from XML
             MapParser.ReadInMapData(this);
 
-            player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this);
+            player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             player.PositionX = 20 * TILE_SIZE;
             player.PositionY = 10 * TILE_SIZE;
         }
@@ -150,8 +150,11 @@ namespace IndieSpeedRun
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //viewArea.Update(100, viewArea.Top + 1);
-            viewArea.Update((int)player.PositionX-mapWidth/2, (int)player.PositionY-mapHeight/2);
+            // View area always scrolls down (really basic)
+            // viewArea.Update(100, viewArea.Top + 1);
+            // View area centered on player (basic)
+            // viewArea.Update((int)player.PositionX-mapWidth/2, (int)player.PositionY-mapHeight/2);
+
             GraphicsDevice.Clear(Color.LightGray); //background color
 
             spriteBatch.Begin();//BEGIN

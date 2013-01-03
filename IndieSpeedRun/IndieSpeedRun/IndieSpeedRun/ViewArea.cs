@@ -13,6 +13,8 @@ namespace IndieSpeedRun
         public int Height { get; set; }
         public int Top { get; private set; }
         public int Left { get; private set; }
+        public int Right { get; private set; }
+        public int Bottom { get; private set; }
         public Vector2 Offset { get; private set; }
 
         private List<ViewAreaUpdatable> handlers = new List<ViewAreaUpdatable>();
@@ -29,6 +31,8 @@ namespace IndieSpeedRun
             this.Top = top;
             this.Left = left;
             this.Rectangle = new Rectangle(Left, Top, Width, Height);
+            this.Right = left + Width;
+            this.Bottom = top + Height;
             foreach (ViewAreaUpdatable handler in handlers)
             {
                 handler.ViewAreaUpdated(this);
