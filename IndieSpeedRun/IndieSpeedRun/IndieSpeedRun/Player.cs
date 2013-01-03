@@ -98,7 +98,7 @@ namespace IndieSpeedRun
             }
             else if (playerState == (int)states.JUMPING)
             {
-                float airDamper = .4f;
+                float airDamper = .8f;
 
                 if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
                     dPad.X = -speed*airDamper;
