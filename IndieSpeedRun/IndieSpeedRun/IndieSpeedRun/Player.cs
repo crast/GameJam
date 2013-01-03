@@ -20,7 +20,9 @@ namespace IndieSpeedRun
         private const float heatFromJump = 1.5f;
         private const float heatDamper = .02f;
         private const float minVelocity = 150;
-        private const float heatFromDoubleJump = -20;
+        private const float heatForDoubleJump = 20;
+
+        private bool canDoubleJump = false;
 
         private enum states {RUNNING=0, JUMPING=1};
         private int playerState = 0;
@@ -132,12 +134,16 @@ namespace IndieSpeedRun
                     playerState = (int)states.JUMPING;
                     Console.WriteLine("START JUMP!");
                     heat += heatFromJump;
+
+                    canDoubleJump = true;
                 }
-                else if(playerState == (int)states.JUMPING && heat+heatFromDoubleJump >= 0)
+                else if(playerState == (int)states.JUMPING && heat>heatForDoubleJump && canDoubleJump && velocity.Y>0)
                 {
                     velocity.Y = -400;
                     Console.WriteLine("DOUBLE JUMP!!!");
-                    heat += heatFromDoubleJump;
+                    heat -= heatForDoubleJump;
+
+                    canDoubleJump = false;
                 }
             }
 
