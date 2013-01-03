@@ -138,6 +138,14 @@ namespace IndieSpeedRun
 
                     canDoubleJump = true;
                 }
+                else if (playerState == (int)states.JUMPING && heat > heatForDoubleJump && canDoubleJump && velocity.Y > -20)
+                {
+                    velocity.Y = -400;
+                    Console.WriteLine("DOUBLE JUMP!!!");
+                    heat -= heatForDoubleJump;
+
+                    canDoubleJump = false;
+                }
                 else if(playerState == (int)states.JUMPING)
                 {
                     if (velocity.X >= 0)
@@ -160,14 +168,6 @@ namespace IndieSpeedRun
                             Console.WriteLine("wallJump Right");
                         }
                     }
-                }
-                else if (playerState == (int)states.JUMPING && heat > heatForDoubleJump && canDoubleJump && velocity.Y > 0)
-                {
-                    velocity.Y = -400;
-                    Console.WriteLine("DOUBLE JUMP!!!");
-                    heat -= heatForDoubleJump;
-
-                    canDoubleJump = false;
                 }
             }
 
