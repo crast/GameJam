@@ -22,6 +22,7 @@ namespace IndieSpeedRun
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         public const int TILE_SIZE = 32;
+        private ViewArea viewArea;
 
         GraphicsDeviceManager graphics;
         public int mapWidth
@@ -73,6 +74,8 @@ namespace IndieSpeedRun
 
             //initialize Phyiscs Engine 
             physics = new PhysicsEngine(currentMap);
+
+            viewArea = new ViewArea(mapWidth, mapHeight);
 
             base.Initialize();
         }

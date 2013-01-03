@@ -116,8 +116,9 @@
     <Compile Include="Block.cs" />
     <Compile Include="Blocks\CollisionBlock.cs" />
     <Compile Include="Blocks\WallBlock.cs" />
+    <Compile Include="ViewArea.cs" />
     <Compile Include="MovingEntity.cs" />
-    <Compile Include="ShapeReducer.cs" />
+    <Compile Include="Utilities\ShapeReducer.cs" />
     <Compile Include="MapParser.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Input.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Sprite.cs" />
+    <Compile Include="ViewAreaUpdatable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

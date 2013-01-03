@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using IndieSpeedRun.Blocks;
 
-namespace IndieSpeedRun
+namespace IndieSpeedRun.Utilities
 {
     class ShapeReducer
     {
@@ -44,7 +44,7 @@ namespace IndieSpeedRun
             cbStats(map, cblocks);
             cblocks = HorizontalMerge(cblocks);
             cbStats(map, cblocks);
-            map.CollisionBlocks = cblocks;
+            map.AllCollisionBlocks = cblocks;
         }
 
         private static void cbStats(Map map, List<CollisionBlock> cblocks)

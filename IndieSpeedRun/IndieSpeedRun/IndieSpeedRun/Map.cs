@@ -5,13 +5,14 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using IndieSpeedRun.Blocks;
+using IndieSpeedRun.Utilities;
 
 namespace IndieSpeedRun
 {
     /// <summary>
     /// A map is an isolated set of entities
     /// </summary>
-    public class Map
+    public class Map : ViewAreaUpdatable
     {
         //private Vector2 origin; //location of map
         private int mapHeight; //unused
@@ -22,6 +23,18 @@ namespace IndieSpeedRun
         private List<Block> mapBlocks; //holds all block
 
         public List<CollisionBlock> CollisionBlocks { get; set; }
+
+        private List<CollisionBlock> _allCollisionBlocks;
+        public List<CollisionBlock> AllCollisionBlocks { 
+            get {
+                return _allCollisionBlocks;
+            }
+            set
+            {
+                CollisionBlocks = value;
+                _allCollisionBlocks = value;
+            }
+        }
 
         //accessor methods
         public Player Player
@@ -71,6 +84,11 @@ namespace IndieSpeedRun
         public void ReduceCollisionBlocks()
         {
             ShapeReducer.Reduce(this);
+        }
+
+        public void ViewAreaUpdated(ViewArea area)
+        {
+            //TODO
         }
     }
 }
