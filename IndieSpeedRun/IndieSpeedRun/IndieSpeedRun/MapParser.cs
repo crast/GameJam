@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using Microsoft.Xna.Framework;
 
 namespace IndieSpeedRun
 {
@@ -17,7 +18,7 @@ namespace IndieSpeedRun
         }
 
         public static void ReadInMapDataTL(Game1 game) {
-            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap.json";
+            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap2.json";
             JObject root = getMapRoot(filePath);
             var tileinfo = parseTileSets((JArray)root["tilesets"]);
             handleLayer(game, (JObject)root["layers"][0], tileinfo);
@@ -37,7 +38,7 @@ namespace IndieSpeedRun
                     int curItem = (int)blockData[pos];
                     if (curItem == 0) continue;
                     TileInfo ti = tileinfo[curItem];
-                    Sprite sprite = new Sprite(game.ConditionalLoadSprite(ti.Loc, ti.Path));
+                    Sprite sprite = new Sprite(game.ConditionalLoadSprite(ti.Loc, ti.Path), ti.Origin);
                     game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, sprite));
                 }
             }
@@ -49,8 +50,17 @@ namespace IndieSpeedRun
             var d = new Dictionary<int, TileInfo>();
             foreach (JObject o in tilesets) {
                 String path = ((String) o["image"]).TrimStart(new char[] {'.', '\\', '/'}).Replace('/', '\\').Replace(".png", "");
-                TileInfo info = new TileInfo(path, (String)o["name"]);
-                d.Add((int)o["firstgid"], info);
+                int imagewidth = (int) o["imagewidth"];
+                int imageheight = (int) o["imageheight"];
+                int gid = (int) o["firstgid"];
+                for (int top = 0; top < imageheight; top += Game1.TILE_SIZE) {
+                    for (int left= 0; left < imagewidth; left += Game1.TILE_SIZE) {
+                        var origin = new Vector2((float) left, (float) top);
+                        TileInfo info = new TileInfo(path, (String)o["name"], origin);
+                        d.Add(gid, info);
+                        gid++;
+                    }
+                }
             }
             return d;
         }
@@ -60,80 +70,6 @@ namespace IndieSpeedRun
             return JObject.Parse(File.ReadAllText(filePath, Encoding.UTF8));
         }
         
-        /// <summary>
-        /// Read in map data from an XML file
-        /// </summary>
-        public static void ReadInMapDataOld(Game1 game)
-        {
-            //Creates XML Reader
-            XmlReader rdr;
-            XmlReaderSettings settings = new XmlReaderSettings();
-
-            //Various settings for the XML reader
-            settings.ConformanceLevel = ConformanceLevel.Fragment;
-            settings.IgnoreWhitespace = true;
-            settings.IgnoreComments = true;
-
-            rdr = XmlReader.Create(@"..\..\..\..\IndieSpeedRunContent\test.xml", settings);
-
-            while (rdr.Read())
-            {
-                //Print out what's being loaded (for debug business)
-                //Console.WriteLine(rdr.LocalName);
-
-                //If nothing is present, go to the first element
-                if (rdr.IsEmptyElement)
-                {
-                    rdr.ReadStartElement();
-                }
-
-                //If it's a map..
-                if (rdr.Name.ToUpper() == "MAP")
-                {
-                    //Skip to name, and set the currentMap's current name to whatever the XML file says it is.
-                    rdr.MoveToAttribute("name");
-                    game.currentMap.Name = rdr.Value;
-                    //Print it out, for debug purposes.
-                    //Console.WriteLine(currentMap.Name);
-                }
-                else if (rdr.Name.ToUpper() == "BLOCKS")
-                {
-                    //Get the height value of the map
-                    rdr.MoveToAttribute("height");
-                    //..and set the map's height to whatever the file says.
-                    game.currentMap.Height = Int32.Parse(rdr.Value);
-                    //Keep readin.
-                    rdr.Read();
-
-                    //Run through the file, figure out where the blocks are, and place them where needed.
-                    for (int y = 0; y < game.currentMap.Height; y++)
-                    {
-                        if (rdr.Name.ToUpper() == "ROW")
-                        {
-                            rdr.Read();
-                        }
-                        for (int x = 0; x < rdr.Value.Length; x++)
-                        {
-                            if (rdr.Value.Substring(x, 1) == "#")
-                            {
-                                game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, new Sprite(game.textures["tile1"])));
-                            }
-                            /*
-                            else if (rdr.Value.Substring(x, 1) == "P")
-                            {
-                                player = new Player(x * TILE_SIZE, y * TILE_SIZE, new Sprite(textures["HeroBall"]), this);
-                            }*/
-                        }
-                        rdr.Read();
-                        if (rdr.Name.ToUpper() == "ROW")
-                        {
-                            rdr.Read();
-                        }
-                    }
-                    rdr.Read();
-                }
-            }
-        }
 
     }
 
@@ -141,10 +77,12 @@ namespace IndieSpeedRun
     {
         public string Path { get; set; }
         public string Loc { get; set; }
-        public TileInfo(String path, String loc)
+        public Vector2 Origin {get; set; }
+        public TileInfo(String path, String loc, Vector2 origin)
         {
             this.Path = path;
             this.Loc = loc;
+            this.Origin = origin;
         }
     }
 }
