@@ -44,7 +44,6 @@ namespace IndieSpeedRun
 
         public Game1()
         {
-            Console.WriteLine(System.IO.Path.GetDirectoryName(@"..\..\..\..\"));
             if (System.IO.File.Exists(@"..\..\..\..\james.txt")) {
                 GraphicsAdapter.UseReferenceDevice = true;
             }

@@ -21,6 +21,7 @@ namespace IndieSpeedRun
 
         private Player player; //reference to player
         private List<Block> mapBlocks; //holds all block
+        private List<Block> drawableBlocks; // holds drawable only
 
         public List<CollisionBlock> CollisionBlocks { get; set; }
 
@@ -31,7 +32,7 @@ namespace IndieSpeedRun
             }
             set
             {
-                CollisionBlocks = value;
+                CollisionBlocks = new List<CollisionBlock>(value);
                 _allCollisionBlocks = value;
             }
         }
@@ -56,7 +57,10 @@ namespace IndieSpeedRun
         }
         public List<Block> Blocks
         {
-            set { mapBlocks = value; }
+            set {
+                drawableBlocks = new List<Block>(value);
+                mapBlocks = value; 
+            }
             get { return mapBlocks; }
         }
 
@@ -88,7 +92,22 @@ namespace IndieSpeedRun
 
         public void ViewAreaUpdated(ViewArea area)
         {
-            //TODO
+            CollisionBlocks = new List<CollisionBlock>();
+            foreach (CollisionBlock cb in AllCollisionBlocks) 
+            {
+                if (area.Rectangle.Intersects(cb.Rectangle)) 
+                {
+                    CollisionBlocks.Add(cb);
+                }
+            }
+            drawableBlocks.Clear();
+            foreach (Block block in mapBlocks)
+            {
+                if (area.Rectangle.Intersects(block.Rectangle))
+                {
+                    drawableBlocks.Add(block);
+                }
+            }
         }
     }
 }
