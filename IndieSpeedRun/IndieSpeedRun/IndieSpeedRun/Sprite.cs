@@ -62,18 +62,20 @@ namespace IndieSpeedRun
             get { return origin; }
         }
 
+        private Rectangle? sourceRectangle;
+
         /// <summary>
         /// Creates a sprite with a texture
         /// </summary>
         /// <param name="texture">The texture of the sprite.</param>
         /// <param name="width">The width of the sprite.</param>
         /// <param name="height">The height of the sprite.</param>
-        public Sprite(Texture2D texture) : this(texture, Vector2.Zero)
+        public Sprite(Texture2D texture) : this(texture, null)
         {
         }
 
-        public Sprite(Texture2D texture, Vector2 origin)
-            : this(texture, Game1.TILE_SIZE, Game1.TILE_SIZE, origin)
+        public Sprite(Texture2D texture, Rectangle? sourceRect)
+            : this(texture, Game1.TILE_SIZE, Game1.TILE_SIZE, sourceRect)
         { 
         }
 
@@ -83,17 +85,18 @@ namespace IndieSpeedRun
         /// <param name="texture">The texture of the sprite.</param>
         /// <param name="width">The width of the sprite.</param>
         /// <param name="height">The height of the sprite.</param>
-        public Sprite(Texture2D texture, int width, int height, Vector2 origin)
+        public Sprite(Texture2D texture, int width, int height, Rectangle? sourceRect)
         {
             this.texture = texture;
             this.width = width;
             this.height = height;
             scale = 1;
             //origin = new Vector2(width / 2, height / 2); //sets the origin to the center of the sprite
-            this.origin = origin;
+            this.origin = Vector2.Zero;
+            this.sourceRectangle = sourceRect;
         }
 
-        public Sprite(Texture2D texture, int width, int height) : this(texture, width, height, Vector2.Zero) 
+        public Sprite(Texture2D texture, int width, int height) : this(texture, width, height, null) 
         { 
         }
 
@@ -105,7 +108,7 @@ namespace IndieSpeedRun
         /// <param name="rotation">The rotation to draw the sprite.</param>
         public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation)
         {
-            spriteBatch.Draw(texture, position, null, Color.White, rotation, origin, scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, position, sourceRectangle, Color.White, rotation, Vector2.Zero, scale, SpriteEffects.None, 0);
         }
     }
 }

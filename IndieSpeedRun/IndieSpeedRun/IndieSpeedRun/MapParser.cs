@@ -55,7 +55,7 @@ namespace IndieSpeedRun
                 int gid = (int) o["firstgid"];
                 for (int top = 0; top < imageheight; top += Game1.TILE_SIZE) {
                     for (int left= 0; left < imagewidth; left += Game1.TILE_SIZE) {
-                        var origin = new Vector2((float) left, (float) top);
+                        var origin = new Rectangle(left, top, Game1.TILE_SIZE, Game1.TILE_SIZE);
                         TileInfo info = new TileInfo(path, (String)o["name"], origin);
                         d.Add(gid, info);
                         gid++;
@@ -77,8 +77,8 @@ namespace IndieSpeedRun
     {
         public string Path { get; set; }
         public string Loc { get; set; }
-        public Vector2 Origin {get; set; }
-        public TileInfo(String path, String loc, Vector2 origin)
+        public Rectangle Origin {get; set; }
+        public TileInfo(String path, String loc, Rectangle origin)
         {
             this.Path = path;
             this.Loc = loc;
