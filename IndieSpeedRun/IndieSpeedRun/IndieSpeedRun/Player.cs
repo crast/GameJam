@@ -16,6 +16,9 @@ namespace IndieSpeedRun
 
         private float speed;
 
+        private enum states {RUNNING=0, JUMPING=1};
+        private int playerState = 0;
+
         private Vector2 velocity;
         public Vector2 Velocity
         {
@@ -57,9 +60,10 @@ namespace IndieSpeedRun
             velocity += acceleration;
 
             //MOVE with WASD
-            Vector2 dPad = Vector2.Zero;
             speed = 10f;
-            float maxSpeed = 300;
+            float maxSpeed = 250;
+            Vector2 dPad = Vector2.Zero;
+
             if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
                 dPad.X = -speed;
             else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
@@ -67,17 +71,24 @@ namespace IndieSpeedRun
             else
             {
                 //REDUCE the speed when not pressed
-                if (velocity.X < -20)
-                    dPad.X = 5;
-                else if (dPad.X > 20)
-                    velocity.X *= .2f;
+                if (velocity.X < -2)
+                    dPad.X = 3;
+                else if (velocity.X > 2)
+                    dPad.X = -3;
                 else
+                {
+                    velocity.X = 0;
                     dPad.X = 0;
+                }
             }
             velocity += dPad;
 
+            //JUMP code!
             if (Input.KeyPressed(Keys.W) || Input.KeyPressed(Keys.K))
+            {
                 velocity.Y = -200;
+                playerState = (int)states.JUMPING;
+            }
 
             Position += Vector2.Multiply(velocity, dt);
 
