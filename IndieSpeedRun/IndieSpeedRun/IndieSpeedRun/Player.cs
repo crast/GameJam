@@ -16,6 +16,12 @@ namespace IndieSpeedRun
 
         private float speed;
 
+        private float heat;
+        private const float heatFromJump = 1.5f;
+        private const float heatDamper = .02f;
+        private const float minVelocity = 150;
+        private const float heatFromDoubleJump = -20;
+
         private enum states {RUNNING=0, JUMPING=1};
         private int playerState = 0;
         public int PlayerState
@@ -44,6 +50,8 @@ namespace IndieSpeedRun
             startPosition = new Vector2(x, y);
             Position = new Vector2(x, y);
             game = g;
+
+            heat = 0;
 
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
@@ -78,9 +86,13 @@ namespace IndieSpeedRun
             if (playerState == (int)states.RUNNING)
             {
                 if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
+                {
                     dPad.X = -speed;
+                }
                 else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
+                {
                     dPad.X = speed;
+                }
                 else
                 {
                     //REDUCE the speed when not pressed
@@ -112,15 +124,38 @@ namespace IndieSpeedRun
             }
 
             //JUMP code!
-            if ((Input.KeyPressed(Keys.K) && playerState == (int)states.RUNNING))
+            if (Input.KeyPressed(Keys.K))
             {
-                velocity.Y = -400;
-                playerState = (int)states.JUMPING;
-                Console.WriteLine("START JUMP!");
+                if(playerState == (int)states.RUNNING)
+                {
+                    velocity.Y = -400;
+                    playerState = (int)states.JUMPING;
+                    Console.WriteLine("START JUMP!");
+                    heat += heatFromJump;
+                }
+                else if(playerState == (int)states.JUMPING && heat+heatFromDoubleJump >= 0)
+                {
+                    velocity.Y = -400;
+                    Console.WriteLine("DOUBLE JUMP!!!");
+                    heat += heatFromDoubleJump;
+                }
             }
 
             Position += Vector2.Multiply(velocity, dt);
 
+            //increase the heat!
+            if (Math.Abs(Velocity.X) > minVelocity)
+            {
+                heat += Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), heatDamper).X);
+            }
+
+            //clamp heat
+            if (heat < 0)
+                heat = 0;
+            else if (heat > 100)
+                heat = 100;//or activate SUPER!
+
+            Console.WriteLine("heat: " + heat);
             base.Update(gameTime);
         }
 
