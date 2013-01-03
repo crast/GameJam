@@ -68,14 +68,13 @@ namespace IndieSpeedRun
         /// <param name="texture">The texture of the sprite.</param>
         /// <param name="width">The width of the sprite.</param>
         /// <param name="height">The height of the sprite.</param>
-        public Sprite(Texture2D texture)
+        public Sprite(Texture2D texture) : this(texture, Vector2.Zero)
         {
-            this.texture = texture;
-            this.width = Game1.TILE_SIZE;
-            this.height = Game1.TILE_SIZE;
-            scale = 1;
-            //origin = new Vector2(width / 2, height / 2);
-            origin = Vector2.Zero;
+        }
+
+        public Sprite(Texture2D texture, Vector2 origin)
+            : this(texture, Game1.TILE_SIZE, Game1.TILE_SIZE, origin)
+        { 
         }
 
         /// <summary>
@@ -84,14 +83,18 @@ namespace IndieSpeedRun
         /// <param name="texture">The texture of the sprite.</param>
         /// <param name="width">The width of the sprite.</param>
         /// <param name="height">The height of the sprite.</param>
-        public Sprite(Texture2D texture, int width, int height)
+        public Sprite(Texture2D texture, int width, int height, Vector2 origin)
         {
             this.texture = texture;
             this.width = width;
             this.height = height;
             scale = 1;
             //origin = new Vector2(width / 2, height / 2); //sets the origin to the center of the sprite
-            origin = new Vector2(0, 0);
+            this.origin = origin;
+        }
+
+        public Sprite(Texture2D texture, int width, int height) : this(texture, width, height, Vector2.Zero) 
+        { 
         }
 
         /// <summary>
