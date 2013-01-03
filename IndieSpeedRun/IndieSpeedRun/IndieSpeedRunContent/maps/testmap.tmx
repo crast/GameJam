@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="35" height="20" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="70" height="33" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tile1" tilewidth="32" tileheight="32">
   <image source="../tiles/tile1.png" width="32" height="32"/>
  </tileset>
@@ -9,9 +9,9 @@
  <tileset firstgid="3" name="tile3" tilewidth="32" tileheight="32">
   <image source="../tiles/tile3.png" width="32" height="32"/>
  </tileset>
- <layer name="Tile Layer 1" width="35" height="20">
+ <layer name="Tile Layer 1" width="70" height="33">
   <data encoding="base64" compression="zlib">
-   eJzVlosKgCAMRX38/z9HoBCyu5eb1YVLQupO20hrKaX+xBa1xzgyXiRLB+NMlnW9FFfL0pl3SNoacYzou3bzUgffdEa/NOGJ1Jg50TWS5GXZrZFVp/PiZflSXrJZ1r55i4Xq39N1QBy3Ilikf4p2rpXFEpdaq2HhzgxqP8mIw8tC5Uw65/owx5/NMr2u0eQM7e25b0T6AjpxAWA=
+   eJztmIEKxCAIQJ39/z8fwh2IWNqqm7YeyMa2mjys1S4AuIJEJGbmih39ZvBSuz7LS6mcv8WLbN9ykNVLadyr4R1HNV+RWFkvFMhih3pp5YrGsQY2nsni5c44stjBy79rO4uXFfVyJ4+nOPWi85QXOc8cL/rcm8XLKrJ/j7xYaxbvs5m99DjQ2mbz0trDcNAZktY9nkckevYs1h6wfINjOeN9R2KGl1/INp5a4n1HwrP/XxFaHm9HjjWiVlM9NZedES8711WvF07Ef1izGPFC7OpG80J4vRDHi05GL9a/7Ld7AdDzn+Ulmxtt3XsXa42cyQ3PF2Esf8tpZi8AxwvB510U14jiCO+6P9NYkl5Gw/O+2XwASjUCMw==
   </data>
  </layer>
 </map>
