@@ -121,6 +121,7 @@ namespace IndieSpeedRun
         {
             this.width = width;
             this.height = height;
+            RecalcRectangle();
         }
         public Entity(int x, int y, Sprite sprite): this(x, y)
         {

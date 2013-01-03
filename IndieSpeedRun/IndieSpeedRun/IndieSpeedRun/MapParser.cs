@@ -41,6 +41,7 @@ namespace IndieSpeedRun
                     game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, sprite));
                 }
             }
+            game.currentMap.ReduceCollisionBlocks();
         }
 
         private static Dictionary<int, TileInfo> parseTileSets(JArray tilesets)

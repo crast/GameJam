@@ -19,8 +19,9 @@ namespace IndieSpeedRun
         protected Texture2D mapImage;
 
         private Player player; //reference to player
-        private List<Block> mapBlocks; //holds all blocks
-        private List<CollisionBlock> collisionBlocks; // stuff.
+        private List<Block> mapBlocks; //holds all block
+
+        public List<CollisionBlock> CollisionBlocks { get; set; }
 
         //accessor methods
         public Player Player
