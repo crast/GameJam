@@ -62,6 +62,19 @@ namespace IndieSpeedRun
             get { return origin; }
         }
 
+        protected SpriteEffects effects = SpriteEffects.None;
+        public SpriteEffects Effects
+        {
+            get
+            {
+                return effects;
+            }
+            set
+            {
+                effects = value;
+            }
+        }
+
         private Rectangle? sourceRectangle;
 
         /// <summary>
@@ -108,7 +121,7 @@ namespace IndieSpeedRun
         /// <param name="rotation">The rotation to draw the sprite.</param>
         public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation)
         {
-            spriteBatch.Draw(texture, position, sourceRectangle, Color.White, rotation, Vector2.Zero, scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, position, sourceRectangle, Color.White, rotation, Vector2.Zero, scale, effects, 0);
         }
     }
 }

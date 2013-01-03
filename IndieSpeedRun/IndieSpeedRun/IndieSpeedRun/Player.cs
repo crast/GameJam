@@ -96,10 +96,12 @@ namespace IndieSpeedRun
                 if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
                 {
                     dPad.X = -speed;
+                    sprite.Effects = SpriteEffects.None;
                 }
                 else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
                 {
                     dPad.X = speed;
+                    sprite.Effects = SpriteEffects.FlipHorizontally;
                 }
                 else
                 {
@@ -226,7 +228,6 @@ namespace IndieSpeedRun
         public override void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             //spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
-
             base.Draw(spriteBatch, offset);
         }
 
