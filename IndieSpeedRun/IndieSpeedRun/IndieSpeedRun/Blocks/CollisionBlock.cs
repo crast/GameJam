@@ -11,5 +11,21 @@ namespace IndieSpeedRun.Blocks
             : base(x, y, width, height)
         {
         }
+
+        public int Right
+        {
+            get
+            {
+                return Rectangle.Left + Rectangle.Width;
+            }
+        }
+
+        public int Bottom
+        {
+            get
+            {
+                return Rectangle.Top + Rectangle.Height;
+            }
+        }
     }
 }

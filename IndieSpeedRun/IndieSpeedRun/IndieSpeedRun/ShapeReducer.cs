@@ -40,13 +40,32 @@ namespace IndieSpeedRun
                     cblocks.Add(DoMerge(consecutive));
                 }
             }
-            foreach (CollisionBlock cb in cblocks) 
+
+            cbStats(map, cblocks);
+            cblocks = HorizontalMerge(cblocks);
+            cbStats(map, cblocks);
+            map.CollisionBlocks = cblocks;
+        }
+
+        private static void cbStats(Map map, List<CollisionBlock> cblocks)
+        {
+            foreach (CollisionBlock cb in cblocks)
             {
                 Rectangle cr = cb.Rectangle;
                 Console.WriteLine("collisionBlock x={0}, y={1}, w={2}, h={3}", cr.Left, cr.Top, cr.Width, cr.Height);
             }
             Console.WriteLine("Blocks length: {0} Collision Length: {1}", map.Blocks.Count, cblocks.Count);
-            map.CollisionBlocks = cblocks;
+        }
+
+        private static List<CollisionBlock> HorizontalMerge(List<CollisionBlock> cblocks)
+        {
+            var nblocks = new List<CollisionBlock>(cblocks);
+            foreach (CollisionBlock cblock in nblocks) {
+                foreach (CollisionBlock other in nblocks)
+                {
+                }
+            }
+            return cblocks;
         }
 
         private static CollisionBlock DoMerge(List<Block> consecutive)
