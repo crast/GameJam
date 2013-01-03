@@ -42,10 +42,10 @@
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
   <object name="SpawnPoint1" type="spawn" x="83" y="1904" width="65" height="104"/>
-  <object name="Door01" type="door" gid="68" x="832" y="96"/>
-  <object name="Door01" type="door" gid="69" x="832" y="128"/>
-  <object name="Door01" type="door" gid="70" x="832" y="160"/>
-  <object name="Switch01" type="switch" x="99" y="97" width="27" height="63">
+  <object name="Door01" type="door" gid="68" x="832" y="96" width="32" height="32"/>
+  <object name="Door01" type="door" gid="69" x="832" y="128" width="32" height="32"/>
+  <object name="Door01" type="door" gid="70" x="832" y="160" width="32" height="32"/>
+  <object name="Lantern01" type="lantern" gid="27" x="96" y="128" width="32" height="32">
    <properties>
     <property name="target" value="Door01"/>
    </properties>
