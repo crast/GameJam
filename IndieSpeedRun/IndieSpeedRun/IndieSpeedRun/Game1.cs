@@ -96,7 +96,7 @@ namespace IndieSpeedRun
             MapParser.ReadInMapData(this);
 
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this);
-            player.PositionX = 10 * TILE_SIZE;
+            player.PositionX = 20 * TILE_SIZE;
             player.PositionY = 10 * TILE_SIZE;
         }
 
