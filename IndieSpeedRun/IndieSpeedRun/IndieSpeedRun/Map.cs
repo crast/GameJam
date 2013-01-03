@@ -33,6 +33,8 @@ namespace IndieSpeedRun
             get { return mapHeight; }
             set { mapHeight = value; }
         }
+
+        public int Width { get; set; }
         public string Name
         {
             get { return mapName; }
@@ -67,7 +69,7 @@ namespace IndieSpeedRun
 
         public void ReduceCollisionBlocks()
         {
-            ShapeReducer.Reduce(mapBlocks);
+            ShapeReducer.Reduce(this);
         }
     }
 }

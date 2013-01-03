@@ -27,7 +27,7 @@ namespace IndieSpeedRun
         private static void handleLayer(Game1 game, JObject layer, Dictionary<int, TileInfo> tileinfo)
         {
             game.currentMap.Height = (int)layer["height"];
-            int width = (int)layer["width"];
+            int width = game.currentMap.Width = (int)layer["width"];
             JArray blockData = (JArray)layer["data"];
             for (int y = 0; y < game.currentMap.Height; y++)
             {
