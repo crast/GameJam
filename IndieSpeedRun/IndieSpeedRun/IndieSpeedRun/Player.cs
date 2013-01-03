@@ -55,10 +55,12 @@ namespace IndieSpeedRun
 
         public override void Update(GameTime gameTime)
         {
+            /*
             if (playerState == (int)states.RUNNING)
                 Console.WriteLine("Running!");
             else if (playerState == (int)states.JUMPING)
                 Console.WriteLine("Jumping!");
+            */
 
    
 
@@ -66,37 +68,53 @@ namespace IndieSpeedRun
             acceleration = Vector2.Zero;
 
 
-            acceleration += new Vector2(0, 5); //gravity
+            acceleration += new Vector2(0, 10); //gravity
             velocity += acceleration;
 
             //MOVE with WASD
             speed = 10f;
             float maxSpeed = 250;
             Vector2 dPad = Vector2.Zero;
-
-            if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
-                dPad.X = -speed;
-            else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
-                dPad.X = speed;
-            else
+            if (playerState == (int)states.RUNNING)
             {
-                //REDUCE the speed when not pressed
-                if (velocity.X < -2)
-                    dPad.X = 3;
-                else if (velocity.X > 2)
-                    dPad.X = -3;
+                if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
+                    dPad.X = -speed;
+                else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
+                    dPad.X = speed;
                 else
                 {
-                    velocity.X = 0;
+                    //REDUCE the speed when not pressed
+                    if (velocity.X < -2)
+                        dPad.X = 3;
+                    else if (velocity.X > 2)
+                        dPad.X = -3;
+                    else
+                    {
+                        velocity.X = 0;
+                        dPad.X = 0;
+                    }
+                }
+                velocity += dPad;
+            }
+            else if (playerState == (int)states.JUMPING)
+            {
+                float airDamper = .4f;
+
+                if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
+                    dPad.X = -speed*airDamper;
+                else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
+                    dPad.X = speed*airDamper;
+                else
+                {
                     dPad.X = 0;
                 }
+                velocity += dPad;
             }
-            velocity += dPad;
 
             //JUMP code!
-            if (Input.KeyPressed(Keys.W) || Input.KeyPressed(Keys.K))
+            if ((Input.KeyPressed(Keys.K) && playerState == (int)states.RUNNING))
             {
-                velocity.Y = -200;
+                velocity.Y = -400;
                 playerState = (int)states.JUMPING;
                 Console.WriteLine("START JUMP!");
             }
