@@ -45,7 +45,6 @@ namespace IndieSpeedRun
             } else {
                 Rectangle = new Rectangle((int) position.X, (int) position.Y, (int)width, (int)height);
             }
-
         }
 
         /// <summary>
@@ -93,7 +92,7 @@ namespace IndieSpeedRun
         /// <summary>
         /// Returns the rectangle with the bounding box of the entity.
         /// </summary>
-        public Rectangle Rectangle { get; set; }
+        public virtual Rectangle Rectangle { get; set; }
 
         /// <summary>
         /// True, if the entity is alive. False, if it is dead.

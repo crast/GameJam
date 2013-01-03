@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace IndieSpeedRun
 {
-    public class Player:Entity
+    public class Player:MovingEntity
     {
 
         private Vector2 startPosition;
