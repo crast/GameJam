@@ -205,7 +205,7 @@ namespace IndieSpeedRun
             int boxRight = game.mapWidth - HScrollThreshold;
             if (diffX > boxRight)
             {
-                offsetX = Math.Max(15, diffX - boxRight);
+                offsetX = diffX - boxRight;
             }
             else if (diffX < HScrollThreshold)
             {
@@ -216,7 +216,7 @@ namespace IndieSpeedRun
             int diffY = ((int) PositionY) - viewArea.Top;
             int boxBottom = game.mapHeight - VScrollThreshold;
             if (diffY > boxBottom) {
-                offsetY = Math.Max(15, diffY - boxBottom);
+                offsetY = diffY - boxBottom;
             }
             else if (diffY < VScrollThreshold)
             {
