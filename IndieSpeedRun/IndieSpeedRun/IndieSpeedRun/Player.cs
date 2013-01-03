@@ -138,7 +138,30 @@ namespace IndieSpeedRun
 
                     canDoubleJump = true;
                 }
-                else if(playerState == (int)states.JUMPING && heat>heatForDoubleJump && canDoubleJump && velocity.Y>0)
+                else if(playerState == (int)states.JUMPING)
+                {
+                    if (velocity.X >= 0)
+                    {
+                        if (game.currentMap.ContainsCoordinate(PositionX + sprite.Width + 3, PositionY + sprite.Height))
+                        {
+                            PositionX -= 1;
+                            velocity.Y = -300;
+                            velocity.X = -300;
+                            Console.WriteLine("wallJump Left");
+                        }
+                    }
+                    else
+                    {
+                        if (game.currentMap.ContainsCoordinate(PositionX - 2, PositionY + sprite.Height))
+                        {
+                            PositionX += 1;
+                            velocity.Y = -300;
+                            velocity.X = 300;
+                            Console.WriteLine("wallJump Right");
+                        }
+                    }
+                }
+                else if (playerState == (int)states.JUMPING && heat > heatForDoubleJump && canDoubleJump && velocity.Y > 0)
                 {
                     velocity.Y = -400;
                     Console.WriteLine("DOUBLE JUMP!!!");

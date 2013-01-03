@@ -74,6 +74,21 @@ namespace IndieSpeedRun
             mapBlocks = new List<Block>();
         }
 
+        public bool ContainsCoordinate(float x, float y)
+        {
+            Rectangle r = new Rectangle((int)x, (int)y, 1, 1);
+            // TODO optimize this using a bounding hierarchy
+            foreach (CollisionBlock block in CollisionBlocks)
+            {
+
+                if (block.Rectangle.Intersects(r))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// Draws map items
         /// </summary>
