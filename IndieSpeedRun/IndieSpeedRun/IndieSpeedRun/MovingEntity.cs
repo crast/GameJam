@@ -8,6 +8,12 @@ namespace IndieSpeedRun
 {
     public class MovingEntity : Entity
     {
+        public enum Facing
+        {
+            LEFT,
+            RIGHT
+        };
+
         public MovingEntity(int x, int y, Sprite sprite)
             : base(x, y, sprite)
         {

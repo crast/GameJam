@@ -16,8 +16,8 @@ namespace IndieSpeedRun
         private Vector2 startPosition;
         private Game1 game;
 
+        private Facing facing = Facing.LEFT;
         private float speed;
-
         private float heat;
         private const float heatFromJump = 1.5f;
         private const float heatDamper = .02f;
