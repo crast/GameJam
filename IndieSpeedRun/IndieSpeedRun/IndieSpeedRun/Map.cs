@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using IndieSpeedRun.Blocks;
 
 namespace IndieSpeedRun
 {
@@ -19,6 +20,7 @@ namespace IndieSpeedRun
 
         private Player player; //reference to player
         private List<Block> mapBlocks; //holds all blocks
+        private List<CollisionBlock> collisionBlocks; // stuff.
 
         //accessor methods
         public Player Player
@@ -63,6 +65,9 @@ namespace IndieSpeedRun
             }
         }
 
-
+        public void ReduceCollisionBlocks()
+        {
+            ShapeReducer.Reduce(mapBlocks);
+        }
     }
 }

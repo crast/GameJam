@@ -16,6 +16,9 @@ namespace IndieSpeedRun
     public class Entity
     {
 
+        private int width;
+        private int height;
+
         /// <summary>
         /// The image representing this entity.
         /// </summary>
@@ -23,7 +26,26 @@ namespace IndieSpeedRun
         public Sprite Sprite
         {
             get { return sprite; }
-            set { sprite = value; }
+            set { 
+                sprite = value;
+                if (value != null)
+                {
+                    width = sprite.Width;
+                    height = sprite.Height;
+                }
+                RecalcRectangle();
+            }
+        }
+
+        private void RecalcRectangle()
+        {
+            if (sprite != null)
+            {
+                Rectangle = new Rectangle((int) position.X, (int) position.Y, (int) sprite.Width, (int) sprite.Height);
+            } else {
+                Rectangle = new Rectangle((int) position.X, (int) position.Y, (int)width, (int)height);
+            }
+
         }
 
         /// <summary>
@@ -71,15 +93,7 @@ namespace IndieSpeedRun
         /// <summary>
         /// Returns the rectangle with the bounding box of the entity.
         /// </summary>
-        public Rectangle Rectangle
-        {
-            get
-            {
-                return new Rectangle(
-                    (int)position.X, (int)position.Y,
-                    (int)sprite.Width, (int)sprite.Height);
-            }
-        }
+        public Rectangle Rectangle { get; set; }
 
         /// <summary>
         /// True, if the entity is alive. False, if it is dead.
@@ -97,11 +111,21 @@ namespace IndieSpeedRun
         /// <param name="x">The x coordinate of the entity's position.</param>
         /// <param name="y">The y coordinate of the entity's position.</param>
         /// <param name="sprite">The sprite to display the entity.</param>
-        public Entity(int x, int y, Sprite sprite)
+        private Entity(int x, int y)
         {
             position = new Vector2(x, y);
-            this.sprite = sprite;
             alive = true;
+        }
+
+        public Entity(int x, int y, int width, int height)
+            : this(x, y)
+        {
+            this.width = width;
+            this.height = height;
+        }
+        public Entity(int x, int y, Sprite sprite): this(x, y)
+        {
+            Sprite = sprite;
         }
 
         /// <summary>

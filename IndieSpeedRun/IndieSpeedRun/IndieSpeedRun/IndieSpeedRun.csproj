@@ -114,7 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="Blocks\CollisionBlock.cs" />
     <Compile Include="Blocks\WallBlock.cs" />
+    <Compile Include="ShapeReducer.cs" />
     <Compile Include="MapParser.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Input.cs" />
