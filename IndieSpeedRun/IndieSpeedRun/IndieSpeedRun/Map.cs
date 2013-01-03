@@ -23,6 +23,12 @@ namespace IndieSpeedRun
         private List<Block> mapBlocks; //holds all block
         private List<Block> drawableBlocks; // holds drawable only
 
+        public List<Block> TopLayer { get; set; }
+        private List<Block> drawableTopLayer;
+
+        public List<Block> BottomLayer { get; set; }
+        private List<Block> drawableBottomLayer;
+
         public List<CollisionBlock> CollisionBlocks { get; set; }
 
         private List<CollisionBlock> _allCollisionBlocks;
@@ -71,6 +77,10 @@ namespace IndieSpeedRun
         {
             mapName = "Default";
             mapHeight = 0;
+            BottomLayer = new List<Block>();
+            drawableBottomLayer = new List<Block>();
+            TopLayer = new List<Block>();
+            drawableTopLayer = new List<Block>();
             mapBlocks = new List<Block>();
             drawableBlocks = new List<Block>();
         }
@@ -95,7 +105,19 @@ namespace IndieSpeedRun
         /// </summary>
         public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
+            foreach (Block block in drawableBottomLayer)
+            {
+                block.Draw(spriteBatch, offset);
+            }
             foreach (Block block in drawableBlocks)
+            {
+                block.Draw(spriteBatch, offset);
+            }
+        }
+
+        public void DrawTopLayer(SpriteBatch spriteBatch, Vector2 offset)
+        {
+            foreach (Block block in drawableTopLayer)
             {
                 block.Draw(spriteBatch, offset);
             }
@@ -109,21 +131,14 @@ namespace IndieSpeedRun
         public void ViewAreaUpdated(ViewArea area)
         {
             CollisionBlocks = new List<CollisionBlock>();
-            foreach (CollisionBlock cb in AllCollisionBlocks) 
-            {
-                if (area.Rectangle.Intersects(cb.Rectangle)) 
-                {
-                    CollisionBlocks.Add(cb);
-                }
-            }
-            drawableBlocks.Clear();
-            foreach (Block block in mapBlocks)
-            {
-                if (area.Rectangle.Intersects(block.Rectangle))
-                {
-                    drawableBlocks.Add(block);
-                }
-            }
+            filterBlocks(CollisionBlocks, AllCollisionBlocks, area.Rectangle);
+
+            filterBlocks(drawableBlocks, mapBlocks, area.Rectangle);
+
+            // Handle top/bottom layer
+            filterBlocks(drawableTopLayer, TopLayer, area.Rectangle);
+            filterBlocks(drawableBottomLayer, BottomLayer, area.Rectangle);
+        
             Console.WriteLine(
                 "ViewArea re-factor: Drawable blocks: {0}/{1}, Collision blocks: {2}/{3}, Top: {4}, Left: {5}",
                 drawableBlocks.Count,
@@ -133,6 +148,16 @@ namespace IndieSpeedRun
                 area.Top,
                 area.Left
             );
+        }
+
+        private void filterBlocks<T> (List<T> dest, List<T> src, Rectangle rect) where T: Entity {
+            dest.Clear();
+            foreach (T item in src) 
+            {
+                if (rect.Intersects(item.Rectangle)) {
+                    dest.Add(item);
+                }
+            }
         }
     }
 }

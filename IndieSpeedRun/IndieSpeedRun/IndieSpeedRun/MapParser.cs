@@ -24,16 +24,20 @@ namespace IndieSpeedRun
             JArray layers = (JArray)root["layers"];
             if (layers.Count == 3)
             {
-                handleLayer(game, (JObject)layers[1], tileinfo);
+                handleLayer(game, (JObject)layers[0], tileinfo, game.currentMap.BottomLayer);
+                handleLayer(game, (JObject)layers[1], tileinfo, game.currentMap.Blocks);
+                handleLayer(game, (JObject)layers[2], tileinfo, game.currentMap.TopLayer);
             }
             else
             {
-                handleLayer(game, (JObject)layers[0], tileinfo);
+                handleLayer(game, (JObject)layers[0], tileinfo, game.currentMap.Blocks);
             }
+            
+            game.currentMap.ReduceCollisionBlocks();
        
         }
 
-        private static void handleLayer(Game1 game, JObject layer, Dictionary<int, TileInfo> tileinfo)
+        private static void handleLayer(Game1 game, JObject layer, Dictionary<int, TileInfo> tileinfo, List<Block> blocks)
         {
             game.currentMap.Height = (int)layer["height"];
             int width = game.currentMap.Width = (int)layer["width"];
@@ -47,7 +51,8 @@ namespace IndieSpeedRun
                     if (curItem == 0) continue;
                     TileInfo ti = tileinfo[curItem];
                     Sprite sprite = new Sprite(game.ConditionalLoadSprite(ti.Loc, ti.Path), ti.Origin);
-                    game.currentMap.Blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, sprite));
+
+                    blocks.Add(new Block(x * Game1.TILE_SIZE, y * Game1.TILE_SIZE, sprite));
                 }
             }
             game.currentMap.ReduceCollisionBlocks();

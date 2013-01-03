@@ -91,7 +91,7 @@ namespace IndieSpeedRun
             //LEGACY
             //load all textures into a dictionary
             //LoadSprite("char1", @"sprites\ninja_large");
-            LoadSprite("char1", @"sprites\char1");
+            LoadSprite("char1", @"sprites\ninja_01-01");
             LoadSprite("tile1", @"tiles\tile1");
 
             //reads in map data from XML
@@ -161,6 +161,7 @@ namespace IndieSpeedRun
             spriteBatch.Begin();//BEGIN
             currentMap.Draw(spriteBatch, viewArea.Offset);
             player.Draw(spriteBatch, viewArea.Offset);
+            currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
             spriteBatch.End();//END!
 
             base.Draw(gameTime);
