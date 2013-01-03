@@ -127,12 +127,12 @@ namespace IndieSpeedRun
 
                 if (side == 1) //right
                 {
-                    Console.WriteLine("right");
+                    //Console.WriteLine("right");
                     p.PositionX += minDist;
                 }
                 else //left
                 {
-                    Console.WriteLine("left");
+                    //Console.WriteLine("left");
                     p.PositionX -= minDist-1;
                 }
 
@@ -144,13 +144,14 @@ namespace IndieSpeedRun
 
                 if (side == 1) //bottom
                 {
-                    Console.WriteLine("bottom");
+                    //Console.WriteLine("bottom");
                     p.PositionY += minDist;
                 }
                 else //top
                 {
-                    Console.WriteLine("top");
+                    //Console.WriteLine("top");
                     p.PositionY -= minDist-1;
+                    p.PlayerState = 0; //set back to RUNNING
                 }
 
                 p.Velocity *= new Vector2(1,0); //stop all velocity in the Y direction

@@ -18,6 +18,11 @@ namespace IndieSpeedRun
 
         private enum states {RUNNING=0, JUMPING=1};
         private int playerState = 0;
+        public int PlayerState
+        {
+            get { return playerState; }
+            set { playerState = value; }
+        }
 
         private Vector2 velocity;
         public Vector2 Velocity
@@ -50,7 +55,12 @@ namespace IndieSpeedRun
 
         public override void Update(GameTime gameTime)
         {
+            if (playerState == (int)states.RUNNING)
+                Console.WriteLine("Running!");
+            else if (playerState == (int)states.JUMPING)
+                Console.WriteLine("Jumping!");
 
+   
 
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             acceleration = Vector2.Zero;
@@ -88,6 +98,7 @@ namespace IndieSpeedRun
             {
                 velocity.Y = -200;
                 playerState = (int)states.JUMPING;
+                Console.WriteLine("START JUMP!");
             }
 
             Position += Vector2.Multiply(velocity, dt);
