@@ -190,7 +190,7 @@ namespace IndieSpeedRun
             else if (heat > 100)
                 heat = 100;//or activate SUPER!
 
-            Console.WriteLine("heat: " + heat);
+            //Console.WriteLine("heat: " + heat);
             recenterView();
             base.Update(gameTime);
         }
@@ -220,7 +220,7 @@ namespace IndieSpeedRun
             }
             else if (diffY < VScrollThreshold)
             {
-                offsetY = VScrollThreshold - diffY;
+                offsetY = diffY - VScrollThreshold;
             }
             /* Now re-center */
             if (offsetX != 0 || offsetY != 0)

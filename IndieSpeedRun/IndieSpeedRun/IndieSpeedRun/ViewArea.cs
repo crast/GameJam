@@ -43,6 +43,7 @@ namespace IndieSpeedRun
         public void Register(ViewAreaUpdatable handler)
         {
             handlers.Add(handler);
+            handler.ViewAreaUpdated(this);
         }
 
     }

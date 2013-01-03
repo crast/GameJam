@@ -72,6 +72,7 @@ namespace IndieSpeedRun
             mapName = "Default";
             mapHeight = 0;
             mapBlocks = new List<Block>();
+            drawableBlocks = new List<Block>();
         }
 
         public bool ContainsCoordinate(float x, float y)
@@ -94,7 +95,7 @@ namespace IndieSpeedRun
         /// </summary>
         public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
-            foreach (Block block in mapBlocks)
+            foreach (Block block in drawableBlocks)
             {
                 block.Draw(spriteBatch, offset);
             }
@@ -123,6 +124,15 @@ namespace IndieSpeedRun
                     drawableBlocks.Add(block);
                 }
             }
+            Console.WriteLine(
+                "ViewArea re-factor: Drawable blocks: {0}/{1}, Collision blocks: {2}/{3}, Top: {4}, Left: {5}",
+                drawableBlocks.Count,
+                mapBlocks.Count,
+                CollisionBlocks.Count,
+                AllCollisionBlocks.Count,
+                area.Top,
+                area.Left
+            );
         }
     }
 }

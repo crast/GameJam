@@ -100,6 +100,7 @@ namespace IndieSpeedRun
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             player.PositionX = 20 * TILE_SIZE;
             player.PositionY = 10 * TILE_SIZE;
+            viewArea.Register(currentMap);
         }
 
         public void LoadSprite(string destName, string src)
