@@ -25,12 +25,11 @@ namespace IndieSpeedRun
         private const float heatForDoubleJump = 20;
 
         private Sprite punchSprite;
-        private float punchSeconds = .5f;
+        private float punchSeconds = .3f;
         private float punchCounter = 0;
 
         private bool canDoubleJump = false;
         public bool isSliding = false;
-        private bool facingRight = true;
 
         private enum states {RUNNING=0, JUMPING=1, PUNCHING=2};
         private int playerState = 0;
@@ -63,12 +62,12 @@ namespace IndieSpeedRun
             Position = new Vector2(x, y);
             game = g;
 
-            heat = 0;
+            heat = 20;
 
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
             this.viewArea = viewArea;
-            //this.punchSprite = new Sprite(g.ConditionalLoadSprite("punch", "sprites/punch"));
+            this.punchSprite = new Sprite(g.ConditionalLoadSprite("punch", "tiles/fireball"));
         }
 
         public void LoadPlayer()
@@ -82,6 +81,8 @@ namespace IndieSpeedRun
                 Console.WriteLine("Running!");
             else if (playerState == (int)states.JUMPING)
                 Console.WriteLine("Jumping!");
+            else if (playerState == (int)states.PUNCHING)
+                Console.WriteLine("Punching!");
             */
 
    
@@ -103,13 +104,13 @@ namespace IndieSpeedRun
                 {
                     dPad.X = -speed;
                     sprite.Effects = SpriteEffects.None;
-                    facingRight = false;
+                    facing = Facing.LEFT;
                 }
                 else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
                 {
                     dPad.X = speed;
                     sprite.Effects = SpriteEffects.FlipHorizontally;
-                    facingRight = true;
+                    facing = Facing.RIGHT;
                 }
                 else
                 {
@@ -142,10 +143,11 @@ namespace IndieSpeedRun
             }
 
             //PUNCH code
-            if (Input.KeyPressed(Keys.J) && !(playerState == (int)states.PUNCHING))
+            if (Input.KeyPressed(Keys.J) && !(playerState == (int)states.PUNCHING) && heat >= 10)
             {
                 Console.WriteLine("punch start");
                 playerState = (int)states.PUNCHING;
+                heat -= 20;
             }
             if (playerState == (int)states.PUNCHING)
             {
@@ -183,7 +185,7 @@ namespace IndieSpeedRun
                         Console.WriteLine("wallJump Left");
                         heat += heatFromJump;
                         sprite.Effects = SpriteEffects.None;
-                        facingRight = false;
+                        facing = Facing.LEFT;
                     }
                     else if (game.currentMap.ContainsCoordinate(PositionX - 2, PositionY + sprite.Height))
                     {
@@ -193,7 +195,7 @@ namespace IndieSpeedRun
                         Console.WriteLine("wallJump Right");
                         heat += heatFromJump;
                         sprite.Effects = SpriteEffects.FlipHorizontally;
-                        facingRight = true;
+                        facing = Facing.RIGHT;
                     }
                     else if (heat > heatForDoubleJump && canDoubleJump && velocity.Y > -20)
                     {
@@ -208,7 +210,10 @@ namespace IndieSpeedRun
 
             Position += Vector2.Multiply(velocity, dt);
 
-            //increase the heat!
+            //decrease the heat all the time!
+            heat -= .03f;
+
+            //increase the heat with movement!!
             if (Math.Abs(Velocity.X) > minVelocity)
             {
                 heat += Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), heatDamper).X);
@@ -216,13 +221,38 @@ namespace IndieSpeedRun
 
             //clamp heat
             if (heat < 0)
+            {
                 heat = 0;
+                this.Die();
+            }
             else if (heat > 100)
-                heat = 100;//or activate SUPER!
+            {
+                heat = 100;
+                this.Die();
+            }
 
-            //Console.WriteLine("heat: " + heat);
+            Console.WriteLine("heat: " + heat);
             recenterView();
             base.Update(gameTime);
+        }
+
+        public void Die()
+        {
+            if (heat == 0)
+            {
+                //cold death!
+            }
+            else if (heat == 100)
+            {
+                //overheat death!
+            }
+            else
+            {
+            }
+
+            Kill();
+            game.Exit();
+            //end ze game
         }
 
         protected void recenterView()
@@ -268,10 +298,10 @@ namespace IndieSpeedRun
             if (playerState == (int)states.PUNCHING)
             {
                 Vector2 merp = Position - offset;
-                if (facingRight)
-                    spriteBatch.Draw(Sprite.Texture, new Rectangle((int)merp.X + sprite.Width, (int)merp.Y + 32, 20, 20), Color.Green);
+                if (facing == Facing.RIGHT)
+                    spriteBatch.Draw(punchSprite.Texture, new Rectangle((int)merp.X + sprite.Width, (int)merp.Y + 20, 20, 20),Color.White);
                 else
-                    spriteBatch.Draw(Sprite.Texture, new Rectangle((int)merp.X - 20, (int)merp.Y + 32, 20, 20), Color.Green);
+                    spriteBatch.Draw(punchSprite.Texture, new Rectangle((int)merp.X - 20, (int)merp.Y + 20, 20, 20), Color.White);
             }
             //punchSprite.Draw(spriteBatch, Position - offset, Rotation);
 
