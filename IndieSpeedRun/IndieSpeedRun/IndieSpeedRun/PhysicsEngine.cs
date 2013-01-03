@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using IndieSpeedRun.Blocks;
 
 namespace IndieSpeedRun
 {
@@ -32,18 +33,55 @@ namespace IndieSpeedRun
             List<Rectangle> test = new List<Rectangle>(); //list of colliding rectangles
 
             //test against BLOCKS in the map
-            foreach (Block block in currentMap.Blocks)
+            foreach (CollisionBlock block in currentMap.CollisionBlocks)
             {
                 Rectangle i = block.Rectangle;
                 if (p.Rectangle.Intersects(i))
                 {
                     test.Add(i); //add this block's Rectangle to the list
                     collided = true;
+                    //FixCollisions((Rectangle)i, p);
+                }
+            }
+
+            if (collided)
+            {
+                if (test.Count == 1)
+                {
+                    FixCollisions(test[0], p);
+                }
+                else if (test.Count == 2)
+                {
+                    //if tops = same, treat differently
+                    if ((test[0].Y == test[1].Y) && (test[0].Y > p.PositionY))
+                    {
+                        //do something different.
+                        if (Math.Abs(p.CenterX - test[0].Center.X) > Math.Abs(p.CenterX - test[1].Center.X))
+                        {
+                            FixCollisions(test[1], p);
+                        }
+                        else
+                        {
+                            FixCollisions(test[0], p);
+                        }
+                    }
+                    else
+                    {
+                        //if tops != same, treat as separate
+                        FixCollisions(test[0], p);
+                        FixCollisions(test[1], p);
+                    }
+                }
+                else if (test.Count == 3)
+                {
+                    FixCollisions(test[0], p);
+                    FixCollisions(test[1], p);
+                    FixCollisions(test[2], p);
                 }
             }
 
             //TODO: Handle special corner cases (to resolve current collision issues)//
-
+            /*
             //handle different number of block collisions differently
             if (collided)
             {
@@ -58,11 +96,11 @@ namespace IndieSpeedRun
                     //whoa nelly... this works right now but it may not in super special cases.
                     FixCollisions(combine(combine(test[0], test[1]),test[2]), p); //COMBINES into one block!!
                     
-                    /*
+                    
                     //with three, separate collisions
                     FixCollisions((Rectangle)test[0], p);
                     FixCollisions((Rectangle)test[1], p);
-                    FixCollisions((Rectangle)test[2], p);*/
+                    FixCollisions((Rectangle)test[2], p);
                 }
                 if (test.Count == 4)
                 {
@@ -72,7 +110,7 @@ namespace IndieSpeedRun
                     FixCollisions((Rectangle)test[2], p);
                     FixCollisions((Rectangle)test[3], p);
                 }
-            }
+            }*/
 
             //Console.WriteLine("Colliding = " + collided);
 
@@ -123,7 +161,7 @@ namespace IndieSpeedRun
             //axis, side, and minDist give us enough information to resolve the collision
             if (axis == 0) 
             {
-                
+                //p.PlayerState = 2; //set to SLIDING!!
 
                 if (side == 1) //right
                 {
@@ -140,7 +178,6 @@ namespace IndieSpeedRun
             }
             else
             {
-                
 
                 if (side == 1) //bottom
                 {
