@@ -10,6 +10,9 @@ namespace IndieSpeedRun
 {
     public class Player:MovingEntity
     {
+        enum AnimationFrame { RUN_BEGIN = 0, RUN_END = 3, JUMP_BEGIN=4, JUMP_END=5 };
+        enum AnimationType { RUN, JUMP };
+
         const int HScrollThreshold = 350;
         const int VScrollThreshold = 200;
             
@@ -36,6 +39,8 @@ namespace IndieSpeedRun
         private Sprite punchSprite;
         private float punchSeconds = .3f;
         private float punchCounter = 0;
+
+        private float animateBeginTime = 0f;
 
         private bool canDoubleJump = false;
         public bool isSliding = false;
@@ -83,7 +88,11 @@ namespace IndieSpeedRun
         private void SetupAnimationSprites()
         {
             var tex = game.ConditionalLoadSprite("sprites/ninja-09");
-            // TODO
+            for (int left = 0; left < tex.Width; left += Game1.TILE_SIZE)
+            {
+                var sRect = new Rectangle(left, 0, 32, tex.Height);
+                animationSprites.Add(new Sprite(tex, 32, tex.Height, sRect));
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -254,7 +263,9 @@ namespace IndieSpeedRun
 
         private void UpdateAnimation(GameTime gameTime)
         {
-            // TODO
+            var deltaTime = gameTime.TotalGameTime.Milliseconds - animateBeginTime;
+            var index = ((int)(deltaTime / 50f)) % animationSprites.Count;
+            sprite = animationSprites[index];
         }
 
         public void Die()
