@@ -186,6 +186,14 @@
             },
          "spacing":0,
          "tileheight":32,
+         "tileproperties":
+            {
+             "0":
+                {
+                 "type":"heat",
+                 "value":"10"
+                }
+            },
          "tilewidth":32
         }, 
         {
@@ -201,6 +209,14 @@
             },
          "spacing":0,
          "tileheight":32,
+         "tileproperties":
+            {
+             "0":
+                {
+                 "type":"cool",
+                 "value":"10"
+                }
+            },
          "tilewidth":32
         }, 
         {

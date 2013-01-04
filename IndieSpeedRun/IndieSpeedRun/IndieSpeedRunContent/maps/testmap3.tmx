@@ -23,9 +23,21 @@
  </tileset>
  <tileset firstgid="66" name="furnace-01" tilewidth="32" tileheight="32">
   <image source="../tiles/furnace-01.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="heat"/>
+    <property name="value" value="10"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="67" name="heatsink-01" tilewidth="32" tileheight="32">
   <image source="../tiles/heatsink-01.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="cool"/>
+    <property name="value" value="10"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="68" name="door-01" tilewidth="32" tileheight="32">
   <image source="../tiles/door-01.png" width="32" height="96"/>
