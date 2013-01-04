@@ -36,6 +36,7 @@ namespace IndieSpeedRun
         public List<CollisionBlock> ExtraCollisionBlocks { get; set; }
 
         private List<CollisionBlock> _allCollisionBlocks;
+        private Dictionary<Rectangle, string> exits;
         public List<CollisionBlock> AllCollisionBlocks { 
             get {
                 return _allCollisionBlocks;
@@ -90,6 +91,7 @@ namespace IndieSpeedRun
             drawableBlocks = new List<Block>();
             Interactables = new List<Block>();
             Spawns = new List<Vector2>();
+            this.exits = new Dictionary<Rectangle, string>();
         }
 
         public bool ContainsCoordinate(float x, float y)
@@ -176,6 +178,23 @@ namespace IndieSpeedRun
         internal void AddSpawn(float x, float y)
         {
             Spawns.Add(new Vector2(x, y));
+        }
+
+        internal void AddExit(Rectangle rectangle, string destination)
+        {
+            exits.Add(rectangle, destination);
+        }
+
+        public string atExit(Player p)
+        {
+            Rectangle pr = p.Rectangle;
+            foreach (var exit in exits)
+            {
+                if (exit.Key.Intersects(pr)) {
+                    return exit.Value;
+                }
+            }
+            return null;
         }
     }
 }

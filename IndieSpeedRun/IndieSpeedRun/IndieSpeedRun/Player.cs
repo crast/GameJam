@@ -277,6 +277,11 @@ namespace IndieSpeedRun
 
             // Console.WriteLine("heat: " + heat);
             recenterView();
+            string exit = game.currentMap.atExit(this);
+            if (exit != null)
+            {
+                game.LoadMap(exit);
+            }
             base.Update(gameTime);
         }
 

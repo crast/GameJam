@@ -100,6 +100,10 @@ namespace IndieSpeedRun
                 case "thermal":
                     int amount = int.Parse((string)obj["properties"]["value"]);
                     return new HeatBlock(x, y, width, height, amount);
+                case "exit":
+                    string destination = (string) obj["properties"]["destination"];
+                    game.currentMap.AddExit(new Rectangle(x, y, width, height), destination);
+                    break;
             }
             return null;
         }
