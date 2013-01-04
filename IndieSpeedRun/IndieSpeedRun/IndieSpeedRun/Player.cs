@@ -49,12 +49,12 @@ namespace IndieSpeedRun
         public bool isSliding = false;
 
         /* Animation Stuff */
-        enum AnimationFrame { RUN_BEGIN = 0, RUN_END = 3, JUMP_BEGIN = 4, JUMP_END = 5 };
-        enum AnimationType { NONE, RUN, JUMP };
+        enum AnimationFrame { RUN_BEGIN = 0, RUN_END = 3, JUMP_BEGIN = 4, JUMP_END = 5, COLD_DEATH = 6, HEAT_DEATH = 7 };
+        enum AnimationType { NONE, RUN, JUMP, COLD_DEATH, HOT_DEATH };
 
         AnimationType currentAnimation = AnimationType.RUN;
 
-        private enum states {RUNNING=0, JUMPING=1, PUNCHING=2};
+        private enum states {RUNNING=0, JUMPING=1, PUNCHING=2, DYING=3};
         private int playerState = 0;
         public int PlayerState
         {
@@ -116,6 +116,8 @@ namespace IndieSpeedRun
             */
 
             UpdateAnimation(gameTime);
+
+            if (playerState == (int)states.DYING) return;
 
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             acceleration = Vector2.Zero;
@@ -256,12 +258,12 @@ namespace IndieSpeedRun
             if (heat < 0)
             {
                 heat = 0;
-                this.Die();
+                this.Die(gameTime);
             }
             else if (heat > 100)
             {
                 heat = 100;
-                this.Die();
+                this.Die(gameTime);
             }
 
             // Console.WriteLine("heat: " + heat);
@@ -306,24 +308,45 @@ namespace IndieSpeedRun
                             index = (int) AnimationFrame.JUMP_BEGIN;
                     }
                     break;
+                case AnimationType.COLD_DEATH:
+                    index = (int)AnimationFrame.COLD_DEATH;
+                    if (deltaTime > 5000)
+                    {
+                        this.ReallyDie();
+                    }
+                    break;
+                case AnimationType.HOT_DEATH:
+                    index = (int)AnimationFrame.HEAT_DEATH;
+                    if (deltaTime > 5000)
+                    {
+                        this.ReallyDie();
+                    }
+                    break;
             }
             sprite = animationSprites[index];
             sprite.Effects = (facing == Facing.RIGHT) ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
         }
 
-        public void Die()
+        public void Die(GameTime gameTime)
         {
+            playerState = (int)states.DYING;
             if (heat == 0)
             {
                 //cold death!
                 Console.WriteLine("Cold Death");
+                this.BeginAnimation(gameTime, AnimationType.COLD_DEATH);
             }
             else if (heat == 100)
             {
                 //overheat death!
                 Console.WriteLine("Heat Death");
+                this.BeginAnimation(gameTime, AnimationType.HOT_DEATH);
             }
+            playerState = (int)states.DYING;
 
+        }
+        public void ReallyDie()
+        {
             Kill();
             game.gameState = Game1.GameState.END;
             //end ze game
