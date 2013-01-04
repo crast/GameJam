@@ -57,7 +57,7 @@ namespace IndieSpeedRun
         public Game1()
         {
 
-            if (System.IO.File.Exists(@"..\..\..\..\james.txt")) {
+            if (System.IO.File.Exists(@"software.txt")) {
                 GraphicsAdapter.UseReferenceDevice = true;
             }
             graphics = new GraphicsDeviceManager(this);
