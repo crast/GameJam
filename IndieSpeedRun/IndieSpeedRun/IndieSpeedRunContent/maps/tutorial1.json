@@ -43,7 +43,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"testmap3"
+                     "destination":"level2"
                     },
                  "type":"exit",
                  "width":64,
