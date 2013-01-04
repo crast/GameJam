@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="88" height="50" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="70" height="73" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles2-01" tilewidth="32" tileheight="32">
   <image source="../tiles/tiles2-01.png" width="384" height="160"/>
  </tileset>
@@ -45,17 +45,17 @@
  <tileset firstgid="110" name="ice-01" tilewidth="32" tileheight="32">
   <image source="../tiles/ice-01.png" width="32" height="32"/>
  </tileset>
- <layer name="Background" width="88" height="50">
+ <layer name="Background" width="70" height="73">
   <data encoding="base64" compression="zlib">
-   eJzt1jEOwjAUBcGcjMvQc/+ShjKGKPJGEZ6RXuNyG/9tAwAAAACAazw/G71/G78d6ajveav1fRzYTPrqO9OMvq+djd717fueoa++e/Rt6duq+o622v82g74tfVv63oe+rdXuh6vp29K3pW9L35a+LfdZS9+Wvi19W/q23A8tfVv6tvRt6dvSt6Vv65/u3ze9OqgM
+   eJzt1TkOg0AUBUFOxmXIff/QicMeCxlktirpJZPRAX+aAAAAAHia5bPR+7fd2Zrv1+W8XeYV25Mu7UldXrHRuy7jLr/QpenSdGl36TLaVf67e9Cl6dJ02U6XdpV79G+6NF2aLk2Xpktzp5suTZemS9OluUdNl6ZL06Xp0nRpujRdAAAAAAAAjvMGD4ijBQ==
   </data>
  </layer>
- <layer name="Gameplay" width="88" height="50">
+ <layer name="Gameplay" width="70" height="73">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKwjAYBeE/uPYAev+DiosuRKokcZpHnQ+ykbZphxRiW1VdSpRW9iXZl2Vfln1Z9mXZl2Vfln1Z9mWt7NuAkWZ13+Tr/YJ9WfZl2ZdlX1Zi32u97wfcP4zN3fP76PVWsi/Lviz7suzLsi/Lviz7suzLsi9r60t8697GbWfu+4d7Gn2WNEes397ntm//HOTxs+eR7MuyL8u+rNS+376d+339dQ7y+NnzSPZlHdW3d4zOk2bl/+M99mWdqe+TfVn2Zdn3v8z0TRuJXL8s+7J637v09zGN65dlX5Z9WWfaDz0AdF4Bzg==
+   eJzt2EEOgjAUBuES1h5A739QV2x0noZS/CuZL2Gnr2XSBGVpra1Nr5ZmF2IXZhdmF2YXZhdmF2YXZheW7LKccI3cW7LLrPPsUs+yC8+yC8+yC8+arcutvT9ffB71359dxn6vmmUXnmUXnmUXnmUXnmUXnmUXnmUXnmUXnrW2c94Rbde9WPvxYU+99/JP9u7XLmM+f/R7KXZhdmF2YT1dvr1zOvu91C94XphdWM9vwd51rswuzC7MLswuzC7sSJdR14w8L8wubO85n/38j+J5YXZhdmF2YXZhdmF2YXZhdmH+b2TpfaXXr6T3lV6/kt5Xev1Kel/p9SvpfaXXr6T3lV6/MvJ5e6XntCRJkjTKE9xJAcU=
   </data>
  </layer>
- <objectgroup name="Interactive" width="88" height="50">
+ <objectgroup name="Interactive" width="70" height="73">
   <object name="SpawnPoint1" type="spawn" x="128" y="800" width="32" height="64"/>
   <object name="HeatingZone" type="thermal" x="288" y="608" width="544" height="256">
    <properties>
@@ -68,15 +68,15 @@
    </properties>
   </object>
   <object name="SpawnPoint1" type="spawn" x="1426" y="407" width="32" height="64"/>
-  <object name="HeatingPad01" type="thermal" x="1183" y="515" width="478" height="916">
+  <object name="HeatingZone02" type="thermal" x="1183" y="515" width="478" height="916">
    <properties>
     <property name="value" value="1"/>
    </properties>
   </object>
  </objectgroup>
- <layer name="Foreground" width="88" height="50">
+ <layer name="Foreground" width="70" height="73">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAD4DRMAAAQ==
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAAAAgNcAT9gAAQ==
   </data>
  </layer>
 </map>
