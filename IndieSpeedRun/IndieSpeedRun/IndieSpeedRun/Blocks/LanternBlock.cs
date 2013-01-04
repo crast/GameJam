@@ -7,10 +7,13 @@ namespace IndieSpeedRun.Blocks
 {
     class LanternBlock : Block
     {
-        public LanternBlock(int x, int y, Sprite sprite)
+        public LanternBlock(int x, int y, Sprite sprite, string name)
             : base(x, y, sprite)
         {
-            this.Alive = true;
+            this.Alive = false;
+            this.Name = name;
         }
+
+        public string Name { get; set; }
     }
 }

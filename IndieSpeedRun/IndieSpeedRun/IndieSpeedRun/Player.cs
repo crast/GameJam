@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using IndieSpeedRun.Blocks;
 
 namespace IndieSpeedRun
 {
@@ -117,6 +118,7 @@ namespace IndieSpeedRun
             */
 
             UpdateAnimation(gameTime);
+            HandleLantern();
 
             if (playerState == (int)states.DYING) return;
 
@@ -291,6 +293,24 @@ namespace IndieSpeedRun
             base.Update(gameTime);
         }
 
+        private void HandleLantern()
+        {
+            Rectangle pr = this.Rectangle;
+            foreach (Block block in game.currentMap.Interactables)
+            {
+                var lant = block as LanternBlock;
+                if (lant != null)
+                {
+                    if (lant.Rectangle.Intersects(pr))
+                    {
+                        lant.Alive = true;
+                        game.currentMap.CurrentLantern = lant.Name;
+                        break;
+                    }
+                }
+            }
+        }
+
         private void BeginAnimation(GameTime gameTime, AnimationType atype) 
         {
             currentAnimation = atype;
@@ -370,7 +390,14 @@ namespace IndieSpeedRun
             heat = 30;
             playerState = (int)states.RUNNING;
             currentAnimation = AnimationType.RUN;
-            game.ChangeSpawn(0);
+            if (game.currentMap.CurrentLantern != null)
+            {
+                game.ChangeSpawn(game.currentMap.CurrentLantern);
+            }
+            else
+            {
+                game.ChangeSpawn(0);
+            }
             //Kill();
             //game.gameState = Game1.GameState.END;
             //end ze game

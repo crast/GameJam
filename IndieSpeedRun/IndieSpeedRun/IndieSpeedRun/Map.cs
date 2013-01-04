@@ -196,5 +196,7 @@ namespace IndieSpeedRun
             }
             return null;
         }
+
+        public string CurrentLantern { get; set; }
     }
 }

@@ -143,15 +143,19 @@ namespace IndieSpeedRun
         {
             List<String> keys = new List<String>(currentMap.Spawns.Keys);
             Vector2 spawn = currentMap.Spawns[keys[p]];
-            spawn = ChangeSpawn(spawn);
+            ChangeSpawn(spawn);
+        }
+        internal void ChangeSpawn(string key)
+        {
+            ChangeSpawn(currentMap.Spawns[key]);
         }
 
-        private Vector2 ChangeSpawn(Vector2 spawn)
+
+        private void ChangeSpawn(Vector2 spawn)
         {
             player.PositionX = spawn.X;
             player.PositionY = spawn.Y;
             player.Velocity = Vector2.Zero;
-            return spawn;
         }
 
         public void LoadSprite(string destName, string src)
@@ -268,5 +272,6 @@ namespace IndieSpeedRun
             spriteBatch.End();//END!\
             base.Draw(gameTime);
         }
+
     }
 }

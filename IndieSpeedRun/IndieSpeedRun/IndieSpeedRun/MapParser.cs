@@ -125,7 +125,7 @@ namespace IndieSpeedRun
                     var b =  new BreakableBlock(x, y, sprite, game.currentMap);
                     return b;
                 case "lantern":
-                    var lb = new LanternBlock(x, y, sprite);
+                    var lb = new LanternBlock(x, y, sprite, name);
                     game.currentMap.AddSpawn(x, y, name);
                     return lb;
             }
