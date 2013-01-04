@@ -9,7 +9,6 @@ namespace IndieSpeedRun
 {
     class Hud
     {
-
         private Player player;
         private Texture2D thermoFrame;
         private Texture2D thermoFill;
