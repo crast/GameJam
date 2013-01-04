@@ -21,7 +21,7 @@ namespace IndieSpeedRun
 
         //heat values
         private float heat;
-        private const float heatFromJump = 1.5f;
+        private const float heatFromJump = 3f;
         private const float heatDamper = .02f;
         private const float heatToDoubleJump = 15;
         private const float heatToPunch = 10;
@@ -131,6 +131,12 @@ namespace IndieSpeedRun
                     }
                 }
                 velocity += dPad;
+
+                //increase the heat with movement!!
+                if (Math.Abs(Velocity.X) > minVelocity)
+                {
+                    heat += Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), heatDamper).X);
+                }
             }
             else if (playerState == (int)states.JUMPING)
             {
@@ -153,6 +159,8 @@ namespace IndieSpeedRun
                 Console.WriteLine("punch start");
                 playerState = (int)states.PUNCHING;
                 heat -= heatToPunch;
+
+                punch();
             }
             if (playerState == (int)states.PUNCHING)
             {
@@ -218,12 +226,6 @@ namespace IndieSpeedRun
             //decrease the heat all the time!
             heat -= .03f;
 
-            //increase the heat with movement!!
-            if (Math.Abs(Velocity.X) > minVelocity)
-            {
-                heat += Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), heatDamper).X);
-            }
-
             //clamp heat
             if (heat < 0)
             {
@@ -258,6 +260,22 @@ namespace IndieSpeedRun
             Kill();
             game.Exit();
             //end ze game
+        }
+
+        public void punch()
+        {
+            int thickness = 10;
+            Rectangle testRectangle = new Rectangle(0, 0, thickness, thickness);
+            if (facing == Facing.RIGHT)
+            {
+                testRectangle.X = (int)PositionX + sprite.Width + 20;
+                testRectangle.Y = (int)PositionY + 20;
+            }
+            else
+            {
+                testRectangle.X = (int)PositionX - 20 - thickness;
+                testRectangle.Y = (int)PositionY + 20;
+            }
         }
 
         protected void recenterView()
