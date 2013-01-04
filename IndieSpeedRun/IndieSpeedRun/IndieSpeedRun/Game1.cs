@@ -42,6 +42,7 @@ namespace IndieSpeedRun
         public Dictionary<String, Texture2D> textures;
         private Player player;
         private Hud hud;
+        private int chosenSpawn = 0;
 
         public Game1()
         {
@@ -100,9 +101,19 @@ namespace IndieSpeedRun
 
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             this.hud = new Hud(this, player);
-            player.PositionX = 5 * TILE_SIZE;
-            player.PositionY = 10 * TILE_SIZE;
+
+            ChangeSpawn(0);
+            //player.PositionX = 5 * TILE_SIZE;
+            //player.PositionY = 10 * TILE_SIZE;
+
             viewArea.Register(currentMap);
+        }
+
+        private void ChangeSpawn(int p)
+        {
+            Vector2 spawn = currentMap.Spawns[p];
+            player.PositionX = spawn.X;
+            player.PositionY = spawn.Y;
         }
 
         public void LoadSprite(string destName, string src)
@@ -138,6 +149,13 @@ namespace IndieSpeedRun
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.KeyPressed(Keys.Escape))
                 this.Exit();
+
+            // Swap Spawn points
+            if (Input.KeyPressed(Keys.O))
+            {
+                chosenSpawn = (chosenSpawn + 1) % currentMap.Spawns.Count;
+                ChangeSpawn(chosenSpawn);
+            }
 
             // TODO: Add your update logic here
             Input.Update(gameTime); //update keyboard/mouse/gamepad states

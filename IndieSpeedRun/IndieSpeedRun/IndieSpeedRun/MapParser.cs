@@ -95,7 +95,12 @@ namespace IndieSpeedRun
 
         private static Block handleInteractiveEntity(Game1 game, Dictionary<int, TileInfo> tileinfo, JObject obj, string name, string kind, int x, int y)
         {
-            //throw new NotImplementedException();
+            switch (kind)
+            {
+                case "spawn":
+                    game.currentMap.AddSpawn(x, y);
+                    return null;
+            }
             return null;
         }
 

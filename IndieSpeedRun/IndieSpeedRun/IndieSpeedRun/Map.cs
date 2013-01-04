@@ -32,6 +32,7 @@ namespace IndieSpeedRun
         public List<Block> Interactables { get; set; }
 
         public List<CollisionBlock> CollisionBlocks { get; set; }
+        public List<Vector2> Spawns { get; private set; }
 
         private List<CollisionBlock> _allCollisionBlocks;
         public List<CollisionBlock> AllCollisionBlocks { 
@@ -86,6 +87,7 @@ namespace IndieSpeedRun
             mapBlocks = new List<Block>();
             drawableBlocks = new List<Block>();
             Interactables = new List<Block>();
+            Spawns = new List<Vector2>();
         }
 
         public bool ContainsCoordinate(float x, float y)
@@ -165,6 +167,11 @@ namespace IndieSpeedRun
                     dest.Add(item);
                 }
             }
+        }
+
+        internal void AddSpawn(float x, float y)
+        {
+            Spawns.Add(new Vector2(x, y));
         }
     }
 }
