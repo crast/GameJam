@@ -12,15 +12,10 @@ namespace IndieSpeedRun
 {
     class MapParser
     {
-        public static void ReadInMapData(Game1 game)
-        {
-            ReadInMapDataTL(game);
-            //ReadInMapDataOld(game);
-        }
 
-        public static void ReadInMapDataTL(Game1 game) {
+        public static void ReadInMapData(Game1 game, String mapName) {
 
-            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap3.json";
+            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\" + mapName + ".json";
             JObject root = getMapRoot(filePath);
             var tileinfo = parseTileSets((JArray)root["tilesets"]);
             JArray layers = (JArray)root["layers"];
@@ -115,6 +110,7 @@ namespace IndieSpeedRun
             int gid = (int)obj["gid"];
             var ti = tileinfo[gid];
             Sprite sprite = new Sprite(game.ConditionalLoadSprite(ti.Loc, ti.Path), ti.Origin);
+            y = y - 32;
             switch (kind)
             {
                 case "door":

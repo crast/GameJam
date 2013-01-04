@@ -47,5 +47,10 @@ namespace IndieSpeedRun
             handler.ViewAreaUpdated(this);
         }
 
+
+        internal void Unregister(ViewAreaUpdatable handler)
+        {
+            handlers.Remove(handler);
+        }
     }
 }

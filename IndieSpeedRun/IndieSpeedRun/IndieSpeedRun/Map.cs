@@ -33,6 +33,7 @@ namespace IndieSpeedRun
 
         public List<CollisionBlock> CollisionBlocks { get; set; }
         public List<Vector2> Spawns { get; private set; }
+        public List<CollisionBlock> ExtraCollisionBlocks { get; set; }
 
         private List<CollisionBlock> _allCollisionBlocks;
         public List<CollisionBlock> AllCollisionBlocks { 
@@ -80,6 +81,7 @@ namespace IndieSpeedRun
         {
             mapName = "Default";
             mapHeight = 0;
+            ExtraCollisionBlocks = new List<CollisionBlock>();
             BottomLayer = new List<Block>();
             drawableBottomLayer = new List<Block>();
             TopLayer = new List<Block>();
@@ -135,6 +137,7 @@ namespace IndieSpeedRun
         public void ReduceCollisionBlocks()
         {
             ShapeReducer.Reduce(this);
+            AllCollisionBlocks.AddRange(ExtraCollisionBlocks);
         }
 
         public void ViewAreaUpdated(ViewArea area)

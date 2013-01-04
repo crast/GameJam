@@ -47,6 +47,7 @@ namespace IndieSpeedRun
         private Hud hud;
         private int chosenSpawn = 0;
         private Parallax parallax;
+        private List<String> MapList = new List<String>{ "testmap3", "testmap4"};
 
         private Sprite startScreen;
 
@@ -79,13 +80,6 @@ namespace IndieSpeedRun
             // TODO: Add your initialization logic here
             textures = new Dictionary<string, Texture2D>();
 
-
-            //initialize map object
-            currentMap = new Map();
-
-            //initialize Phyiscs Engine 
-            physics = new PhysicsEngine(currentMap);
-
             viewArea = new ViewArea(mapWidth, mapHeight);
 
             base.Initialize();
@@ -107,16 +101,13 @@ namespace IndieSpeedRun
             LoadSprite("tile1", @"tiles\tile1");
             LoadSprite("startScreen", @"sprites/titlescreen-01");
 
-            //reads in map data from XML
-            MapParser.ReadInMapData(this);
-
             startScreen = new Sprite(textures["startScreen"]);
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             this.hud = new Hud(this, player);
+            LoadMap("testmap3");
 
 
 
-            ChangeSpawn(0);
             //player.PositionX = 5 * TILE_SIZE;
             //player.PositionY = 10 * TILE_SIZE;
 
@@ -124,6 +115,20 @@ namespace IndieSpeedRun
 
             viewArea.Register(parallax);
             viewArea.Register(currentMap);
+        }
+
+        public void LoadMap(String mapName) {
+            if (currentMap != null) viewArea.Unregister(currentMap);
+            //initialize map object
+            currentMap = new Map();
+
+            //initialize Phyiscs Engine 
+            physics = new PhysicsEngine(currentMap);
+
+            //reads in map data from XML
+            MapParser.ReadInMapData(this, mapName);
+
+            ChangeSpawn(0);
         }
 
         private void ChangeSpawn(int p)
