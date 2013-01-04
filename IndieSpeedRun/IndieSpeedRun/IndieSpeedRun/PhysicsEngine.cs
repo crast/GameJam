@@ -190,7 +190,7 @@ namespace IndieSpeedRun
                     //Console.WriteLine("top");
                     p.PositionY -= minDist-1;
 
-                    if(p.PlayerState != 2)
+                    if(p.PlayerState != (int)Player.states.DYING)
                         p.PlayerState = 0; //set back to RUNNING
                 }
 

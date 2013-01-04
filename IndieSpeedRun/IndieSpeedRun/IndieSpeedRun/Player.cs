@@ -55,7 +55,7 @@ namespace IndieSpeedRun
 
         AnimationType currentAnimation = AnimationType.RUN;
 
-        private enum states {RUNNING=0, JUMPING=1, PUNCHING=2, DYING=3};
+        public enum states {RUNNING=0, JUMPING=1, PUNCHING=2, DYING=3};
         private int playerState = 0;
         public int PlayerState
         {
