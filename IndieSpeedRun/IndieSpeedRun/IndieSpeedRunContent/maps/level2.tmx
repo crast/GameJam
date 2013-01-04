@@ -45,14 +45,17 @@
  <tileset firstgid="135" name="ice-01" tilewidth="32" tileheight="32">
   <image source="../tiles/ice-01.png" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="136" name="torch-02" tilewidth="32" tileheight="32">
+  <image source="../tiles/torch-02.png" width="32" height="32"/>
+ </tileset>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2kEOgjAQBVDizdzptfDixrjpxhQEMu3Me0m3pcmnnWlgWeCYR/QC2G29cG7vA8znHr0A4HSfWv+KXgRAIGdgbZnzv/I+n0Xm/OmT/xieQc+Vf21V8x+lN1h3ji3ztXr5Vs0fzjTKeQJ82ZMA/OP2YzC/Lb2B/GuTf23yr03+czt6/5d/bfKvTf61yT8v3wYAICf/tgEALb0BAOSkxgMALb0BAOSkxgMALb0BAOSkxgMAAD1v+bkU4w==
+   eJzt2kEKhDAMBVCP55zHE+hcXGQ22VVRSSd9D7qtga9NCk4T3DNnF8Bl24t7ex/+05JdAKnW7AKAxx29/ptdBEAiZ+DYKuf/5n2+isr50yb/PnySniv/sY2afy+zwXZxndkvauU7av7wpF7OE+DHNwkARGYDAKhJjwcAIrMBANTk3zYAIDIbAEBNejwAEJkNAKAmPR4AiMwGAFCTHg8AALTs4fkVKg==
   </data>
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -393,10 +396,11 @@
    </properties>
   </object>
   <object name="SpawnPoint4" type="spawn" x="3578" y="1947" width="32" height="64"/>
+  <object name="SpawnPoint2" type="lantern" gid="136" x="96" y="128" width="32" height="32"/>
  </objectgroup>
  <layer name="Foreground" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2LENADAMw7Cg/x/dC7oXEQn4Am2eAQAAAAAAtjqP0aB/m/5t+rfp36Z/m/5t+rfpDwAAAAB7+f/a9G/Tv03/Nv3b9G/Tv03/Nv0BAAAAAAAAAAAAAADgPxdErgDZ
+   eJzt1MEJADAMA7HQ/YfuBPmXngSe4MAzAAAAAADAr84yGvRv079N/zb92/Rv079N/zb92/Rv079Nf4Am/9+mf5v+bfq36d+mf5v+bfq36d+mf5v+bfq36Q8AAAAAAAAAAAAAAADvucA9AS0=
   </data>
  </layer>
 </map>
