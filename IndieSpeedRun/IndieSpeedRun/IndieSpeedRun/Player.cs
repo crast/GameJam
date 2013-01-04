@@ -253,10 +253,12 @@ namespace IndieSpeedRun
             if (heat == 0)
             {
                 //cold death!
+                Console.WriteLine("Cold Death");
             }
             else if (heat == 100)
             {
                 //overheat death!
+                Console.WriteLine("Heat Death");
             }
             else
             {
