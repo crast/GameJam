@@ -78,6 +78,16 @@ namespace IndieSpeedRun
                     FixCollisions(test[1], p);
                     FixCollisions(test[2], p);
                 }
+
+                /*
+                foreach(HeatBlock in currentMap.CollisionBlocks)
+                {
+                    p.HeatUp(40);
+                }
+                foreach(CoolBlock in currentMap.CollisionBlocks)
+                {
+                    p.HeatUp(-40);
+                }*/
             }
 
             //TODO: Handle special corner cases (to resolve current collision issues)//
