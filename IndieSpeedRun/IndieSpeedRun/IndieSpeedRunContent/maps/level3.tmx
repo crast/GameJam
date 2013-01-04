@@ -57,28 +57,18 @@
  </layer>
  <objectgroup name="Interactive" width="88" height="50">
   <object name="SpawnPoint1" type="spawn" x="128" y="800" width="32" height="64"/>
-  <object name="HeatingZone" type="thermal" x="288" y="608" width="288" height="256">
+  <object name="HeatingZone" type="thermal" x="288" y="608" width="544" height="256">
    <properties>
     <property name="value" value="1"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="832" y="672" width="355" height="297">
+  <object name="CoolingPad01" type="thermal" x="832" y="512" width="351" height="643">
    <properties>
     <property name="value" value="-1"/>
    </properties>
   </object>
   <object name="SpawnPoint1" type="spawn" x="1426" y="407" width="32" height="64"/>
-  <object name="HeatingPad01" type="thermal" x="1184" y="544" width="488" height="160">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatingPad01" type="thermal" x="1184" y="832" width="488" height="160">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatingPad01" type="thermal" x="1184" y="1184" width="488" height="160">
+  <object name="HeatingPad01" type="thermal" x="1183" y="515" width="478" height="916">
    <properties>
     <property name="value" value="1"/>
    </properties>
