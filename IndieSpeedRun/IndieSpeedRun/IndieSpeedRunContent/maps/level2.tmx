@@ -55,7 +55,7 @@
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJztnImO0zAQhtNlK04B4hCXOLSwggWtBILlAcuL44hGTC3P2B6Px+PEv/RLu019JF+dGbtxd9M07YY37VvTurTLeN/Z0allpPsg1VZue+fT4L9l/rDc4N8//ytmucFfh/+rCY+/Em2V8sf69jCzzgdEXS8YfeQIu/Z++yH+h0p9KH1frI4Q/8PRc6zfI+VKx/9t5zvOd53vOX8CdULPr30saCdH2DX1X8/lfwDm9oH7vlgd1PjH7jMS/J84P3V+5vwc1Bvir6Va/CX6wH1frA6K/xXSDpf/a/D3W+d3zu+dP4B6W/J/ibzuXyNp/n8IY5LiT9UjwR/GkEvw+pdj/V+dv4F6W/LHVJs/R1L8Zz5YbJLg/8j58fHv7+D1n86/nG+cf3v1Sue5pUrhH1LNz4RE3TXHP5XPx9YUexz/IcUYUff9WByQ4l8r/vssQ2xDrLfEPyQq5pfW7atm/i/JP8c35BnztDX+cP5vgf9ZhvfT6Xw7ZPgdxu5Yhrr3ngfOLSX/4zDK+ayXSnv8t/Ib73/qXEP2159S+XOkGe+04z/33Kj1M2pdLTT2JcTlH8rl/HLa/Kn2rPAvkTT7WRz+WC7fmn+t+b8V/rOo+wNHy3XbT+Xn1Jr/2sc/ppL7gnQe5tetpbXH/5T6OOVT5n+cNZ2lbi21yv/hswHw+Qb/+tSeF/woKLvm539qzf+pc/Ov733nz4a9Zv7wuBb/iylt3Fk0dT/PlSX+VuK/ZfXOn2pv8I8rlLeU1qelua1e5//wesfW+xen5OSp9cHzzC1PaYx/XJpzA8rX3nlKasT/U1HMr4lyWpLgBe8NlvhjzGrz96+HJd6+1jj+W8z/e2IOtUb+8Lg0fywnKmHOfdZQypKyxL9G/E/JqWIK8S4Vtw7/M50i6v3a/Kn2avDnzo995tIq4S8pbf5zjMfWLVrzr80caqv8rY1/TeZQ3LawPWNcrT3+h55/qplPpapWu7lrw5b418j/Kf4t1br9RRb4L5/VGvP/wZ+WBf7wOJc/9n3+4E/LEn/J/f+98qd+f6eWtVQz/8fK9MYfHl/MeXY0Zd2zBf9a83+sTM/8JfYSxeoY47+NcviXyBr/0viPxTD/99964B/qNzwusYfMv4+EjmupZv6PlbHMv+R4TjvUfcQCf4n5P1Zm8LfPHx4f/NOO57TTC/+R/53O/1MV42uJv3T+H1sv6Y1/rmLPccbmj2P+30YS7Us8x9v7+I+1tVb+oXW9Fv3IbWvE/3+CMYrze/Nr5L+1/B86V7n7vKh+aEli/h/K8UJraIN/ej+0NMb/f5Xw5+zzpPqhpbXFf2reWcuxvb7Yd7xYjjHyf75a8C8xdg5amtuyNP/XHJOtje130uQfE5c/tR8vRRdE+Zit7xeNaQ38l2PSv/+wBVm6RoO/vixdoxr8KS95SE4cTckD/D04VlwSIzUU4z+8Xf8FH/YBxw==
+   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
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -211,11 +211,6 @@
    </properties>
   </object>
   <object name="HeatingPad01" type="thermal" x="1504" y="640" width="160" height="32">
-   <properties>
-    <property name="value" value="4"/>
-   </properties>
-  </object>
-  <object name="HeatingPad01" type="thermal" x="1376" y="512" width="32" height="96">
    <properties>
     <property name="value" value="4"/>
    </properties>
@@ -401,17 +396,12 @@
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="1408" y="512" width="32" height="64">
-   <properties>
-    <property name="value" value="4"/>
-   </properties>
-  </object>
   <object name="HeatingPad01" type="thermal" x="1440" y="512" width="32" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="1344" y="512" width="32" height="64">
+  <object name="HeatingPad01" type="thermal" x="1344" y="512" width="96" height="64">
    <properties>
     <property name="value" value="4"/>
    </properties>
