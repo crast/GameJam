@@ -44,12 +44,12 @@
  </tileset>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2NlKw0AYBeDBB3Hft7rU9arq+7+TJ6gYipJqcRqc74NzkSHJTzhJLqYUKGU7uUkmvQwd77xfe5jM5tanvftOajwASzn/xTVd7x/vxdHc+tMX64zXdPgU/rHH8vk/BwD4C+vJRrKZbFWa+VJpDsN2k71kPzmoNFP/43GcnCSnyVmlmfofh25P8CK5TK6S60pz9b9a3X7grLztCd4md8l98lBpvv7bpv/Vev5hFrlf31C/+oflLfJtAgAwbmvfhDbov236b5v+26b/tum/bfpvm/7bpn8AAAAAAAAAAAAAAAAAAAAAgLpeAcWTEHs=
+   eJzt2NtOwkAUBdAJH6J4vyKieH0C/P9/4jRqbBpJQZPphFkr2Q+dwJySDSWZlCCl48hTZNpK3/XJ13svI4vO+ry17zTHB2Anq8713R/2aHr//l5cddaXv6xTrnn/S9hj7+nnec5+aZ71H0PfBACEg8hhZBw5yjTTf2A5TiNnkfPIRaaZ+i/HdeQmchuZZJqp/zI0Z4L3kVnkIfKYaa7+h9WcBy7S55ngc+Ql8hp5yzRf/3XT/7BWO2ab/dr6+tU//N82v00AAMo22hDqoP+66b9u+q+b/uum/7rpv276r5v+AQAAAAAAAAAAAAAAAAAAAADyWgMgpRFC
   </data>
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJztnQlugzAQRaFJuqWtuqmtqp4muf+dCkpQkDM2HjP2DPg/aVSQzPZfMcaqaNs0TYuqujZNfp4KHGOgZbS7OZdvmxx5a6PhvySS/teIz/+v2hnJAv9hfP7/1M5IFvgPQ/kfr9/P3P+ts799V3fnKgH8h6H8vwnvf+NUK3yMqePHtqvRf0/O8Z/Pfyl8x3L7H/if5//Fs6zt3/eu+emswz/P/7ar3Wj9w7Os7d8H/F9I8f/Q1WNXX119d/VDLFue94D/C7H+3bE8Z04R979dYv27Lim3lGv4t42Gf07tpS50BPyf4Mz/S/q/YVQ/zjxM1Na5jn6bY6C2xLXBP9+/lXLnk96Z7eE/zf8u0H5JwH+a/0PuEywE/MP/MKcF//62a/Y/rlqA/xP9tQzvBvDvbxvjP3WeULvgX8Z/6L17CQX//rax/rXv5blVE7n8A9tQv/fwXwetswz/9eC6gf96oNwPP+F/3VBO4L8OfD5y+T+mnSbIQOhezOEf2GGqH4b/9RLrfliG//UQM/6C/3USO/aW8F/zvLlFOA4k/LvrQA9u/vC/DlL7XvhfPnMy5/p/ba6f9/Cvx9y83Xf/Kf/U9vCvg0TW8L9MpHKG/+UhmTH8LwvpfH3+qXmdvtxvwcF/OXJlS43nY7/NBv9lyJkr5Z+zLfznpUSm8G+TUnnCvz1KZhnj/7m5flbAfx5K55hy/w/fV4F/WTQyRP9vA6384F8fzezgXxcLuU3N/1H/BwL+ZbCQG+b/dLCSGfr/8ljJC8//8ljKCv7LYi2nGP++b3rBPw+LGcX4d13j73/5WM0H/vNjORv4zwv13BxXqI2F8+OU9P5Q5eof5jIiwA==
+   eJztnYtOgzAYhcs2vE2Nl0WN8Wn0/d9JiGtWu79AR+/nfMlJWIZt8ZNC/y3YKaU6BjpbFZ/7BH1oOo/9Nse4fibG7zsGvu3uVFr/KQnpvxZ8x/+tzv1/Bh1RPuh/Hsn/V9AR5YP+//zqjHN9P+THet/0b16fblaO5cpqbz/k+pgU0P/5e2Om/D8HHsvWShe4j7n+l+6H4P9wzJT/0GOR/KfC1Zc9/9D/Ov+Pju3c/l1rzYP1ujX/5jXfJJR/fR+heXVs5/bvonX/LkL5vx1yN+RtyPuQD2E7dd3DB/o/sdS/fS/vU1Pk+Z+OWP5tl5JbyTX9p2Vq/V+Kf5/svY5+GUj+TUrxv/FIr/7/DUsxP8Po1KnG5cpOODb69/dfSux60ovn/vR/mf9+Yv+aaM1/jPW/5N9uv1Za8++C/mXGY9E1Lfp3t9uyfzM1Q//+jMei1wat+Y+5/pf8X1onzJ1W/Zuk8D+17q4h9O9ud6n/3Ofy2tRMKf5JHugfG/rHhv6xoX9s6B8b+scmt3+SF/rHhv6xoX9sUvpvqW7eCin9269JfugfG/rHJpb/J3V+vaf/8ojlX+qH/suD/rGhf2zoH5u1/l3fibSfBUf/ZbLW/9Jns9F/mXD+x4b+saF/bGL4f1DyPSH9l0eK818/X4X+y4PzPzb0jw39YxOj/if9Hwj6LxPW/7Dh/I8N/WND/9jE8O96phf9l0cM/7Zrfv+3TugfG/rHZs4/g5tfOHFOMw==
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -65,6 +65,26 @@
   <object name="SpawnPoint2" type="spawn" x="274" y="244" width="65" height="104"/>
   <object name="SpawnPoint3" type="spawn" x="1543" y="336" width="65" height="104"/>
   <object name="SpawnPoint4" type="spawn" x="590" y="562" width="65" height="104"/>
+  <object name="HeatingPad01" type="thermal" x="1248" y="448" width="256" height="32">
+   <properties>
+    <property name="value" value="4"/>
+   </properties>
+  </object>
+  <object name="CoolingPad01" type="thermal" x="1664" y="448" width="224" height="32">
+   <properties>
+    <property name="value" value="-4"/>
+   </properties>
+  </object>
+  <object name="HeatingPad01" type="thermal" x="416" y="544" width="32" height="576">
+   <properties>
+    <property name="value" value="4"/>
+   </properties>
+  </object>
+  <object name="CoolingPad01" type="thermal" x="576" y="704" width="32" height="288">
+   <properties>
+    <property name="value" value="-4"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="Foreground" width="128" height="64">
   <data encoding="base64" compression="zlib">
