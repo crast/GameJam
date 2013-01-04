@@ -24,7 +24,7 @@ namespace IndieSpeedRun
         public const int TILE_SIZE = 32;
         private ViewArea viewArea;
 
-        public enum GameState { START, GAME, END }
+        public enum GameState { START, GAME, DEAD, END }
         public GameState gameState;
 
         GraphicsDeviceManager graphics;
@@ -51,6 +51,8 @@ namespace IndieSpeedRun
         private List<String> MapList = new List<String>{ "testmap3", "tutorial1"};
 
         private Sprite startScreen;
+        private Rectangle screenRect;
+        private Texture2D deadScreen;
 
         public Game1()
         {
@@ -61,6 +63,7 @@ namespace IndieSpeedRun
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 35 * TILE_SIZE;
             graphics.PreferredBackBufferHeight = 20 * TILE_SIZE;
+            screenRect = new Rectangle(0, 0, mapWidth, mapHeight);
             //graphics.ApplyChanges(); //only needed outside of constructor!
             Content.RootDirectory = "Content";
         }
@@ -233,31 +236,26 @@ namespace IndieSpeedRun
         {
             spriteBatch.Begin();//BEGIN
 
-            // View area always scrolls down (really basic)
-            // viewArea.Update(100, viewArea.Top + 1);
-            // View area centered on player (basic)
-            // viewArea.Update((int)player.PositionX-mapWidth/2, (int)player.PositionY-mapHeight/2);
-            if (gameState == GameState.START)
-            {
-                GraphicsDevice.Clear(Color.Gray);
-                spriteBatch.Draw(startScreen.Texture, new Rectangle(0, 0, mapWidth, mapHeight), Color.White);
-                //startScreen.Draw(spriteBatch, Vector2.Zero, 0f);
-            }
-            else if (gameState == GameState.GAME)
-            {
-                GraphicsDevice.Clear(Color.LightGray); //background color
-
-                
-                parallax.Draw(spriteBatch);
-                currentMap.Draw(spriteBatch, viewArea.Offset);
-                player.Draw(spriteBatch, viewArea.Offset);
-                currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
-                hud.Draw(spriteBatch);
-                
-            }
-            else
-            {
-                GraphicsDevice.Clear(Color.Red);
+            switch(gameState) {
+                case GameState.GAME:
+                    GraphicsDevice.Clear(Color.LightGray); //background color
+                    parallax.Draw(spriteBatch);
+                    currentMap.Draw(spriteBatch, viewArea.Offset);
+                    player.Draw(spriteBatch, viewArea.Offset);
+                    currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
+                    hud.Draw(spriteBatch);
+                    break;
+                case GameState.START:
+                    GraphicsDevice.Clear(Color.Gray);
+                    spriteBatch.Draw(startScreen.Texture, screenRect, Color.White);
+                    break;
+                case GameState.DEAD:
+                    GraphicsDevice.Clear(Color.Wheat);
+                    spriteBatch.Draw(deadScreen, screenRect, Color.White);
+                    break;
+                default:
+                    GraphicsDevice.Clear(Color.Red);
+                    break;
             }
 
             spriteBatch.End();//END!\
