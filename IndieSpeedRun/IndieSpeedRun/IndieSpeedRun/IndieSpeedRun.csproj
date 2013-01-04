@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="Blocks\BreakableBlock.cs" />
     <Compile Include="Parallax.cs" />
     <Compile Include="Blocks\CollisionBlock.cs" />
     <Compile Include="Blocks\DoorBlock.cs" />
