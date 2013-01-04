@@ -48,9 +48,12 @@
  <tileset firstgid="136" name="temphaze-01" tilewidth="32" tileheight="32">
   <image source="../tiles/temphaze-01.png" width="64" height="32"/>
  </tileset>
+ <tileset firstgid="138" name="torch-02" tilewidth="32" tileheight="32">
+  <image source="../tiles/torch-02.png" width="32" height="32"/>
+ </tileset>
  <layer name="Background" width="128" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1sEJgDAUBcGUr12L9+hFRMnOwKtg+SRjAAAAAAAAAMB39pfHv+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+m/lm2yO/qvRf82/dv0b5v1v9pJ/7Xo36Z/m/5t+rdd/fn173L/bfq36Y/+bfq36d/l/Uf/Nv3b9GdG/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb94bkDyA1/XQ==
+   eJzt1jEKwzAQAEH/OS9wl/zauJfThFhGOwPXHyyHtG0AAAAAAABwr9fsBZhqn70Aj/P58/Bs+rfp36Z/m/5t+rfp36Z/m/5t+rfp36Z/m/5t+q/lPZhv9F+L/m36t+nfNup/NSf916J/m/5t+rfp33b159e/y/236d+mP/q36d+mf5f3H/3b9G/TnxH92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/Rv079N/zb92/SH3x0LaIBR
   </data>
  </layer>
  <layer name="Gameplay" width="128" height="100">
@@ -125,7 +128,7 @@
     <property name="value" value="2"/>
    </properties>
   </object>
-  <object name="SpawnPoint1" type="spawn" x="1033" y="1628" width="32" height="64"/>
+  <object name="SpawnPoint2" type="spawn" x="1033" y="1628" width="32" height="64"/>
   <object name="CooledZone" type="thermal" x="1088" y="1056" width="192" height="160">
    <properties>
     <property name="value" value="-1"/>
@@ -146,13 +149,18 @@
     <property name="value" value="2"/>
    </properties>
   </object>
-  <object name="SpawnPoint1" type="spawn" x="1365" y="409" width="32" height="64"/>
+  <object name="SpawnPoint3" type="spawn" x="1365" y="409" width="32" height="64"/>
   <object name="HeatedZone" type="thermal" x="1472" y="480" width="768" height="2688">
    <properties>
     <property name="value" value="1"/>
    </properties>
   </object>
-  <object x="2656" y="3008" width="96" height="160"/>
+  <object type="exit" x="2656" y="3008" width="96" height="160">
+   <properties>
+    <property name="destination" value="end"/>
+   </properties>
+  </object>
+  <object name="SpawnPoint5" type="lantern" gid="138" x="1312" y="448" width="32" height="32"/>
  </objectgroup>
  <layer name="Foreground" width="128" height="100">
   <data encoding="base64" compression="zlib">
