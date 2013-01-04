@@ -40,6 +40,9 @@
  <tileset firstgid="103" name="door-01" tilewidth="32" tileheight="32">
   <image source="../tiles/door-01.png" width="32" height="96"/>
  </tileset>
+ <tileset firstgid="106" name="ice-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/ice-01.png" width="32" height="32"/>
+ </tileset>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
    eJzt2tlOwkAYBtDGN3PfN1xwvUJ8/0fwb8Q4aTQFNEM7c07yXbSBDuSDdjrQNNA0+5GHyCRJ3/bB4rmnkVln/zQ57iTLO2AV88729RrHaHv/+lycdfa//bCf4Zr2P4SCvTbf53OgHO21/n3TLwJgYTuyE9mN7GUa0zlwOA4jR5HjyEmmMUvuv3s/P3TnkYvIZeQq05gl9z8m7ZrgTeQ2che5zzSu/jerXQ9s14nbNcHHyFPkOfKSaXz9163W/ocyN5ivmGWOl+rrt9b+4T8N5XwCfPKdBGAdW7+E8VtmbqD/uum/bvqvm/7H7a/3//qvm/7rpv+66b9cfhsAgDL5bxsAkDI3AIAyucYDAClzAwAok2s8AJAyNwCAMrnGAwAAfT4AvAEhww==
@@ -47,22 +50,14 @@
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJztnEluwzAMReUMy05ANm2z7bDtsC16mvT+R6iNRqigUHbsiBJF/gcQDWDHUvIqUGQMd865DmE61o6fhwJjeLoZ562OkXoPx/edmyXX3biy/kuS038LLPF/cKf+v3JOqiIW/e9mvofy/51zUhWB/2li/2F+urlwPlfR9e77uD7+LQH8/3E4xpDrt338RMdC/8+Z57OOoss8xtT4556n2X94fIgx/7nnQ/kvRWqsPXGeBf87x+N/n3hd23+q1oy/I03+x+afy7/PI57XxOva/lNo9j+48fk+Jpf/2z7u+njv46OPz8TrUn2PuWj2z7X+4738nJ4i1n8ZOPN/7JJyS7mG/3Jw7v9z+p8THL0Ca/7D+l+C/9WM2AbzT0X4G0bn/nscqdgQn02z//B4Tv9SIu4nvUyc/0Z8Ngv+c+f/7cj5LaHJP9f+n/JP1Zgtosk/V/2v3b/vabXuH+t/PvH+oFVK539N/n1toNl/7v0/5X9pn7B2aPbPVf9T/sfq7hZCo//weAn/tdfypdEqEvJ/62uoZab+f+FfN8P3Xrv+h/96YP3bBvnfNpL2/6A8Uup/+K+DhPUP6iEh/4N6SNj/g3r4+t/3smPgXzel17+WvrkWSud/aff1W6f0/h/+ZZHyH973Dv964Vz/T+4038O/LDjzPzUW/MuCc/9PjQX/suCs/6mx4F8WWP+2yZH/qb7OEPGz4OBfHjn2/+c+mw3+5cFZ/1Njwb8sOOt/6lrwLwvU/7bh2v8/Bueg/yeXUvW/f74K/MsC9b9tkP9tg/2/bXLU/+f0/pyDf4mg/2cb5H/bYP9vG/z+b5vhHr342bYhS/2nnukF/22x1H/sGvf/tgn82wb+bTPlH2E3fgHFVXLM
+   eJztnNtOwzAMhlO2XSJA2g2wWw63HG4RTzPe/xFoxSKizOlpceLY/ydZmtRuyfotcuxV7ZxzHcJ0bBw/DwXG8HQLzrs6Reo9HNc7N2s+d+vK+i9JTv8tsMb/0Z37/8o5qYpY9L9f+B7K/3fOSVUE/qeJ/Yf56ebC+Vw7Ou/dX/i5c4H/P46nGHL9ro+f6Fjo/znzfDZRdJnHmBp/7nma/YfHhxjzn3s+lP9SpMY6EOdZ8L93PP4Pide1/adqzfgaafI/Nv9c/n0e8bwmXtf2n0Kz/8GNz/cxufzf9nHXx3sfH318Jl6X6nssRbN/rvWf2svP6Sli/ZeBM//HLim3lGv4Lwfn/j+n/yXB0Suw5j+s/yX4v1oQu2D+qQj/w+jcf48jFVviu2n2Hx7P6V9KxP2kl4nz34jvZsF/7vy/Gzm/JTT559r/U/6pGrNFNPnnqv+1+/c9rdb9Y/0vJ94ftErp/K/Jv68NNPvPvf+n/K/tE9YOzf656n/K/1jd3UJo9B8eL+G/9lq+NFpFQv5vfQ21zNTvF/51M1z32vU//NcD6982yP+2kbT/B+WRUv/Dfx0krH9QDwn5H9RDwv4f1MPX/76XHQP/uim9/rX0zbVQOv9Lu6/fOqX3//Avi5T/8L53+NcL5/p/cuf5Hv5lwZn/qbHgXxac+39qLPiXBWf9T40F/7LA+rdNjvxP9XWGiJ8FB//yyLH/n/tsNviXB2f9T40F/7LgrP+pz4J/WaD+tw3X/v8xOAf9P7mUqv/981XgXxao/22D/G8b7P9tk6P+n9P7cw7+JYL+n22Q/22D/b9t8P+/bYZ79OJn24as9Z96phf8t8Va/7Fr3P/bJvBvG/i3zZR/hN34BcT+cqc=
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
   <object name="SpawnPoint1" type="spawn" x="83" y="1904" width="65" height="104"/>
-  <object name="Door01" type="door" gid="103" x="832" y="96" width="32" height="32"/>
-  <object name="Door01" type="door" gid="104" x="832" y="128" width="32" height="32"/>
-  <object name="Door01" type="door" gid="105" x="832" y="160" width="32" height="32"/>
-  <object name="Lantern01" type="lantern" gid="62" x="96" y="128" width="32" height="32">
-   <properties>
-    <property name="target" value="Door01"/>
-   </properties>
-  </object>
   <object name="SpawnPoint2" type="spawn" x="274" y="244" width="65" height="104"/>
   <object name="SpawnPoint3" type="spawn" x="1543" y="336" width="65" height="104"/>
-  <object name="SpawnPoint4" type="spawn" x="590" y="562" width="65" height="104"/>
+  <object name="SpawnPoint4" type="spawn" x="631" y="559" width="65" height="104"/>
   <object name="HeatingPad01" type="thermal" x="1248" y="448" width="256" height="32">
    <properties>
     <property name="value" value="4"/>
@@ -164,6 +159,9 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
+  <object name="Ice" type="breakable" gid="106" x="832" y="96"/>
+  <object name="Ice" type="breakable" gid="106" x="832" y="128"/>
+  <object name="Ice" type="breakable" gid="106" x="832" y="160"/>
  </objectgroup>
  <layer name="Foreground" width="128" height="64">
   <data encoding="base64" compression="zlib">
