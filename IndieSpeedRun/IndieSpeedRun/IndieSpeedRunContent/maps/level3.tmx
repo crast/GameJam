@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="88" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles2-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/tiles2-01.png" width="384" height="160"/>
+ </tileset>
+ <tileset firstgid="61" name="lantern-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/lantern-01.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="status" value="off"/>
+    <property name="type" value="lantern"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="status" value="on"/>
+    <property name="type" value="lantern"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="65" name="background-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/background-01.png" width="256" height="160"/>
+ </tileset>
+ <tileset firstgid="105" name="furnace-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/furnace-01.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="heat"/>
+    <property name="value" value="10"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="106" name="heatsink-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/heatsink-01.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="cool"/>
+    <property name="value" value="10"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="107" name="door-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/door-01.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="110" name="ice-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/ice-01.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Background" width="88" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0jEKwlAURcGszM3Y//2XErCQkI/E5FjoDNzqdYe3LAAAAAAA8B33E+M9fa83nlv9W9/bgX1iLPrq29G3pW+r7rvS91zf136zm776Fq7su9d4bPZvfa+wbTi7rfQ9btt3TG4rfY/b6zv7Z31b+rb0benb0relb0vflr4tfVv6tvRt6dvSt6VvS9+Wvi19W/q29G3p2/qlvg9hVPKb
+  </data>
+ </layer>
+ <layer name="Gameplay" width="88" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2EEOwiAYBeGfuPYAev+DunJlqgE75UHmS9g0tsikC2irqluJ0sq+JPuy7MuyL8u+LPuy7MuyL8u+rJl9GzDSzO6b/Lwz2JdlX5Z9WfZlJfa91+d+wP3D2Nw910efN5N9WfZl2ZdlX5Z9WfZl2ZdlX1Zq319ns9XOb8S37vd4HMz9/PKfRteS5or3t3fd9u2fg/z9v/eR7MuyL8u+LPuyVujbsxdMs0Jf+j7SVX17x+g8aWaej4/Yl2Vfln1Z9mXt1jdx7LKWRDu9v4nsy7Ivy74s+7Lsy9ppP/QCIYMB9g==
+  </data>
+ </layer>
+ <objectgroup name="Interactive" width="88" height="50">
+  <object name="SpawnPoint1" type="spawn" x="128" y="800" width="32" height="64"/>
+  <object name="HeatingPad01" type="thermal" x="288" y="608" width="352" height="256">
+   <properties>
+    <property name="value" value="4"/>
+   </properties>
+  </object>
+  <object name="CoolingPad01" type="thermal" x="832" y="352" width="352" height="800">
+   <properties>
+    <property name="value" value="-4"/>
+   </properties>
+  </object>
+  <object name="SpawnPoint1" type="spawn" x="1426" y="407" width="32" height="64"/>
+  <object name="HeatingPad01" type="thermal" x="1184" y="512" width="480" height="928">
+   <properties>
+    <property name="value" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Foreground" width="88" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAAAAAAAAAAAAAAAAAAAAAD4DRMAAAQ==
+  </data>
+ </layer>
+</map>
