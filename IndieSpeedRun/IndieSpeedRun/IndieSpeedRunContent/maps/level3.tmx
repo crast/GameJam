@@ -47,7 +47,7 @@
  </tileset>
  <layer name="Background" width="88" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0jEKwlAURcGszM3Y//2XErCQkI/E5FjoDNzqdYe3LAAAAAAA8B33E+M9fa83nlv9W9/bgX1iLPrq29G3pW+r7rvS91zf136zm776Fq7su9d4bPZvfa+wbTi7rfQ9btt3TG4rfY/b6zv7Z31b+rb0benb0relb0vflr4tfVv6tvRt6dvSt6VvS9+Wvi19W/q29G3p2/qlvg9hVPKb
+   eJzt0jEKwlAURcGszM3Y//2XErCQkI+G5FjoDNzqdYe3LAAAAAAA8B33E+M9fa83nlv9W9/bBztjLPrq29G3pW+r7rvS91zf136zm776Fq7su9d4bPZvfa+wbTi7rfQ9btt3TG4rfY/b6zv7Z31b+rb0benb0relb0vflr4tfVv6tvRt6dvSt6VvS9+Wvi19W/q29G3p2/qlvg/xhu67
   </data>
  </layer>
  <layer name="Gameplay" width="88" height="50">
@@ -57,7 +57,7 @@
  </layer>
  <objectgroup name="Interactive" width="88" height="50">
   <object name="SpawnPoint1" type="spawn" x="128" y="800" width="32" height="64"/>
-  <object name="HeatingPad01" type="thermal" x="288" y="608" width="352" height="256">
+  <object name="HeatingPad01" type="thermal" x="288" y="608" width="288" height="256">
    <properties>
     <property name="value" value="4"/>
    </properties>
@@ -68,7 +68,7 @@
    </properties>
   </object>
   <object name="SpawnPoint1" type="spawn" x="1426" y="407" width="32" height="64"/>
-  <object name="HeatingPad01" type="thermal" x="1184" y="512" width="480" height="928">
+  <object name="HeatingPad01" type="thermal" x="1184" y="544" width="480" height="928">
    <properties>
     <property name="value" value="4"/>
    </properties>
