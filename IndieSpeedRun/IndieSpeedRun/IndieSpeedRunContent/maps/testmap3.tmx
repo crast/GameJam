@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="128" height="64" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="tiles2-01" tilewidth="32" tileheight="32">
-  <image source="../tiles/tiles2-01.png" width="160" height="160"/>
- </tileset>
+ <tileset firstgid="1" source="../../../../../../../../../Assets/tiles2-01.tsx"/>
  <tileset firstgid="26" name="lantern-01" tilewidth="32" tileheight="32">
   <image source="../tiles/lantern-01.png" width="64" height="64"/>
   <tile id="0">
@@ -42,6 +40,7 @@
  <tileset firstgid="68" name="door-01" tilewidth="32" tileheight="32">
   <image source="../tiles/door-01.png" width="32" height="96"/>
  </tileset>
+ <tileset firstgid="71" source="../../../../../../../../../Assets/tiles2-01.tsx"/>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
    eJzt2lluwjAUBdCoC+k8T3Sg4xfQ/e+pL4KqVtQqQCsT7HOk+5EIYtCF2Ak0DTTNYeQpMkrSt320eO55ZNLZP06OO8rxBljJrLN9u8Yx2t6/PhcXnf3TH/YzXOP+h1Cw9+b7fA6Uo53rPzb9IgAWdiN7kf3IQaYxnQOH4zhyEjmNnGUas+T+u9fzQ3cZuYpcR24yjVly/9ukvSd4F7mPPEQeM42r/81q7wdOmvk9wefIS+Q18pZpfP3Xrdb+h7I2mK2YZY6X6uu31v7hPw3lfALM+U4CsI6dX8L2W2ZtoP+66b9u+q+b/rfbX6//9V83/ddN/3XTf7n8NgAAZfLfNgAgZW0AAGUyxwMAKWsDACiTOR4ASFkbAECZzPEAAECfT8gAFKM=
