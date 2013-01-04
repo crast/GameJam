@@ -164,6 +164,11 @@ namespace IndieSpeedRun
                 {
                     heat += Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), heatDamper).X);
                 }
+
+                if (Velocity.Y > 100)
+                {
+                    playerState = (int)states.JUMPING;
+                }
             }
             else if (playerState == (int)states.JUMPING)
             {
@@ -245,6 +250,7 @@ namespace IndieSpeedRun
                         sprite.Effects = SpriteEffects.FlipHorizontally;
                         facing = Facing.RIGHT;
                     }
+                        /*
                     else if (heat > heatToDoubleJump+heatBuffer && canDoubleJump && velocity.Y > -20)
                     {
                         
@@ -252,7 +258,7 @@ namespace IndieSpeedRun
                         Console.WriteLine("DOUBLE JUMP!!!");
                         heat -= heatToDoubleJump;
                         canDoubleJump = false;
-                    }
+                    }*/
                 }
             }
 

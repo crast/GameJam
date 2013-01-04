@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="128" height="80" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="200" height="80" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles2-01" tilewidth="32" tileheight="32">
   <image source="../tiles/tiles2-01.png" width="384" height="160"/>
  </tileset>
@@ -45,17 +45,17 @@
  <tileset firstgid="110" name="ice-01" tilewidth="32" tileheight="32">
   <image source="../tiles/ice-01.png" width="32" height="32"/>
  </tileset>
- <layer name="Background" width="128" height="80">
+ <layer name="Background" width="200" height="80">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg3wCgAAAB
+   eJztwTEBAAAAwqD1T+1tB6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4A+gAAAQ==
   </data>
  </layer>
- <layer name="Gameplay" width="128" height="80">
+ <layer name="Gameplay" width="200" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt3FEKwjAUBdEU979nN2Cx0ea928wM5MePJump0CB4jDEOB3q8hhHTn53+7PRnpz87/dnpz05/dvqz05+d/uz0Z6c/O/3Z6c9Of3b6s9Ofnf7s9GenPzv92enPTn92+rPTn53+7PRnpz87/dnpz05/dvqz05+d/uz0Z6c/O/3Zkfy7/2PtWL/F6Wj+XfPq31/i/e9Of3b6s9Ofnf7saP5Xz2Se/xjpr//Z5/rvn/76r7im/vNr6BqV+0krxX+nufWfX8NOc+v/eY7E+1I1d/c+z6ryT63q3eEJ/k96x0qI7G/7+dtcM98N/f8v9R5eKXXt+teUunb9a0pdu/41pa595Zlv9txQfd6s3vus/7d3ySeOb/vt8K/qLv+7634mukdV+meOqlL9bX2/PGv675P+7PQ3/dnpz05/dvqz05+d/uz0Z6c/O/3Zpf429QarCAQg
+   eJzt3ctuwjAQQFFQ//+fURbsMhkK8XPOkbJhkQTqa7Bp1efj8Xg6yh5cO16jv9E3wRD6yOmjLn3k9FGXPnL6qEsfOX3UpY+cPurSR04fdekjp4+69JHTR136yOmjLn3k9FGXPnL6qEsfOX3UpY+cPurSR04fdekjp4+69JHTR136yOkDYvqAmD4gpg+I6QNi+oCYPiCmD4jpA2L6gJg+IKYPiOkDYvqAmD4gpg+I6aMufx+V00dd+sjpA2L6gJg+IFalj9H/R9ln/TVV6mPUdfWxLn1ATB8Q0wfE9AExfUCsUh+f7rna3+WtSh9n9EFGH+eP64ODPs4f1wcHfdx/Tn3sY3QfrebqUXO6PvYyQx87XVsfe9HH/efUxz5a9zHzurXXtUc/T77Xo49Z9Vq76GNd7z5WWgPPoFcfK+5R7OSbPujbR0t+ntdGr89X9Z+5Qx/rWqWPld+79LEufbSnj3Xpo727+7A+70cf7bXogz567B9+Mj56z4c9n7c+1jXL+BjVRy/6WNOIeXSmoxd9rGn0+Bx99KIPOPdLi/pgd/qAmD7gmj4gdncfu+xbwOHOPu6iA2ahD4jpA2K/9NFqTaEPZjHjWJzxnqhpxrE44z1R04xjccZ7oqbRv4fpe47vvACOIgRp
   </data>
  </layer>
- <objectgroup name="Interactive" width="128" height="80">
+ <objectgroup name="Interactive" width="200" height="80">
   <object name="SpawnPoint1" type="spawn" x="96" y="1952" width="32" height="64"/>
   <object name="HeatingPad01" type="thermal" x="1248" y="448" width="256" height="32">
    <properties>
@@ -157,16 +157,17 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="SpawnPoint1" type="spawn" x="2758" y="1405" width="32" height="64"/>
-  <object type="exit" x="3188" y="2442" width="44" height="81">
+  <object name="SpawnPoint1" type="spawn" x="3228" y="2459" width="32" height="64"/>
+  <object type="exit" x="4034" y="1869" width="44" height="81">
    <properties>
     <property name="destination" value="testmap3"/>
    </properties>
   </object>
+  <object name="SpawnPoint1" type="spawn" x="2764" y="1403" width="32" height="64"/>
  </objectgroup>
- <layer name="Foreground" width="128" height="80">
+ <layer name="Foreground" width="200" height="80">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg3wCgAAAB
+   eJztwTEBAAAAwqD1T+1tB6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4A+gAAAQ==
   </data>
  </layer>
 </map>

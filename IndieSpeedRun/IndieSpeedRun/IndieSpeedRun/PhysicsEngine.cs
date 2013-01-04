@@ -218,7 +218,7 @@ namespace IndieSpeedRun
 
         public float isHeatingUp(Player p)
         {
-            float heatRatio = .2f;
+            float heatRatio = 1f;
             float dHeat = 0;
 
             foreach (Block s in currentMap.Interactables)
