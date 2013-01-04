@@ -29,6 +29,7 @@ namespace IndieSpeedRun
         private const float heatToDoubleJump = 15;
         private const float heatToPunch = 10;
         private const float heatBuffer = 2;
+        private List<Sprite> animationSprites = new List<Sprite>();
 
         private const float minVelocity = 150;
 
@@ -76,10 +77,13 @@ namespace IndieSpeedRun
             acceleration = Vector2.Zero;
             this.viewArea = viewArea;
             this.punchSprite = new Sprite(g.ConditionalLoadSprite("punch", "sprites/fireball"));
+            this.SetupAnimationSprites();
         }
 
-        public void LoadPlayer()
+        private void SetupAnimationSprites()
         {
+            var tex = game.ConditionalLoadSprite("sprites/ninja-09");
+            // TODO
         }
 
         public override void Update(GameTime gameTime)
@@ -93,7 +97,7 @@ namespace IndieSpeedRun
                 Console.WriteLine("Punching!");
             */
 
-   
+            UpdateAnimation(gameTime);
 
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             acceleration = Vector2.Zero;
@@ -248,6 +252,11 @@ namespace IndieSpeedRun
             base.Update(gameTime);
         }
 
+        private void UpdateAnimation(GameTime gameTime)
+        {
+            // TODO
+        }
+
         public void Die()
         {
             if (heat == 0)
@@ -318,10 +327,6 @@ namespace IndieSpeedRun
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
-            //spriteBatch.Draw(Sprite.Texture, new Rectangle((int)PositionX, (int)PositionY, 10, 10), Color.Black);
-
-            //spriteBatch.Draw(new Texture2D(graphicsDevice.
-            
             if (playerState == (int)states.PUNCHING)
             {
                 Vector2 merp = Position - offset;
@@ -330,8 +335,6 @@ namespace IndieSpeedRun
                 else
                     spriteBatch.Draw(punchSprite.Texture, new Rectangle((int)merp.X - 20, (int)merp.Y + 20, 20, 20), Color.White);
             }
-            //punchSprite.Draw(spriteBatch, Position - offset, Rotation);
-
             base.Draw(spriteBatch, offset);
         }
 
