@@ -28,18 +28,22 @@ namespace IndieSpeedRun
         public void Draw(SpriteBatch batch)
         {
             // Cool warning frame
-            if (player.Heat < 10)
+            if (player.Heat <= 15)
             {
-                var alpha = (10 - player.Heat) * 100f / 10.0f;
+                var alpha = (15f - player.Heat) / 15.0f;
                 Color coldColor = new Color(255, 255, 255, alpha);
-                Console.WriteLine("Alpha: {0}", alpha);
+                //Console.WriteLine("Alpha: {0}", alpha);
                 batch.Draw(warningCool, screenBox, coldColor);
             }
             
             // Hot warning frame
-            if (player.Heat > 90)
-                batch.Draw(warningHot, screenBox, Color.White);
-            
+            if (player.Heat > 85)
+            {
+                var alpha = (player.Heat - 85f) / 15f;
+                //Console.WriteLine("Alpha: {0}", alpha);
+                Color hotColor = new Color(255, 255, 255, alpha);
+                batch.Draw(warningHot, screenBox, hotColor);
+            }
 
             // Thermo bar frame
             Rectangle frameBox = new Rectangle(0, 0, 40, 264);
