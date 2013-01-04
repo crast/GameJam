@@ -289,6 +289,18 @@
                  "width":32,
                  "x":2758,
                  "y":1405
+                }, 
+                {
+                 "height":81,
+                 "name":"",
+                 "properties":
+                    {
+                     "destination":"testmap3"
+                    },
+                 "type":"exit",
+                 "width":44,
+                 "x":3188,
+                 "y":2442
                 }],
          "opacity":1,
          "type":"objectgroup",
