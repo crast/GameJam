@@ -6,6 +6,7 @@ using System.Xml;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using Microsoft.Xna.Framework;
+using IndieSpeedRun.Blocks;
 
 namespace IndieSpeedRun
 {
@@ -18,15 +19,40 @@ namespace IndieSpeedRun
         }
 
         public static void ReadInMapDataTL(Game1 game) {
-            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap2.json";
+
+            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\testmap3.json";
             JObject root = getMapRoot(filePath);
             var tileinfo = parseTileSets((JArray)root["tilesets"]);
             JArray layers = (JArray)root["layers"];
-            if (layers.Count == 3)
+            if (layers.Count >= 3)
             {
-                handleLayer(game, (JObject)layers[0], tileinfo, game.currentMap.BottomLayer);
-                handleLayer(game, (JObject)layers[1], tileinfo, game.currentMap.Blocks);
-                handleLayer(game, (JObject)layers[2], tileinfo, game.currentMap.TopLayer);
+                for (int i = 0; i < layers.Count; i++) {
+                    JObject layer = (JObject)layers[i];
+                    List<Block> destination = null;
+                    switch ((String) layer["name"]) {
+                        case "Background":
+                            destination = game.currentMap.BottomLayer;
+                            break;
+                        case "Gameplay":
+                            destination = game.currentMap.Blocks;
+                            break;
+
+                        case "Interactive":
+                            handleInteractive(game, layer, tileinfo, game.currentMap.Interactables);
+                            destination = null;
+                            break;
+
+                        case "Foreground":
+                            destination = game.currentMap.TopLayer;
+                            break;
+                        default:
+                            throw new Exception("Unknown layer type");
+                    }
+
+                    if (destination != null)
+                        handleLayer(game, layer, tileinfo, destination);
+
+                }
             }
             else
             {
@@ -37,6 +63,57 @@ namespace IndieSpeedRun
        
         }
 
+        private static void handleInteractive(Game1 game, JObject layer, Dictionary<int,TileInfo> tileinfo, List<Block> list)
+        {
+            JArray objects = (JArray)layer["objects"];
+            foreach (JObject obj in objects) {
+                int x = (int) obj["x"];
+                int y = (int) obj["y"];
+                var kind = (string)obj["type"];
+                var name = (string)obj["name"];
+                Block createdBlock = null;
+                if (obj["gid"] != null)
+                {
+
+                    createdBlock = handleInteractiveTile(game, tileinfo, obj, name, kind, x, y);
+                }
+                else
+                {
+                    createdBlock = handleInteractiveEntity(game, tileinfo, obj, name, kind, x, y);
+                }
+                if (createdBlock == null)
+                {
+                    Console.WriteLine("bad block x={0} y={1} name={2}", x, y, name);
+                }
+                else
+                {
+
+                    list.Add(createdBlock);
+                }
+            }
+        }
+
+        private static Block handleInteractiveEntity(Game1 game, Dictionary<int, TileInfo> tileinfo, JObject obj, string name, string kind, int x, int y)
+        {
+            //throw new NotImplementedException();
+            return null;
+        }
+
+        private static Block handleInteractiveTile(Game1 game, Dictionary<int, TileInfo> tileinfo, JObject obj, string name, string kind, int x, int y)
+        {
+            
+            int gid = (int)obj["gid"];
+            var ti = tileinfo[gid];
+            Sprite sprite = new Sprite(game.ConditionalLoadSprite(ti.Loc, ti.Path), ti.Origin);
+            switch (kind)
+            {
+                case "door":
+                    return new SwitchBlock(x, y, sprite); // FIXME
+                case "switch":
+                    return new SwitchBlock(x, y, sprite);
+            }
+            return null;
+        } 
         private static void handleLayer(Game1 game, JObject layer, Dictionary<int, TileInfo> tileinfo, List<Block> blocks)
         {
             game.currentMap.Height = (int)layer["height"];

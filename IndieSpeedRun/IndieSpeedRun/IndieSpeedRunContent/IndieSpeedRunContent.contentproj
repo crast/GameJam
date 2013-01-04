@@ -124,8 +124,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tiles\fireball.png">
-      <Name>fireball</Name>
+    <Compile Include="tiles\heatsink-01.png">
+      <Name>heatsink-01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="tiles\furnace-01.png">
+      <Name>furnace-01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="tiles\door-01.png">
+      <Name>door-01</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="Block.cs" />
     <Compile Include="Blocks\CollisionBlock.cs" />
+    <Compile Include="Blocks\SwitchBlock.cs" />
     <Compile Include="Blocks\WallBlock.cs" />
     <Compile Include="Hud.cs" />
     <Compile Include="ViewArea.cs" />

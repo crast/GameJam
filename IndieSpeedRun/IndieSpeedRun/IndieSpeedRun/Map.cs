@@ -29,6 +29,8 @@ namespace IndieSpeedRun
         public List<Block> BottomLayer { get; set; }
         private List<Block> drawableBottomLayer;
 
+        public List<Block> Interactables { get; set; }
+
         public List<CollisionBlock> CollisionBlocks { get; set; }
 
         private List<CollisionBlock> _allCollisionBlocks;
@@ -83,6 +85,7 @@ namespace IndieSpeedRun
             drawableTopLayer = new List<Block>();
             mapBlocks = new List<Block>();
             drawableBlocks = new List<Block>();
+            Interactables = new List<Block>();
         }
 
         public bool ContainsCoordinate(float x, float y)
@@ -110,6 +113,10 @@ namespace IndieSpeedRun
                 block.Draw(spriteBatch, offset);
             }
             foreach (Block block in drawableBlocks)
+            {
+                block.Draw(spriteBatch, offset);
+            }
+            foreach (Block block in Interactables)
             {
                 block.Draw(spriteBatch, offset);
             }
