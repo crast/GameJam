@@ -47,30 +47,40 @@
  </tileset>
  <layer name="Background" width="88" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0jEKwlAURcGszM3Y//2XErCQkI+G5FjoDNzqdYe3LAAAAAAA8B33E+M9fa83nlv9W9/bBztjLPrq29G3pW+r7rvS91zf136zm776Fq7su9d4bPZvfa+wbTi7rfQ9btt3TG4rfY/b6zv7Z31b+rb0benb0relb0vflr4tfVv6tvRt6dvSt6VvS9+Wvi19W/q29G3p2/qlvg/xhu67
+   eJzt1jEOwjAUBcGcjMvQc/+ShjKGKPJGEZ6RXuNyG/9tAwAAAACAazw/G71/G78d6ajveav1fRzYTPrqO9OMvq+djd717fueoa++e/Rt6duq+o622v82g74tfVv63oe+rdXuh6vp29K3pW9L35a+LfdZS9+Wvi19W/q23A8tfVv6tvRt6dvSt6Vv65/u3ze9OqgM
   </data>
  </layer>
  <layer name="Gameplay" width="88" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2EEOwiAYBeGfuPYAev+DunJlqgE75UHmS9g0tsikC2irqluJ0sq+JPuy7MuyL8u+LPuy7MuyL8u+rJl9GzDSzO6b/Lwz2JdlX5Z9WfZlJfa91+d+wP3D2Nw910efN5N9WfZl2ZdlX5Z9WfZl2ZdlX1Zq319ns9XOb8S37vd4HMz9/PKfRteS5or3t3fd9u2fg/z9v/eR7MuyL8u+LPuyVujbsxdMs0Jf+j7SVX17x+g8aWaej4/Yl2Vfln1Z9mXt1jdx7LKWRDu9v4nsy7Ivy74s+7Lsy9ppP/QCIYMB9g==
+   eJzt2EEKwjAYBeE/uPYAev+DiosuRKokcZpHnQ+ykbZphxRiW1VdSpRW9iXZl2Vfln1Z9mXZl2Vfln1Z9mWt7NuAkWZ13+Tr/YJ9WfZl2ZdlX1Zi32u97wfcP4zN3fP76PVWsi/Lviz7suzLsi/Lviz7suzLsi9r60t8697GbWfu+4d7Gn2WNEes397ntm//HOTxs+eR7MuyL8u+rNS+376d+339dQ7y+NnzSPZlHdW3d4zOk2bl/+M99mWdqe+TfVn2Zdn3v8z0TRuJXL8s+7J637v09zGN65dlX5Z9WWfaDz0AdF4Bzg==
   </data>
  </layer>
  <objectgroup name="Interactive" width="88" height="50">
   <object name="SpawnPoint1" type="spawn" x="128" y="800" width="32" height="64"/>
-  <object name="HeatingPad01" type="thermal" x="288" y="608" width="288" height="256">
+  <object name="HeatingZone" type="thermal" x="288" y="608" width="288" height="256">
    <properties>
-    <property name="value" value="4"/>
+    <property name="value" value="1"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="832" y="352" width="352" height="800">
+  <object name="CoolingPad01" type="thermal" x="832" y="672" width="355" height="297">
    <properties>
-    <property name="value" value="-4"/>
+    <property name="value" value="-1"/>
    </properties>
   </object>
   <object name="SpawnPoint1" type="spawn" x="1426" y="407" width="32" height="64"/>
-  <object name="HeatingPad01" type="thermal" x="1184" y="544" width="480" height="928">
+  <object name="HeatingPad01" type="thermal" x="1184" y="544" width="488" height="160">
    <properties>
-    <property name="value" value="4"/>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="HeatingPad01" type="thermal" x="1184" y="832" width="488" height="160">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="HeatingPad01" type="thermal" x="1184" y="1184" width="488" height="160">
+   <properties>
+    <property name="value" value="1"/>
    </properties>
   </object>
  </objectgroup>
