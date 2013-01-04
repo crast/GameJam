@@ -21,7 +21,9 @@ namespace IndieSpeedRun
 
         //heat values
         private float heat;
-        public float Heat { get {return heat; } }
+        public float Heat { 
+            get {return heat; }
+        }
         private const float heatFromJump = 3f;
         private const float heatDamper = .02f;
         private const float heatToDoubleJump = 15;
@@ -226,6 +228,8 @@ namespace IndieSpeedRun
 
             //decrease the heat all the time!
             heat -= .03f;
+
+            heat += game.physics.isHeatingUp(this);
 
             //clamp heat
             if (heat < 0)

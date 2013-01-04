@@ -161,6 +161,7 @@ namespace IndieSpeedRun
             // TODO: Add your update logic here
             Input.Update(gameTime); //update keyboard/mouse/gamepad states
             player.Update(gameTime); //update player info
+            //this.physics.isHeatingUp(player);
             this.physics.CheckCollisions(player); //check for collisions and resolve
 
             base.Update(gameTime);

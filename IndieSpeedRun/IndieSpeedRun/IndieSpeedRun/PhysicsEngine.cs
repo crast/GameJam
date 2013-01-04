@@ -216,26 +216,33 @@ namespace IndieSpeedRun
             return new Rectangle(x, y, width, height);
         }
 
-        public float isHeatingUp()
+        public float isHeatingUp(Player p)
         {
-            float heatRatio = .1f;
+            float heatRatio = .2f;
             float dHeat = 0;
 
             foreach (Block s in currentMap.Interactables)
             {
                 if (s is HeatBlock)
                 {
-                    HeatBlock hb = (HeatBlock)s;
-                    if (hb.AddsHeat)
+                    //Console.WriteLine("Found a heat block!");
+                    if (s.Rectangle.Intersects(p.Rectangle))
                     {
-                        dHeat += heatRatio;
+                        //Console.WriteLine("Intersecting WHEE!");
+                        HeatBlock hb = (HeatBlock)s;
+                        if (hb.AddsHeat)
+                        {
+                            dHeat += heatRatio;
+                        }
+                        else
+                        {
+                            dHeat -= heatRatio;
+                        }
                     }
                 }
             }
 
             return dHeat;
-
-            
         }
     }
 }
