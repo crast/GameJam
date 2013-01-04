@@ -72,7 +72,7 @@ namespace IndieSpeedRun
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
             this.viewArea = viewArea;
-            this.punchSprite = new Sprite(g.ConditionalLoadSprite("punch", "tiles/fireball"));
+            this.punchSprite = new Sprite(g.ConditionalLoadSprite("punch", "sprites/fireball"));
         }
 
         public void LoadPlayer()
