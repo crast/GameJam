@@ -54,10 +54,10 @@
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
-  <object name="SpawnPoint1" type="spawn" x="83" y="1904" width="65" height="104"/>
-  <object name="SpawnPoint2" type="spawn" x="274" y="244" width="65" height="104"/>
-  <object name="SpawnPoint3" type="spawn" x="1543" y="336" width="65" height="104"/>
-  <object name="SpawnPoint4" type="spawn" x="631" y="559" width="65" height="104"/>
+  <object name="SpawnPoint1" type="spawn" x="96" y="1952" width="32" height="64"/>
+  <object name="SpawnPoint2" type="spawn" x="288" y="288" width="32" height="64"/>
+  <object name="SpawnPoint3" type="spawn" x="1568" y="384" width="32" height="64"/>
+  <object name="SpawnPoint4" type="spawn" x="640" y="608" width="32" height="64"/>
   <object name="HeatingPad01" type="thermal" x="1248" y="448" width="256" height="32">
    <properties>
     <property name="value" value="4"/>
@@ -78,7 +78,7 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="SpawnPoint5" type="spawn" x="3618" y="1909" width="65" height="104"/>
+  <object name="SpawnPoint5" type="spawn" x="3616" y="1952" width="32" height="64"/>
   <object name="HeatingPad01" type="thermal" x="3808" y="928" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
