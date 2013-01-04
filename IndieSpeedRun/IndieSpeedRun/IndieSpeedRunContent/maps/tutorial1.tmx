@@ -45,6 +45,9 @@
  <tileset firstgid="135" name="ice-01" tilewidth="32" tileheight="32">
   <image source="../tiles/ice-01.png" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="136" name="temphaze-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/temphaze-01.png" width="64" height="32"/>
+ </tileset>
  <layer name="Background" width="200" height="80">
   <data encoding="base64" compression="zlib">
    eJzt3NlOFEEAhtF+MNyISqKCRm9ExagQFnEHFPXKN/evYCcTMoUdx6F6mHOS76ZnSV1Mpae36joAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJbBi9YDgBE6TFvpYeuBwAJaSdfS9XSj8VhgbO6l++lBWm88Fhibp2kzPUvPK+95+Se4qt6l91O276a9tJ8OKp81P7jqfqSfU7Yfp5P0NX2rfNb8AAAAAAAAFsGr9Dq9Sdtpp+loYFwmrwtedG0QGGYjrXbulYcaz1lB3dvWA4BLdtqd/Wca8tu3/2CZlOdv++OJcnyxNdFhq0HBnH1IH9On9Dl9+c/fX+bS9ynbypwqx/D9HIMx6s/f/u3ZjlnU/o/188T8YJk5FoG6sp+41XoQACNyMz3qXCeG8ybPdwIAALRwO91Jd9PaudcepyeXPiIYj4vWGTyesm0Ia6dDnbXToW7I2un/qpyndm2bRTZk7fRZlOc6+jlyNIfvh3kasnb6LMr9tf29tL+6s/tp7VMAAAAAAAAAAAAAGIPf7AMw9Q==
