@@ -239,6 +239,7 @@ namespace IndieSpeedRun
                             }
                             else
                             {
+                                //Console.WriteLine("heat zoning!");
                                 dHeat += zoneRatio;
                             }
                         }
@@ -250,6 +251,7 @@ namespace IndieSpeedRun
                             }
                             else
                             {
+                                //Console.WriteLine("cold zone");
                                 dHeat -= zoneRatio;
                             }
                         }

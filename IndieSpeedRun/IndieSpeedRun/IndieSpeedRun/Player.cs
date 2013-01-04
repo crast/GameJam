@@ -25,6 +25,7 @@ namespace IndieSpeedRun
         private float jumpHeight = 550f;
         private const float wallJumpX = 275f;
         private const float gravity = 18f;
+        private const float terminalVelocity = 500f;
 
         //heat values
         private float heat;
@@ -125,8 +126,10 @@ namespace IndieSpeedRun
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             acceleration = Vector2.Zero;
 
-
-            acceleration += new Vector2(0, gravity); //gravity
+            if (velocity.Y < terminalVelocity)
+            {
+                acceleration += new Vector2(0, gravity); //gravity
+            }
             velocity += acceleration;
 
             //MOVE with WASD
