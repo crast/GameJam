@@ -51,6 +51,7 @@ namespace IndieSpeedRun
         private List<String> MapList = new List<String>{"tutorial1", "level2", "level3_2"};
 
         private Sprite startScreen;
+        private Sprite endScreen;
         private Rectangle screenRect;
         private Texture2D deadScreen;
 
@@ -104,8 +105,10 @@ namespace IndieSpeedRun
             LoadSprite("char1", @"sprites\ninja_01-01");
             LoadSprite("tile1", @"tiles\tile1");
             LoadSprite("startScreen", @"sprites/titlescreen-01");
+            LoadSprite("endScreen", @"sprites/endgame-01");
 
             startScreen = new Sprite(textures["startScreen"]);
+            endScreen = new Sprite(textures["endScreen"]);
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             this.hud = new Hud(this, player);
             LoadNextMap();
@@ -266,6 +269,8 @@ namespace IndieSpeedRun
                     break;
                 default:
                     GraphicsDevice.Clear(Color.Red);
+                    spriteBatch.Draw(endScreen.Texture, screenRect, Color.White);
+
                     break;
             }
 
