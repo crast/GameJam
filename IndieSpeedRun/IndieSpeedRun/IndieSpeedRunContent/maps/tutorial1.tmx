@@ -19,9 +19,9 @@
   </tile>
  </tileset>
  <tileset firstgid="65" name="background-01" tilewidth="32" tileheight="32">
-  <image source="../tiles/background-01.png" width="192" height="192"/>
+  <image source="../tiles/background-01.png" width="256" height="160"/>
  </tileset>
- <tileset firstgid="101" name="furnace-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="105" name="furnace-01" tilewidth="32" tileheight="32">
   <image source="../tiles/furnace-01.png" width="32" height="32"/>
   <tile id="0">
    <properties>
@@ -30,7 +30,7 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="102" name="heatsink-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="106" name="heatsink-01" tilewidth="32" tileheight="32">
   <image source="../tiles/heatsink-01.png" width="32" height="32"/>
   <tile id="0">
    <properties>
@@ -39,10 +39,10 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="103" name="door-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="107" name="door-01" tilewidth="32" tileheight="32">
   <image source="../tiles/door-01.png" width="32" height="96"/>
  </tileset>
- <tileset firstgid="106" name="ice-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="110" name="ice-01" tilewidth="32" tileheight="32">
   <image source="../tiles/ice-01.png" width="32" height="32"/>
  </tileset>
  <layer name="Background" width="128" height="80">
@@ -52,7 +52,7 @@
  </layer>
  <layer name="Gameplay" width="128" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt3EtqwzAAQEGb3v/OvUADFsWSojcD2oQQfV4C1ib3dV23kR4/F0X6t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t5X6r/6Ptfv9LQ6r9V81r/7r7Xj+q+nfpn+b/m36t9X6P72Tuf816K//p9f1P5/++r/xmfqPr2HVmLmf3ezS/6S59R9fw0lz6//3HDuey6y5V+/zk1n9dzXr2eEb+n/TM9YOyv05rz9jRn4b+v/frmf4xK5r13+OXdeu/xy7rl3/OXZd+5t3vtF7w+z75uy9G/N6PDHy3pOt/k6sHnWrz3/1AAAAAAAAgJP8AnkABAI=
+   eJzt3FEKwjAUBdEU979nN2Cx0ea928wM5MePJump0CB4jDEOB3q8hhHTn53+7PRnpz87/dnpz05/dvqz05+d/uz0Z6c/O/3Z6c9Of3b6s9Ofnf7s9GenPzv92enPTn92+rPTn53+7PRnpz87/dnpz05/dvqz05+d/uz0Z6c/O/3Zkfy7/2PtWL/F6Wj+XfPq31/i/e9Of3b6s9Ofnf7saP5Xz2Se/xjpr//Z5/rvn/76r7im/vNr6BqV+0krxX+nufWfX8NOc+v/eY7E+1I1d/c+z6ryT63q3eEJ/k96x0qI7G/7+dtcM98N/f8v9R5eKXXt+teUunb9a0pdu/41pa595Zlv9txQfd6s3vus/7d3ySeOb/vt8K/qLv+7634mukdV+meOqlL9bX2/PGv675P+7PQ3/dnpz05/dvqz05+d/uz0Z6c/O/3Zpf429QarCAQg
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="80">
@@ -157,6 +157,7 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
+  <object name="SpawnPoint1" type="spawn" x="2758" y="1405" width="32" height="64"/>
  </objectgroup>
  <layer name="Foreground" width="128" height="80">
   <data encoding="base64" compression="zlib">
