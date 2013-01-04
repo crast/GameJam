@@ -47,7 +47,7 @@
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJztnNtOwzAMhlO2XXKSdgPslsMth1vE08D7PwKtWEXkOevaxYlj/59kUald0+4jcuxV7UIIHcJ1rII89wXGGOlmHHexj9RnJL7v3Cw57zqU9V+SnP5bYIn/73Do/zPnRVXEo//tzM9w/r9yXlRF4H8a6j/OT9dnXs8lOd9dH1f7vyWA/z+/Ywy5ftPHD9kf+3/KfD0rEl3mMabGP/U4q/7p/iGO+c99PZz/UqTG2jHHefC/DTL+d4nt2v5TtSb9jiz5P3b9ufyPeWTkJbFd238Ky/4HN3HOj8nl/6aP2z7e+njv4yOxXarvMRfL/qXmP13Lz+kpYv6XQTL/U5ecW841/JdDcv2f0/+ckOgVePJP638N/i9mxIbcAxfxbxhd+O9xpGLN3JtV/3R/Tv9agvaTnieOf2XuzYP/3Pl/c+T4lrDkX2r9z/mn9WWrWPIvVf9b9z/2tFr3j/k/H7o+aJXS+d+S/7E2sOw/9/qf87+0T1g7rPqXrP85/8fq7hbCmn+6v4T/2nP53GgVDfm/9TnUMlP/v/Bvm+F7r13/w389MP99g/zvG03rf1AeLfU//NdBw/wH9dCQ/0E9NKz/QT3G+j/uZ8fAv21Kz38rfXMrlM7/2p7r907p9T/864LzT597h3+7SM7/x3CY7+FfF5L5nxsL/nUhuf7nxoJ/XUjW/9xY8K8LzH/f5Mj/XF9nCPouOPjXR471/6nvZoN/fUjW/9xY8K8LyfqfOxf86wL1v2+k1v8P0THo/+mlVP0/vl8F/nWB+t83yP++wfrfNznq/1N6fyHAv0bQ//MN8r9vsP73DX7/983wjB59t23MUv+pd3rBf1ss9U9d4/nfNoF/38C/b6b8I/zGLz9VeFk=
+   eJztnEluwzAMReUMy05ANm2z7bDtsC16mvT+R6iNRqigUHbsiBJF/gcQDWDHUvIqUGQMd865DmE61o6fhwJjeLoZ562OkXoPx/edmyXX3biy/kuS038LLPF/cKf+v3JOqiIW/e9mvofy/51zUhWB/2li/2F+urlwPlfR9e77uD7+LQH8/3E4xpDrt338RMdC/8+Z57OOoss8xtT4556n2X94fIgx/7nnQ/kvRWqsPXGeBf87x+N/n3hd23+q1oy/I03+x+afy7/PI57XxOva/lNo9j+48fk+Jpf/2z7u+njv46OPz8TrUn2PuWj2z7X+4738nJ4i1n8ZOPN/7JJyS7mG/3Jw7v9z+p8THL0Ca/7D+l+C/9WM2AbzT0X4G0bn/nscqdgQn02z//B4Tv9SIu4nvUyc/0Z8Ngv+c+f/7cj5LaHJP9f+n/JP1Zgtosk/V/2v3b/vabXuH+t/PvH+oFVK539N/n1toNl/7v0/5X9pn7B2aPbPVf9T/sfq7hZCo//weAn/tdfypdEqEvJ/62uoZab+f+FfN8P3Xrv+h/96YP3bBvnfNpL2/6A8Uup/+K+DhPUP6iEh/4N6SNj/g3r4+t/3smPgXzel17+WvrkWSud/aff1W6f0/h/+ZZHyH973Dv964Vz/T+4038O/LDjzPzUW/MuCc/9PjQX/suCs/6mx4F8WWP+2yZH/qb7OEPGz4OBfHjn2/+c+mw3+5cFZ/1Njwb8sOOt/6lrwLwvU/7bh2v8/Bueg/yeXUvW/f74K/MsC9b9tkP9tg/2/bXLU/+f0/pyDf4mg/2cb5H/bYP9vG/z+b5vhHr342bYhS/2nnukF/22x1H/sGvf/tgn82wb+bTPlH2E3fgHFVXLM
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -84,72 +84,72 @@
    </properties>
   </object>
   <object name="SpawnPoint5" type="spawn" x="3618" y="1909" width="65" height="104"/>
-  <object name="HeatingPad01" type="thermal" x="3776" y="928" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3808" y="928" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3680" y="1056" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3680" y="1056" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3776" y="672" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3808" y="672" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3776" y="1184" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3808" y="1184" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3680" y="1312" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3680" y="1312" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3776" y="1440" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3808" y="1440" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3680" y="1568" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3680" y="1568" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3776" y="1696" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3808" y="1696" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3680" y="1824" width="96" height="32">
+  <object name="CoolingPad01" type="thermal" x="3680" y="1824" width="64" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3680" y="800" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3680" y="800" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3680" y="544" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3680" y="544" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3776" y="416" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3808" y="416" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3680" y="288" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3680" y="288" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3776" y="160" width="96" height="32">
+  <object name="HeatingPad01" type="thermal" x="3808" y="160" width="64" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
