@@ -48,6 +48,8 @@ namespace IndieSpeedRun
         private int chosenSpawn = 0;
         private Parallax parallax;
 
+        private Sprite startScreen;
+
         public Game1()
         {
 
@@ -103,12 +105,16 @@ namespace IndieSpeedRun
             //LoadSprite("char1", @"sprites\ninja_large");
             LoadSprite("char1", @"sprites\ninja_01-01");
             LoadSprite("tile1", @"tiles\tile1");
+            LoadSprite("startScreen", @"sprites/titlescreen-01");
 
             //reads in map data from XML
             MapParser.ReadInMapData(this);
 
+            startScreen = new Sprite(textures["startScreen"]);
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             this.hud = new Hud(this, player);
+
+
 
             ChangeSpawn(1);
             //player.PositionX = 5 * TILE_SIZE;
@@ -210,6 +216,8 @@ namespace IndieSpeedRun
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();//BEGIN
+
             // View area always scrolls down (really basic)
             // viewArea.Update(100, viewArea.Top + 1);
             // View area centered on player (basic)
@@ -217,24 +225,27 @@ namespace IndieSpeedRun
             if (gameState == GameState.START)
             {
                 GraphicsDevice.Clear(Color.Gray);
+                spriteBatch.Draw(startScreen.Texture, new Rectangle(0, 0, mapWidth, mapHeight), Color.White);
+                //startScreen.Draw(spriteBatch, Vector2.Zero, 0f);
             }
             else if (gameState == GameState.GAME)
             {
                 GraphicsDevice.Clear(Color.LightGray); //background color
 
-                spriteBatch.Begin();//BEGIN
+                
                 parallax.Draw(spriteBatch);
                 currentMap.Draw(spriteBatch, viewArea.Offset);
                 player.Draw(spriteBatch, viewArea.Offset);
                 currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
                 hud.Draw(spriteBatch);
-                spriteBatch.End();//END!
+                
             }
             else
             {
                 GraphicsDevice.Clear(Color.Red);
             }
 
+            spriteBatch.End();//END!\
             base.Draw(gameTime);
         }
     }
