@@ -318,14 +318,14 @@ namespace IndieSpeedRun
                     break;
                 case AnimationType.COLD_DEATH:
                     index = (int)AnimationFrame.COLD_DEATH;
-                    if (deltaTime > 5000)
+                    if (deltaTime > 2000)
                     {
                         this.ReallyDie();
                     }
                     break;
                 case AnimationType.HOT_DEATH:
                     index = (int)AnimationFrame.HEAT_DEATH;
-                    if (deltaTime > 5000)
+                    if (deltaTime > 2000)
                     {
                         this.ReallyDie();
                     }
