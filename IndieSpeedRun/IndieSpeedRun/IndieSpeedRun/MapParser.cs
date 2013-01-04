@@ -15,7 +15,11 @@ namespace IndieSpeedRun
 
         public static void ReadInMapData(Game1 game, String mapName) {
 
-            String filePath = @"..\..\..\..\IndieSpeedRunContent\maps\" + mapName + ".json";
+            string basepath = @"..\..\..\..\IndieSpeedRunContent\maps\";
+            if (Directory.Exists("maps")) {
+                basepath = @"maps\";
+            }
+            String filePath = basepath + mapName + ".json";
             JObject root = getMapRoot(filePath);
             var tileinfo = parseTileSets((JArray)root["tilesets"]);
             JArray layers = (JArray)root["layers"];
