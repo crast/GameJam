@@ -21,6 +21,7 @@ namespace IndieSpeedRun
 
         //heat values
         private float heat;
+        public float Heat { get {return heat; } }
         private const float heatFromJump = 3f;
         private const float heatDamper = .02f;
         private const float heatToDoubleJump = 15;
@@ -330,7 +331,6 @@ namespace IndieSpeedRun
 
             base.Draw(spriteBatch, offset);
         }
-
 
     }
 }
