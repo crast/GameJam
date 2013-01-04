@@ -52,7 +52,7 @@
  </layer>
  <layer name="Gameplay" width="128" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt3EtqwzAAQEGb3v/OvUADFsWSojcD2oQQfV4C1ib3dV23kR4/F0X6t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t5X6r/6Ptfv9LQ6r9V81r/7r7Xj+q+nfpn+b/m36t9X6P72Tuf816K//p9f1P5/++r/xmfqPr2HVmLmf3ezS/6S59R9fw0lz6//3HDuey6y5V+/zk1n9dzXr2eEb+n/TM9YOyv05rz9jRn4b+v/frmf4xK5r13+OXdeu/xy7rl3/OXZd+5t3vtH7w4r75qr918fbLZ4aee+pVn8XVo+61ee/egAAAAAAAMBJfgG7OAQE
+   eJzt3EtqwzAAQEGb3v/OvUADFsWSojcD2oQQfV4C1ib3dV23kR4/F0X6t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t+nfpn+b/m36t5X6r/6Ptfv9LQ6r9V81r/7r7Xj+q+nfpn+b/m36t9X6P72Tuf816K//p9f1P5/++r/xmfqPr2HVmLmf3ezS/6S59R9fw0lz6//3HDuey6y5V+/zk1n9dzXr2eEb+n/TM9YOyv05rz9jRn4b+v/frmf4xK5r13+OXdeu/xy7rl3/OXZd+5t3vtF7w+z75uy9G/N6PDHy3pOt/k6sHnWrz3/1AAAAAAAAgJP8AnkABAI=
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="80">

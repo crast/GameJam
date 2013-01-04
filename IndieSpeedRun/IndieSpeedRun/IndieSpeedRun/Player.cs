@@ -20,6 +20,11 @@ namespace IndieSpeedRun
         private Facing facing = Facing.LEFT;
         private float speed;
 
+        private const float maxSpeed = 300f;
+        private float jumpHeight = 550f;
+        private const float wallJumpX = 275f;
+        private const float gravity = 18f;
+
         //heat values
         private float heat;
         public float Heat { 
@@ -116,12 +121,11 @@ namespace IndieSpeedRun
             acceleration = Vector2.Zero;
 
 
-            acceleration += new Vector2(0, 10); //gravity
+            acceleration += new Vector2(0, gravity); //gravity
             velocity += acceleration;
 
             //MOVE with WASD
             speed = 10f;
-            float maxSpeed = 250;
             Vector2 dPad = Vector2.Zero;
             if (playerState == (int)states.RUNNING)
             {
@@ -141,9 +145,9 @@ namespace IndieSpeedRun
                 {
                     //REDUCE the speed when not pressed
                     if (velocity.X < -2)
-                        dPad.X = 3;
+                        dPad.X = 14;
                     else if (velocity.X > 2)
-                        dPad.X = -3;
+                        dPad.X = -14;
                     else
                     {
                         velocity.X = 0;
@@ -199,7 +203,7 @@ namespace IndieSpeedRun
             {
                 if(playerState == (int)states.RUNNING)
                 {
-                    velocity.Y = -400;
+                    velocity.Y = -jumpHeight;
                     playerState = (int)states.JUMPING;
                     BeginAnimation(gameTime, AnimationType.JUMP);
                     Console.WriteLine("START JUMP!");
@@ -214,8 +218,8 @@ namespace IndieSpeedRun
                     if (game.currentMap.ContainsCoordinate(PositionX + sprite.Width + 3, PositionY + sprite.Height))
                     {
                         PositionX -= 1;
-                        velocity.Y = -400;
-                        velocity.X = -300;
+                        velocity.Y = -jumpHeight;
+                        velocity.X = -wallJumpX;
                         Console.WriteLine("wallJump Left");
                         heat += heatFromJump;
                         facing = Facing.LEFT;
@@ -223,8 +227,8 @@ namespace IndieSpeedRun
                     else if (game.currentMap.ContainsCoordinate(PositionX - 2, PositionY + sprite.Height))
                     {
                         PositionX += 1;
-                        velocity.Y = -400;
-                        velocity.X = 300;
+                        velocity.Y = -jumpHeight;
+                        velocity.X = wallJumpX;
                         Console.WriteLine("wallJump Right");
                         heat += heatFromJump;
                         sprite.Effects = SpriteEffects.FlipHorizontally;
