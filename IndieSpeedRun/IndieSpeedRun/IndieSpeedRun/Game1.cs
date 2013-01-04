@@ -48,7 +48,7 @@ namespace IndieSpeedRun
         private int chosenSpawn = 0;
         private Parallax parallax;
         private int chosenMapNum = -1;
-        private List<String> MapList = new List<String>{"tutorial1", "level2", "level3"};
+        private List<String> MapList = new List<String>{"tutorial1", "level2", "level3_2"};
 
         private Sprite startScreen;
         private Rectangle screenRect;
