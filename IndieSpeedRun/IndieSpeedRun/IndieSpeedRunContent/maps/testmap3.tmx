@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="128" height="64" tilewidth="32" tileheight="32">
- <tileset firstgid="1" source="../../../../../../../../../Assets/tiles2-01.tsx"/>
+<tileset firstgid="1" name="tiles2-01" tilewidth="32" tileheight="32">
+ <image source="../tiles/tiles2-01.png" width="160" height="160"/>
+</tileset>
  <tileset firstgid="61" name="lantern-01" tilewidth="32" tileheight="32">
   <image source="../tiles/lantern-01.png" width="64" height="64"/>
   <tile id="0">
