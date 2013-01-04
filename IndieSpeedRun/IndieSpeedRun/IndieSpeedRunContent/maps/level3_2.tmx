@@ -55,7 +55,7 @@
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2tuKhDAQRdFq5s/1x+cpjEjUtExVHTh7QeiHpmlhkxgvn4j4MKzHT8AR/b3R3xv9vdHfG/290d8b/b3R3xv9vdHfG/290d8b/b2p9b96Pokcav3P9qB/Jvp7o783+nujvzf6e1PvvwX9Mx37d7+DvE2Oj/65VOY//XsozP9xHPSv1z3/j/33yff0z6Xen/1/Lvp7o783pf7s/+rR35tSf/b/9Tqu/8//Pz7pX696/t/1n63/7P9yKc1/+tdTOv/Tv556f87/uZT6s/+rp96f9T/Xav895n2ubDFfz2f/Pz45/9ejvzf6e7vqX3UvgPN/r7v+1cfB/r+ewvwfg/71uq//ntA/F/290d8b/b0p9n96Zoz/o9ofNejv7dh/tu6u3MON+DtP313Lz4z7e6z3Pe7m/5v+43ff9kcP+nujv7eV/qvj3H910L/PU/+3z3Lf/A71FK//UIf+3liDvTH/vVW928PQHb8qhDn4
+   eJzt2tsKwjAQANGIf64/7kuFIGndNjEbmTkQBG1pYIjay62UcnOgx72IyP5s9mezP5v92ezPZn82+7PZn83+bPZnsz+b/dnsz7Za//d8jj472kbnrNY/yv5j2J/N/mz2Z7M/m/3Z7M9W989+BvnsvNVvlfVv/xwrrP9SvZ6Zt/plr3/757I/m/3Z7M9mfzb7s9mfLeP8//P4pfF+ZN7qN3v9238trn82f//Z7M9mfzb7s0X7P7cR9dhG5Pj1a5T9x7A/m/3Z9vrPuhZg/1xH/WfP45fbq22F9d+6LhiZt/pln/9dZf8x7M9mfzb7s63Yf69tz/9Ftf1Tf41nf7a6f+ucPHINt2zb1ftFrxU/d46rOY7W/5X+7/3O9lcO+7PZny3SPzo++0eH/fN863/1Xu4v7/1onBXP/zSP/dn8DmZz/bPNerbHse54AfcEHOo=
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -92,115 +92,40 @@
   </object>
   <object name="HeatedZone" type="thermal" x="666" y="1280" width="77" height="96">
    <properties>
-    <property name="value" value="1"/>
+    <property name="value" value="2"/>
    </properties>
   </object>
   <object name="CooledZone" type="thermal" x="282" y="1280" width="77" height="96">
    <properties>
-    <property name="value" value="-1"/>
+    <property name="value" value="-2"/>
    </properties>
   </object>
   <object name="CooledZone" type="thermal" x="672" y="1696" width="38" height="128">
    <properties>
-    <property name="value" value="-1"/>
+    <property name="value" value="-2"/>
    </properties>
   </object>
   <object name="CooledZone" type="thermal" x="672" y="1824" width="352" height="32">
    <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1242" y="1088" width="38" height="96">
-   <properties>
-    <property name="value" value="-1"/>
+    <property name="value" value="-2"/>
    </properties>
   </object>
   <object name="HeatedZone" type="thermal" x="224" y="1696" width="38" height="128">
    <properties>
-    <property name="value" value="1"/>
+    <property name="value" value="2"/>
    </properties>
   </object>
   <object name="HeatedZone" type="thermal" x="538" y="1696" width="38" height="128">
    <properties>
-    <property name="value" value="1"/>
+    <property name="value" value="2"/>
    </properties>
   </object>
   <object name="HeatedZone" type="thermal" x="224" y="1824" width="352" height="32">
    <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1242" y="1248" width="38" height="160">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1242" y="864" width="38" height="96">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1242" y="512" width="38" height="192">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1088" y="832" width="38" height="128">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1088" y="1024" width="38" height="64">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1088" y="1376" width="38" height="96">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="CooledZone" type="thermal" x="1088" y="1216" width="38" height="64">
-   <properties>
-    <property name="value" value="-1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1242" y="1408" width="38" height="192">
-   <properties>
-    <property name="value" value="1"/>
+    <property name="value" value="2"/>
    </properties>
   </object>
   <object name="HeatedZone" type="thermal" x="1120" y="1024" width="64" height="64">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1242" y="960" width="38" height="128">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1242" y="704" width="38" height="160">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1088" y="736" width="38" height="96">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1088" y="960" width="38" height="64">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1088" y="1088" width="38" height="128">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1088" y="1280" width="38" height="96">
    <properties>
     <property name="value" value="1"/>
    </properties>
@@ -210,7 +135,7 @@
     <property name="value" value="-1"/>
    </properties>
   </object>
-  <object name="CooledZone" type="thermal" x="1184" y="1248" width="64" height="160">
+  <object name="CooledZone" type="thermal" x="1344" y="1248" width="64" height="160">
    <properties>
     <property name="value" value="-1"/>
    </properties>
@@ -220,12 +145,12 @@
     <property name="value" value="-1"/>
    </properties>
   </object>
-  <object name="CooledZone" type="thermal" x="1184" y="1088" width="64" height="96">
+  <object name="CooledZone" type="thermal" x="1344" y="1088" width="64" height="96">
    <properties>
     <property name="value" value="-1"/>
    </properties>
   </object>
-  <object name="CooledZone" type="thermal" x="1184" y="864" width="64" height="96">
+  <object name="CooledZone" type="thermal" x="1344" y="864" width="64" height="96">
    <properties>
     <property name="value" value="-1"/>
    </properties>
@@ -235,12 +160,12 @@
     <property name="value" value="-1"/>
    </properties>
   </object>
-  <object name="CooledZone" type="thermal" x="1184" y="512" width="64" height="192">
+  <object name="CooledZone" type="thermal" x="1344" y="512" width="64" height="192">
    <properties>
     <property name="value" value="-1"/>
    </properties>
   </object>
-  <object name="HeatedZone" type="thermal" x="1184" y="1408" width="64" height="192">
+  <object name="HeatedZone" type="thermal" x="1344" y="1408" width="64" height="192">
    <properties>
     <property name="value" value="1"/>
    </properties>
@@ -250,7 +175,7 @@
     <property name="value" value="1"/>
    </properties>
   </object>
-  <object name="HeatedZone" type="thermal" x="1184" y="1184" width="64" height="64">
+  <object name="HeatedZone" type="thermal" x="1344" y="1184" width="64" height="64">
    <properties>
     <property name="value" value="1"/>
    </properties>
@@ -260,12 +185,7 @@
     <property name="value" value="1"/>
    </properties>
   </object>
-  <object name="HeatedZone" type="thermal" x="1184" y="960" width="64" height="128">
-   <properties>
-    <property name="value" value="1"/>
-   </properties>
-  </object>
-  <object name="HeatedZone" type="thermal" x="1242" y="1184" width="38" height="64">
+  <object name="HeatedZone" type="thermal" x="1344" y="960" width="64" height="128">
    <properties>
     <property name="value" value="1"/>
    </properties>
@@ -275,7 +195,7 @@
     <property name="value" value="1"/>
    </properties>
   </object>
-  <object name="HeatedZone" type="thermal" x="1184" y="704" width="64" height="160">
+  <object name="HeatedZone" type="thermal" x="1344" y="704" width="64" height="160">
    <properties>
     <property name="value" value="1"/>
    </properties>
@@ -288,7 +208,7 @@
  </objectgroup>
  <layer name="Foreground" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKhEAMRUGPr7ceBnQjNKJIJ/KrIDt3D0zoZQEAAAAAAAAAeN+6D5n0z6Z/Nv2z6Z9N/2zbPmTZTkMW/bPp39O5y1WfdTBXju/072V2f/d/L/pn0z/brP7uv570z+b+Zwb9sx3d3X+Z9O9htL9H+3x0H9y95/Tvobq//V+rqr/7r4fq/v7/tar///rX0j+b/lSw/7O5/7Ppz5/+2fTPpn82/QGg1tN33Tvvx/Slfzb9s+kPAAAA3/cDHvXanw==
+   eJzt2MENgDAMBMGUD11TwUnAK87NSK5gH7a8FgAAAAAAAAAAAAAAADDZHSa5wjCT/t3076Z/N/276d9NfwA4X9rfaZ+n++DtvcBe9O+mfzf9u+nfTf9u+gMAAAAAnO/vX/fL/5h96d9N/276AwAAwHwPlvud1Q==
   </data>
  </layer>
 </map>
