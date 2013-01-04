@@ -50,12 +50,12 @@
  </tileset>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2ssNgzAMAFB2aYdp5+kEhcUr1EvEhVI+xvg9KQcukaWQ2IncdbDOIzoAFut3nNv/kNMrOgBCvaMDADY35vohOggAYHN73ucBtvKMDgAKOUtt0C8cv8zXmnvj8AaS23S9b5Pv+1GBFHeW8wT4sieJpn+gtoz9A0PnXpDdmtxXYf0ja4MhyQCAjNz/AYCW2gAArskbNgDQUhvM07tWW8beNYCRHA8AtNQGAHBNcjwA0FIbAMA1yfHA0fTN1qZvNp49WJs9yL8+LzouvQ==
+   eJzt3OFpwzAQBlDv0g7TLpElOkHtxdt/FcZBSuxGOt17IIJJYgRfZJ0V4WWBcz56d+Cf3YrXW3HMsdl+D1ny/+rdgUFlyf+7dwcGlSX/7O7lGj3/9bdtvTsRQC1/5ib/3OSfW+T8194dAGjw2bsDkMgotcH6YGs5X6m2xlF7P0Kdl9k+77fd8fvJ88u/zSjXk6sdrfMeteXgc0fHxNKS//7zo+Q/65iMJPv4t38gt4j7B7bl776gdr2/59nvcY0zc1+Z/6x61gZbkAYAEbn/f73WdSJgfLV1/9b/BWAkagOAdo/O92oBerKGDQDXi1zfqQ3qanvXIudPXW3vmvyBUZnjAYCS2gAA5mSOBwBKagMAmJM5Hng1z3zMLeIzH2djDOZmDPKsH+DgWqk=
   </data>
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -205,7 +205,7 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="2656" y="254" width="225" height="36">
+  <object name="CoolingPad01" type="thermal" x="2752" y="256" width="96" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
@@ -260,7 +260,7 @@
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="3070" y="321" width="32" height="128">
+  <object name="HeatingPad01" type="thermal" x="2944" y="448" width="160" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
@@ -416,7 +416,7 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="1408" y="832" width="192" height="32">
+  <object name="HeatingPad01" type="thermal" x="1376" y="832" width="224" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
@@ -455,7 +455,7 @@
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="1024" y="832" width="192" height="32">
+  <object name="HeatingPad01" type="thermal" x="1024" y="832" width="160" height="32">
    <properties>
     <property name="value" value="4"/>
    </properties>
@@ -465,7 +465,7 @@
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="1216" y="832" width="192" height="32">
+  <object name="CoolingPad01" type="thermal" x="1184" y="832" width="192" height="32">
    <properties>
     <property name="value" value="-4"/>
    </properties>
