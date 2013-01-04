@@ -14,12 +14,14 @@ namespace IndieSpeedRun.Blocks
         {
             //this.Kill(); // Do not draw me
             this.collisionBlock = new CollisionBlock(x, y, sprite.Width, sprite.Height);
-            map.AllCollisionBlocks.Add(collisionBlock);
+            map.ExtraCollisionBlocks.Add(collisionBlock);
         }
 
         public void Destroy(Map map)
         {
             map.AllCollisionBlocks.Remove(this.collisionBlock);
+            map.ExtraCollisionBlocks.Remove(this.collisionBlock);
+            map.CollisionBlocks.Remove(this.collisionBlock);
             this.Kill(); //stop drawing
             //stop all collision
         }
