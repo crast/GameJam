@@ -239,7 +239,7 @@ namespace IndieSpeedRun
                 this.Die();
             }
 
-            Console.WriteLine("heat: " + heat);
+            // Console.WriteLine("heat: " + heat);
             recenterView();
             base.Update(gameTime);
         }

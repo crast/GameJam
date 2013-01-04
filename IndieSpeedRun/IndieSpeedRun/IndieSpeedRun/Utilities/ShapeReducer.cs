@@ -52,9 +52,9 @@ namespace IndieSpeedRun.Utilities
             foreach (CollisionBlock cb in cblocks)
             {
                 Rectangle cr = cb.Rectangle;
-                Console.WriteLine("collisionBlock x={0}, y={1}, w={2}, h={3}", cr.Left, cr.Top, cr.Width, cr.Height);
+                //Console.WriteLine("collisionBlock x={0}, y={1}, w={2}, h={3}", cr.Left, cr.Top, cr.Width, cr.Height);
             }
-            Console.WriteLine("Blocks length: {0} Collision Length: {1}", map.Blocks.Count, cblocks.Count);
+            //Console.WriteLine("Blocks length: {0} Collision Length: {1}", map.Blocks.Count, cblocks.Count);
         }
 
         private static List<CollisionBlock> HorizontalMerge(List<CollisionBlock> cblocks)

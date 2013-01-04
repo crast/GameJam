@@ -147,7 +147,7 @@ namespace IndieSpeedRun
             // Handle top/bottom layer
             filterBlocks(drawableTopLayer, TopLayer, area.Rectangle);
             filterBlocks(drawableBottomLayer, BottomLayer, area.Rectangle);
-        
+            /*
             Console.WriteLine(
                 "ViewArea re-factor: Drawable blocks: {0}/{1}, Collision blocks: {2}/{3}, Top: {4}, Left: {5}",
                 drawableBlocks.Count,
@@ -157,6 +157,7 @@ namespace IndieSpeedRun
                 area.Top,
                 area.Left
             );
+             */
         }
 
         private void filterBlocks<T> (List<T> dest, List<T> src, Rectangle rect) where T: Entity {

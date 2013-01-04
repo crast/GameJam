@@ -95,11 +95,16 @@ namespace IndieSpeedRun
 
         private static Block handleInteractiveEntity(Game1 game, Dictionary<int, TileInfo> tileinfo, JObject obj, string name, string kind, int x, int y)
         {
+            int width = (int)obj["width"];
+            int height = (int)obj["height"];
             switch (kind)
             {
                 case "spawn":
                     game.currentMap.AddSpawn(x, y);
                     return null;
+                case "thermal":
+                    int amount = int.Parse((string)obj["properties"]["value"]);
+                    return new HeatBlock(x, y, width, height, amount);
             }
             return null;
         }

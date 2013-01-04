@@ -16,6 +16,12 @@ namespace IndieSpeedRun
             BlockCoordinate = new Point(x / Game1.TILE_SIZE, y / Game1.TILE_SIZE);
         }
 
+        public Block(int x, int y, int width, int height)
+            : base(x, y, width, height)
+        {
+            BlockCoordinate = new Point(x / Game1.TILE_SIZE, y / Game1.TILE_SIZE);
+        }
+
         public Point BlockCoordinate { get; set; }
     }
 }
