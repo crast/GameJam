@@ -188,6 +188,11 @@ namespace IndieSpeedRun
             {
                 //Console.WriteLine("GAME IS PLAYING");
 
+                if (Input.KeyPressed(Keys.M))
+                {
+                    LoadMap("tutorial1");
+                }
+
                 // Allows the game to exit
                 if (Input.KeyPressed(Keys.Escape))
                     gameState = GameState.END;
