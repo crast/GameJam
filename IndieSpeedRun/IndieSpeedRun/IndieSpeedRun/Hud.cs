@@ -29,7 +29,12 @@ namespace IndieSpeedRun
         {
             // Cool warning frame
             if (player.Heat < 10)
-                batch.Draw(warningCool, screenBox, Color.White);
+            {
+                var alpha = (10 - player.Heat) * 100f / 10.0f;
+                Color coldColor = new Color(255, 255, 255, alpha);
+                Console.WriteLine("Alpha: {0}", alpha);
+                batch.Draw(warningCool, screenBox, coldColor);
+            }
             
             // Hot warning frame
             if (player.Heat > 90)
