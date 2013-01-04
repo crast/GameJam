@@ -95,7 +95,7 @@ namespace IndieSpeedRun
             switch (kind)
             {
                 case "spawn":
-                    game.currentMap.AddSpawn(x, y);
+                    game.currentMap.AddSpawn(x, y, name);
                     return null;
                 case "thermal":
                     int amount = int.Parse((string)obj["properties"]["value"]);
@@ -124,6 +124,10 @@ namespace IndieSpeedRun
                 case "breakable":
                     var b =  new BreakableBlock(x, y, sprite, game.currentMap);
                     return b;
+                case "lantern":
+                    var lb = new LanternBlock(x, y, sprite);
+                    game.currentMap.AddSpawn(x, y, name);
+                    return lb;
             }
             return null;
         } 

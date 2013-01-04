@@ -102,6 +102,7 @@ namespace IndieSpeedRun
         public bool Alive
         {
             get { return alive; }
+            set { alive = value; }
         }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace IndieSpeedRun
         public List<Block> Interactables { get; set; }
 
         public List<CollisionBlock> CollisionBlocks { get; set; }
-        public List<Vector2> Spawns { get; private set; }
+        public SortedDictionary<String, Vector2> Spawns { get; private set; }
         public List<CollisionBlock> ExtraCollisionBlocks { get; set; }
 
         private List<CollisionBlock> _allCollisionBlocks;
@@ -90,7 +90,7 @@ namespace IndieSpeedRun
             mapBlocks = new List<Block>();
             drawableBlocks = new List<Block>();
             Interactables = new List<Block>();
-            Spawns = new List<Vector2>();
+            Spawns = new SortedDictionary<string, Vector2>();
             this.exits = new Dictionary<Rectangle, string>();
         }
 
@@ -175,9 +175,9 @@ namespace IndieSpeedRun
             }
         }
 
-        internal void AddSpawn(float x, float y)
+        internal void AddSpawn(float x, float y, string name)
         {
-            Spawns.Add(new Vector2(x, y));
+            Spawns.Add(name, new Vector2(x, y));
         }
 
         internal void AddExit(Rectangle rectangle, string destination)

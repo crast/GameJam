@@ -141,10 +141,17 @@ namespace IndieSpeedRun
 
         public void ChangeSpawn(int p)
         {
-            Vector2 spawn = currentMap.Spawns[p];
+            List<String> keys = new List<String>(currentMap.Spawns.Keys);
+            Vector2 spawn = currentMap.Spawns[keys[p]];
+            spawn = ChangeSpawn(spawn);
+        }
+
+        private Vector2 ChangeSpawn(Vector2 spawn)
+        {
             player.PositionX = spawn.X;
             player.PositionY = spawn.Y;
             player.Velocity = Vector2.Zero;
+            return spawn;
         }
 
         public void LoadSprite(string destName, string src)
