@@ -43,6 +43,7 @@ namespace IndieSpeedRun
         private Player player;
         private Hud hud;
         private int chosenSpawn = 0;
+        private Parallax parallax;
 
         public Game1()
         {
@@ -102,10 +103,13 @@ namespace IndieSpeedRun
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             this.hud = new Hud(this, player);
 
-            ChangeSpawn(0);
+            ChangeSpawn(1);
             //player.PositionX = 5 * TILE_SIZE;
             //player.PositionY = 10 * TILE_SIZE;
 
+            this.parallax = new Parallax(this);
+
+            viewArea.Register(parallax);
             viewArea.Register(currentMap);
         }
 
@@ -128,6 +132,11 @@ namespace IndieSpeedRun
                 LoadSprite(destName, src);
             }
             return textures[destName];  
+        }
+
+        public Texture2D ConditionalLoadSprite(String name)
+        {
+            return ConditionalLoadSprite(name, name);
         }
 
 
@@ -181,6 +190,7 @@ namespace IndieSpeedRun
             GraphicsDevice.Clear(Color.LightGray); //background color
 
             spriteBatch.Begin();//BEGIN
+            parallax.Draw(spriteBatch);
             currentMap.Draw(spriteBatch, viewArea.Offset);
             player.Draw(spriteBatch, viewArea.Offset);
             currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
