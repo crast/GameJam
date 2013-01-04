@@ -114,6 +114,7 @@ namespace IndieSpeedRun
             Vector2 spawn = currentMap.Spawns[p];
             player.PositionX = spawn.X;
             player.PositionY = spawn.Y;
+            player.Velocity = Vector2.Zero;
         }
 
         public void LoadSprite(string destName, string src)
