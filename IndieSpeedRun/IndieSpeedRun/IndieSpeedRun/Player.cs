@@ -86,7 +86,7 @@ namespace IndieSpeedRun
             Position = new Vector2(x, y);
             game = g;
 
-            heat = 20;
+            heat = 30;
 
             velocity = Vector2.Zero;
             acceleration = Vector2.Zero;
