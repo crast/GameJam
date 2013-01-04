@@ -288,7 +288,7 @@
  </objectgroup>
  <layer name="Foreground" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2MENgDAMBMGUD11TwUnAK87NSK5gH7a8FgAAAAAAAAAAAAAAADDZHSa5wjCT/t3076Z/N/276d9NfwA4X9rfaZ+n++DtvcBe9O+mfzf9u+nfTf9u+gMAAAAAnO/vX/fL/5h96d9N/276AwAAwHwPlvud1Q==
+   eJzt2EEKhEAMRUGPr7ceBnQjNKJIJ/KrIDt3D0zoZQEAAAAAAAAAeN+6D5n0z6Z/Nv2z6Z9N/2zbPmTZTkMW/bPp39O5y1WfdTBXju/072V2f/d/L/pn0z/brP7uv570z+b+Zwb9sx3d3X+Z9O9htL9H+3x0H9y95/Tvobq//V+rqr/7r4fq/v7/tar///rX0j+b/lSw/7O5/7Ppz5/+2fTPpn82/QGg1tN33Tvvx/Slfzb9s+kPAAAA3/cDHvXanw==
   </data>
  </layer>
 </map>
