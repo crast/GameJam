@@ -291,7 +291,14 @@ namespace IndieSpeedRun
             string exit = game.currentMap.atExit(this);
             if (exit != null)
             {
-                game.LoadMap(exit);
+                if (exit == "end")
+                {
+                    game.gameState = Game1.GameState.END;
+                }
+                else
+                {
+                    game.LoadMap(exit);
+                }
             }
             base.Update(gameTime);
         }
