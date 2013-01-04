@@ -260,12 +260,9 @@ namespace IndieSpeedRun
                 //overheat death!
                 Console.WriteLine("Heat Death");
             }
-            else
-            {
-            }
 
             Kill();
-            game.Exit();
+            game.gameState = Game1.GameState.END;
             //end ze game
         }
 

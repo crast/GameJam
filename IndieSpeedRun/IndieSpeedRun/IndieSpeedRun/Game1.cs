@@ -24,6 +24,9 @@ namespace IndieSpeedRun
         public const int TILE_SIZE = 32;
         private ViewArea viewArea;
 
+        public enum GameState { START, GAME, END }
+        public GameState gameState;
+
         GraphicsDeviceManager graphics;
         public int mapWidth
         {
@@ -47,6 +50,7 @@ namespace IndieSpeedRun
 
         public Game1()
         {
+
             if (System.IO.File.Exists(@"..\..\..\..\james.txt")) {
                 GraphicsAdapter.UseReferenceDevice = true;
             }
@@ -65,11 +69,14 @@ namespace IndieSpeedRun
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            textures = new Dictionary<string, Texture2D>();
+            gameState = GameState.START;
 
             //initialize input
             Input.Initialize();
+
+            // TODO: Add your initialization logic here
+            textures = new Dictionary<string, Texture2D>();
+
 
             //initialize map object
             currentMap = new Map();
@@ -156,24 +163,45 @@ namespace IndieSpeedRun
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.KeyPressed(Keys.Escape))
-                this.Exit();
-
-            // Swap Spawn points
-            if (Input.KeyPressed(Keys.O))
-            {
-                chosenSpawn = (chosenSpawn + 1) % currentMap.Spawns.Count;
-                ChangeSpawn(chosenSpawn);
-            }
-
-            // TODO: Add your update logic here
             Input.Update(gameTime); //update keyboard/mouse/gamepad states
-            player.Update(gameTime); //update player info
-            //this.physics.isHeatingUp(player);
-            this.physics.CheckCollisions(player); //check for collisions and resolve
 
-            base.Update(gameTime);
+            if (gameState == GameState.START)
+            {
+                //Console.WriteLine("START SCREEN");
+                if (Input.KeyPressed(Keys.Space))
+                {
+                    gameState = GameState.GAME;
+                }
+            }
+            else if (gameState == GameState.GAME)
+            {
+                //Console.WriteLine("GAME IS PLAYING");
+
+                // Allows the game to exit
+                if (Input.KeyPressed(Keys.Escape))
+                    gameState = GameState.END;
+
+                // Swap Spawn points
+                if (Input.KeyPressed(Keys.O))
+                {
+                    chosenSpawn = (chosenSpawn + 1) % currentMap.Spawns.Count;
+                    ChangeSpawn(chosenSpawn);
+                }
+
+                player.Update(gameTime); //update player info
+                //this.physics.isHeatingUp(player);
+                this.physics.CheckCollisions(player); //check for collisions and resolve
+
+                base.Update(gameTime);
+            }
+            else if (gameState == GameState.END)
+            {
+                //Console.WriteLine("GAME IS OVER");
+                if (Input.KeyPressed(Keys.Space)||Input.KeyPressed(Keys.Escape))
+                {
+                    this.Exit();
+                }
+            }
         }
 
         /// <summary>
@@ -186,16 +214,26 @@ namespace IndieSpeedRun
             // viewArea.Update(100, viewArea.Top + 1);
             // View area centered on player (basic)
             // viewArea.Update((int)player.PositionX-mapWidth/2, (int)player.PositionY-mapHeight/2);
+            if (gameState == GameState.START)
+            {
+                GraphicsDevice.Clear(Color.Gray);
+            }
+            else if (gameState == GameState.GAME)
+            {
+                GraphicsDevice.Clear(Color.LightGray); //background color
 
-            GraphicsDevice.Clear(Color.LightGray); //background color
-
-            spriteBatch.Begin();//BEGIN
-            parallax.Draw(spriteBatch);
-            currentMap.Draw(spriteBatch, viewArea.Offset);
-            player.Draw(spriteBatch, viewArea.Offset);
-            currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
-            hud.Draw(spriteBatch);
-            spriteBatch.End();//END!
+                spriteBatch.Begin();//BEGIN
+                parallax.Draw(spriteBatch);
+                currentMap.Draw(spriteBatch, viewArea.Offset);
+                player.Draw(spriteBatch, viewArea.Offset);
+                currentMap.DrawTopLayer(spriteBatch, viewArea.Offset);
+                hud.Draw(spriteBatch);
+                spriteBatch.End();//END!
+            }
+            else
+            {
+                GraphicsDevice.Clear(Color.Red);
+            }
 
             base.Draw(gameTime);
         }
