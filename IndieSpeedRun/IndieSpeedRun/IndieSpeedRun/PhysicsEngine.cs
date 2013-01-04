@@ -244,5 +244,22 @@ namespace IndieSpeedRun
 
             return dHeat;
         }
+
+        public void breakBlocks(Rectangle rect)
+        {
+            foreach (Block b in currentMap.Interactables)
+            {
+                if (b is BreakableBlock)
+                {
+                    //Console.WriteLine("Found a heat block!");
+                    if (b.Rectangle.Intersects(rect))
+                    {
+                        //MERP MERP
+                        BreakableBlock bb = (BreakableBlock)b;
+                        bb.Destroy();
+                    }
+                }
+            }
+        }
     }
 }

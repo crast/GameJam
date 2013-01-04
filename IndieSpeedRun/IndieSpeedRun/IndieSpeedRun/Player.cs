@@ -289,6 +289,8 @@ namespace IndieSpeedRun
                 testRectangle.X = (int)PositionX - 20 - thickness;
                 testRectangle.Y = (int)PositionY + 20;
             }
+            
+            game.physics.breakBlocks(testRectangle);
         }
 
         protected void recenterView()
