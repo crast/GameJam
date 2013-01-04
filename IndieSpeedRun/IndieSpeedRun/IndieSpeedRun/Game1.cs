@@ -139,7 +139,7 @@ namespace IndieSpeedRun
             ChangeSpawn(0);
         }
 
-        private void ChangeSpawn(int p)
+        public void ChangeSpawn(int p)
         {
             Vector2 spawn = currentMap.Spawns[p];
             player.PositionX = spawn.X;

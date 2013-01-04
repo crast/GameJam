@@ -367,8 +367,12 @@ namespace IndieSpeedRun
         }
         public void ReallyDie()
         {
-            Kill();
-            game.gameState = Game1.GameState.END;
+            heat = 30;
+            playerState = (int)states.RUNNING;
+            currentAnimation = AnimationType.RUN;
+            game.ChangeSpawn(0);
+            //Kill();
+            //game.gameState = Game1.GameState.END;
             //end ze game
         }
 
