@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="128" height="64" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles2-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/tiles2-01.png" width="352" height="160"/>
+ </tileset>
+ <tileset firstgid="56" name="lantern-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/lantern-01.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="status" value="off"/>
+    <property name="type" value="lantern"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="status" value="on"/>
+    <property name="type" value="lantern"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="60" name="background-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/background-01.png" width="448" height="160"/>
+ </tileset>
+ <tileset firstgid="130" name="furnace-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/furnace-01.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="heat"/>
+    <property name="value" value="10"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="131" name="heatsink-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/heatsink-01.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="cool"/>
+    <property name="value" value="10"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="132" name="door-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/door-01.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="135" name="ice-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/ice-01.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="136" name="temphaze-01" tilewidth="32" tileheight="32">
+  <image source="../tiles/temphaze-01.png" width="64" height="32"/>
+ </tileset>
+ <layer name="Background" width="128" height="64">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYgAAAAQ==
+  </data>
+ </layer>
+ <layer name="Gameplay" width="128" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt2tEKgkAQQNGR/jx/vBeDRTabfJjZuPfAIERScNnC1S0iNgc9jxCR/dnsz2Z/Nvuz2Z/N/mz2Z7M/m/3Z7M9mfzb7s9mfzf5s9mezP5v92ezPZn82+7PZn23s3/0Msuqtsv7t32OF9R/DUbW617/9e9mfzf5s9mezP5v92ezP1nH9f/78mLyuGtXr3/5rcf2z+f/PZn82+7PZny3bfz8m63lM5vPHo2rZn83+bJ/6V+0F2L/XVf/q76F6K6z/2b6ganRf/6mX/dnsz2Z/Nvuz2Z/N/mxj/9k1eWYPN473jedl94r3cA+g09X6v9P/fd6v/dXD/mz2Z8v0z865f3bs3+db/7v3cr338x+8/mOzP5u/wWyuf7aO53ycteYFg58cuQ==
+  </data>
+ </layer>
+ <objectgroup name="Interactive" width="128" height="64">
+  <object name="SpawnPoint1" type="spawn" x="96" y="992" width="32" height="64"/>
+  <object name="HeatedZone" type="thermal" x="288" y="832" width="192" height="224">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="672" y="832" width="192" height="224">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="160" y="1152" width="320" height="224">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="HeatedZone" type="thermal" x="544" y="1152" width="320" height="224">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="704" y="1696" width="288" height="128">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="HeatedZone" type="thermal" x="256" y="1696" width="288" height="128">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="HeatedZone" type="thermal" x="666" y="1280" width="77" height="96">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="282" y="1280" width="77" height="96">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="672" y="1696" width="38" height="128">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="672" y="1824" width="352" height="32">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="CooledZone" type="thermal" x="986" y="1696" width="38" height="128">
+   <properties>
+    <property name="value" value="-1"/>
+   </properties>
+  </object>
+  <object name="HeatedZone" type="thermal" x="224" y="1696" width="38" height="128">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="HeatedZone" type="thermal" x="538" y="1696" width="38" height="128">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+  <object name="HeatedZone" type="thermal" x="224" y="1824" width="352" height="32">
+   <properties>
+    <property name="value" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Foreground" width="128" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt2MENgDAMBMGUD11TwUnAK87NSK5gH7a8FgAAAAAAAAAAAAAAADDZHSa5wjCT/t3076Z/N/276d9NfwA4X9rfaZ+n++DtvcBe9O+mfzf9u+nfTf9u+gMAAAAAnO/vX/fL/5h96d9N/276AwAAwHwPlvud1Q==
+  </data>
+ </layer>
+</map>
