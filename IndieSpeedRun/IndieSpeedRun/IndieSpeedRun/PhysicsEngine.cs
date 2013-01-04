@@ -219,6 +219,7 @@ namespace IndieSpeedRun
         public float isHeatingUp(Player p)
         {
             float heatRatio = 1f;
+            float zoneRatio = .4f;
             float dHeat = 0;
 
             foreach (Block s in currentMap.Interactables)
@@ -232,11 +233,25 @@ namespace IndieSpeedRun
                         HeatBlock hb = (HeatBlock)s;
                         if (hb.AddsHeat)
                         {
-                            dHeat += heatRatio;
+                            if (hb.IsPad)
+                            {
+                                dHeat += heatRatio;
+                            }
+                            else
+                            {
+                                dHeat += zoneRatio;
+                            }
                         }
                         else
                         {
-                            dHeat -= heatRatio;
+                            if (hb.IsPad)
+                            {
+                                dHeat -= heatRatio;
+                            }
+                            else
+                            {
+                                dHeat -= zoneRatio;
+                            }
                         }
                     }
                 }

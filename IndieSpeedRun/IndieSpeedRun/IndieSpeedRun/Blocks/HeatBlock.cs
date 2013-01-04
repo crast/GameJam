@@ -15,10 +15,18 @@ namespace IndieSpeedRun.Blocks
             set { addsHeat = value; }
         }
 
+        private bool isPad = true;
+        public bool IsPad
+        {
+            get { return isPad; }
+            set { isPad = value; }
+        }
+
         public HeatBlock(int x, int y, int width, int height, int thermalAmount)
             :base(x,y, width, height)
         {
             addsHeat = (thermalAmount > 0);
+            isPad = (Math.Abs(thermalAmount) > 1);
             this.Kill(); // Do not draw me
         }
     }
