@@ -44,12 +44,12 @@
  </tileset>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2NlKw0AYBeDBB3Gru9W61PWq6vu/kyeoGIoSF5wG5/vgXGTI5CeckIspBUrZTq6SWS9D15PXvQfJYml93nvurMYL8CunP9jT9f72XRwurT98sM54zYdv4R+7L+//cwCAv7CebCSbyValmU+V5jBsJ9lN9pL9SjP1Px5HyXEyTU4qzdT/OHRngmfJeXKRXFaaq//V6s4DF+XlTPA6uUluk7tK8/XfNv2v1uM385Xn9Q31q38AAIBS1j4JbdB/2/TfNv23Tf9t03/b9N82/bdN/wAAAAAAAAAAAAAAAAAAAAAAdT0DEZMQOQ==
+   eJzt2NlKw0AYBeDBB3Hft7rU9arq+7+TJ6gYipJqcRqc74NzkSHJTzhJLqYUKGU7uUkmvQwd77xfe5jM5tanvftOajwASzn/xTVd7x/vxdHc+tMX64zXdPgU/rHH8vk/BwD4C+vJRrKZbFWa+VJpDsN2k71kPzmoNFP/43GcnCSnyVmlmfofh25P8CK5TK6S60pz9b9a3X7grLztCd4md8l98lBpvv7bpv/Vev5hFrlf31C/+oflLfJtAgAwbmvfhDbov236b5v+26b/tum/bfpvm/7bpn8AAAAAAAAAAAAAAAAAAAAAgLpeAcWTEHs=
   </data>
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJztnQlOwzAQRRNa9kVsAoQ4Ddz/TqSCqJE7duxkPDPx/Cd9NZWapf+pcWpB2ndd1yOus+vqcyewj5F+xXoS0UbDvyQWOrZMzP+n2hHxAv9pYv6/1I6IF/hPQ/mfPr9auf2LYHu3Qy7/IwH8p6H8PzFvfxekZ97H3P5BmprXfzH/UsT2FZ6XLF2TS8Ph/yGyrO0/9l3zVfAYrLPE/37I+eT5S2RZ238M+D+yxP/1kJshb0Peh3wQy5bnPeD/SK7/1Jg5N6eIz79dcv2HLim3lGv4t42G/5Lccr3RCfD/R8n8P6f/s4IcrjO/Z7IP3sdhnZ9E9uVVNcla/1YSzic9F77eK2v9g20D/76Bf9/Av2/g3zfw7xv49w38A/j3CTUvBv8+6INl+PdD6A3+/UC5Hx/hv20oX/Dvg5gr+G+flCf4b5s5R/DfLrnux2X4b4ccN/DfJrleOPyHAbqUOODwj/OBHUr7h/82WHruhf/ts6bzUv+P3el4D/96rO07/O4/559aH/514Oga/rcJV8/wvz04O4b/bcHdb8w/Na9zSHgvOPiXo1a31PV87v/Gwr8MNXul/JesC/91kegU/m0i1Sf820Oyyxz/993pWAH/dZDuccnnf7y/CvzzotEhzv820OoP/vXR7A7+dbHQ29z8H/U7EPDPg4XeMP+ng5XOcP6Xx0pfGP/lsdQV/Mtiracc/7F7/8N/GRY7yvEfusbf/5ZjtR/4r4/lbuC/LtS4OU3qNRaOD/GRX4e7DUk=
+   eJztnQlugzAQRaFJuqWtuqmtqp4muf+dCkpQkDM2HjP2DPg/aVSQzPZfMcaqaNs0TYuqujZNfp4KHGOgZbS7OZdvmxx5a6PhvySS/teIz/+v2hnJAv9hfP7/1M5IFvgPQ/kfr9/P3P+ts799V3fnKgH8h6H8vwnvf+NUK3yMqePHtqvRf0/O8Z/Pfyl8x3L7H/if5//Fs6zt3/eu+emswz/P/7ar3Wj9w7Os7d8H/F9I8f/Q1WNXX119d/VDLFue94D/C7H+3bE8Z04R979dYv27Lim3lGv4t42Gf07tpS50BPyf4Mz/S/q/YVQ/zjxM1Na5jn6bY6C2xLXBP9+/lXLnk96Z7eE/zf8u0H5JwH+a/0PuEywE/MP/MKcF//62a/Y/rlqA/xP9tQzvBvDvbxvjP3WeULvgX8Z/6L17CQX//rax/rXv5blVE7n8A9tQv/fwXwetswz/9eC6gf96oNwPP+F/3VBO4L8OfD5y+T+mnSbIQOhezOEf2GGqH4b/9RLrfliG//UQM/6C/3USO/aW8F/zvLlFOA4k/LvrQA9u/vC/DlL7XvhfPnMy5/p/ba6f9/Cvx9y83Xf/Kf/U9vCvg0TW8L9MpHKG/+UhmTH8LwvpfH3+qXmdvtxvwcF/OXJlS43nY7/NBv9lyJkr5Z+zLfznpUSm8G+TUnnCvz1KZhnj/7m5flbAfx5K55hy/w/fV4F/WTQyRP9vA6384F8fzezgXxcLuU3N/1H/BwL+ZbCQG+b/dLCSGfr/8ljJC8//8ljKCv7LYi2nGP++b3rBPw+LGcX4d13j73/5WM0H/vNjORv4zwv13BxXqI2F8+OU9P5Q5eof5jIiwA==
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
@@ -62,6 +62,9 @@
     <property name="target" value="Door01"/>
    </properties>
   </object>
+  <object name="SpawnPoint2" type="spawn" x="274" y="244" width="65" height="104"/>
+  <object name="SpawnPoint3" type="spawn" x="1543" y="336" width="65" height="104"/>
+  <object name="SpawnPoint4" type="spawn" x="590" y="562" width="65" height="104"/>
  </objectgroup>
  <layer name="Foreground" width="128" height="64">
   <data encoding="base64" compression="zlib">
