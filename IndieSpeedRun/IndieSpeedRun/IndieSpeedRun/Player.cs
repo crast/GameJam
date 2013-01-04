@@ -31,7 +31,8 @@ namespace IndieSpeedRun
             get {return heat; }
         }
         private const float heatFromJump = 3.5f;
-        private const float heatDamper = .02f;
+        private const float coldDamper = .02f;
+        private const float heatDamper = .023f;
         private const float heatToDoubleJump = 15;
         private const float heatToPunch = 10;
         private const float heatBuffer = 2;
@@ -181,7 +182,7 @@ namespace IndieSpeedRun
                 //decrease the heat with aerial movement
                 if (Math.Abs(Velocity.Y) > minVelocity*3)
                 {
-                    heat -= Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), heatDamper*1.5f).Y);
+                    heat -= Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), coldDamper).Y);
                 }
             }
 
