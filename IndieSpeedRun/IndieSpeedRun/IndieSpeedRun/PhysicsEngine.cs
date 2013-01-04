@@ -247,6 +247,7 @@ namespace IndieSpeedRun
 
         public void breakBlocks(Rectangle rect)
         {
+            // rect is the punch rectangle
             foreach (Block b in currentMap.Interactables)
             {
                 if (b is BreakableBlock)
@@ -254,9 +255,8 @@ namespace IndieSpeedRun
                     //Console.WriteLine("Found a heat block!");
                     if (b.Rectangle.Intersects(rect))
                     {
-                        //MERP MERP
                         BreakableBlock bb = (BreakableBlock)b;
-                        bb.Destroy();
+                        bb.Destroy(currentMap);
                     }
                 }
             }

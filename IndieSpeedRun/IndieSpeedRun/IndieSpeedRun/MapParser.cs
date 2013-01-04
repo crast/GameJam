@@ -121,6 +121,9 @@ namespace IndieSpeedRun
                     return new SwitchBlock(x, y, sprite); // FIXME
                 case "switch":
                     return new SwitchBlock(x, y, sprite);
+                case "breakable":
+                    var b =  new BreakableBlock(x, y, sprite, game.currentMap);
+                    return b;
             }
             return null;
         } 
