@@ -187,7 +187,7 @@ namespace IndieSpeedRun
                 //decrease the heat with aerial movement
                 if (Velocity.Y > 200)
                 {
-                    heat -= Vector2.Multiply(velocity, .0002f).Y;
+                    heat -= Vector2.Multiply(velocity, .0005f).Y;
                         //Math.Abs(Vector2.Multiply(Vector2.Multiply(velocity, dt), coldDamper).Y);
                 }
             }
