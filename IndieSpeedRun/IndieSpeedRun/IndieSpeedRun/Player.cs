@@ -10,8 +10,6 @@ namespace IndieSpeedRun
 {
     public class Player:MovingEntity
     {
-        enum AnimationFrame { RUN_BEGIN = 0, RUN_END = 3, JUMP_BEGIN=4, JUMP_END=5 };
-        enum AnimationType { RUN, JUMP };
 
         const int HScrollThreshold = 350;
         const int VScrollThreshold = 200;
@@ -40,10 +38,16 @@ namespace IndieSpeedRun
         private float punchSeconds = .3f;
         private float punchCounter = 0;
 
-        private float animateBeginTime = 0f;
+        private double animateBeginTime = 0d;
 
         private bool canDoubleJump = false;
         public bool isSliding = false;
+
+        /* Animation Stuff */
+        enum AnimationFrame { RUN_BEGIN = 0, RUN_END = 3, JUMP_BEGIN = 4, JUMP_END = 5 };
+        enum AnimationType { NONE, RUN, JUMP };
+
+        AnimationType currentAnimation = AnimationType.RUN;
 
         private enum states {RUNNING=0, JUMPING=1, PUNCHING=2};
         private int playerState = 0;
@@ -124,14 +128,14 @@ namespace IndieSpeedRun
                 if (Input.KeyDown(Keys.A) && velocity.X > -maxSpeed)
                 {
                     dPad.X = -speed;
-                    sprite.Effects = SpriteEffects.None;
                     facing = Facing.LEFT;
+                    if (currentAnimation != AnimationType.RUN) BeginAnimation(gameTime, AnimationType.RUN);
                 }
                 else if (Input.KeyDown(Keys.D) && velocity.X < maxSpeed)
                 {
                     dPad.X = speed;
-                    sprite.Effects = SpriteEffects.FlipHorizontally;
                     facing = Facing.RIGHT;
+                    if (currentAnimation != AnimationType.RUN) BeginAnimation(gameTime, AnimationType.RUN);
                 }
                 else
                 {
@@ -197,6 +201,7 @@ namespace IndieSpeedRun
                 {
                     velocity.Y = -400;
                     playerState = (int)states.JUMPING;
+                    BeginAnimation(gameTime, AnimationType.JUMP);
                     Console.WriteLine("START JUMP!");
                     heat += heatFromJump;
 
@@ -213,7 +218,6 @@ namespace IndieSpeedRun
                         velocity.X = -300;
                         Console.WriteLine("wallJump Left");
                         heat += heatFromJump;
-                        sprite.Effects = SpriteEffects.None;
                         facing = Facing.LEFT;
                     }
                     else if (game.currentMap.ContainsCoordinate(PositionX - 2, PositionY + sprite.Height))
@@ -261,11 +265,46 @@ namespace IndieSpeedRun
             base.Update(gameTime);
         }
 
+        private void BeginAnimation(GameTime gameTime, AnimationType atype) 
+        {
+            currentAnimation = atype;
+            animateBeginTime = gameTime.TotalGameTime.TotalMilliseconds;
+        }
+
         private void UpdateAnimation(GameTime gameTime)
         {
-            var deltaTime = gameTime.TotalGameTime.Milliseconds - animateBeginTime;
-            var index = ((int)(deltaTime / 50f)) % animationSprites.Count;
+            var deltaTime = gameTime.TotalGameTime.TotalMilliseconds - animateBeginTime;
+            var index = ((int)(deltaTime / 80f));
+ 
+            switch (this.currentAnimation) {
+                case AnimationType.NONE:
+                    return;
+                case AnimationType.RUN:
+                    index = index % ((int)AnimationFrame.RUN_END + 1);
+                    if (playerState != (int)states.RUNNING)
+                    {
+                        return;
+                    }
+                    if (! Input.KeyDown(Keys.A) && ! Input.KeyDown(Keys.D)) {
+                        currentAnimation = AnimationType.NONE;
+                        index = 0;
+                    }
+                    
+                    break;
+                case AnimationType.JUMP:
+                    if (playerState != (int)states.JUMPING) {
+                        index = 0;
+                        break;
+                    }
+                    if (velocity.Y < 0) { // Remember, negative is up
+                            index = (int) AnimationFrame.JUMP_END;
+                    } else {
+                            index = (int) AnimationFrame.JUMP_BEGIN;
+                    }
+                    break;
+            }
             sprite = animationSprites[index];
+            sprite.Effects = (facing == Facing.RIGHT) ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
         }
 
         public void Die()
