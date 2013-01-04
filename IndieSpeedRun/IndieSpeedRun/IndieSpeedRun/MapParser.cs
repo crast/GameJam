@@ -168,8 +168,6 @@ namespace IndieSpeedRun
         {
             return JObject.Parse(File.ReadAllText(filePath, Encoding.UTF8));
         }
-        
-
     }
 
     class TileInfo

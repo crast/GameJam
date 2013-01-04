@@ -47,7 +47,8 @@ namespace IndieSpeedRun
         private Hud hud;
         private int chosenSpawn = 0;
         private Parallax parallax;
-        private List<String> MapList = new List<String>{ "testmap3", "testmap4"};
+        private int chosenMapNum = -1;
+        private List<String> MapList = new List<String>{ "testmap3", "tutorial1"};
 
         private Sprite startScreen;
 
@@ -104,9 +105,7 @@ namespace IndieSpeedRun
             startScreen = new Sprite(textures["startScreen"]);
             player = new Player(0, 0, new Sprite(textures["char1"], TILE_SIZE*1, TILE_SIZE*2), this, viewArea);
             this.hud = new Hud(this, player);
-            LoadMap("testmap3");
-
-
+            LoadNextMap();
 
             //player.PositionX = 5 * TILE_SIZE;
             //player.PositionY = 10 * TILE_SIZE;
@@ -114,7 +113,12 @@ namespace IndieSpeedRun
             this.parallax = new Parallax(this);
 
             viewArea.Register(parallax);
-            viewArea.Register(currentMap);
+        }
+
+        public void LoadNextMap()
+        {
+            chosenMapNum = (chosenMapNum + 1) % MapList.Count;
+            LoadMap(MapList[chosenMapNum]);
         }
 
         public void LoadMap(String mapName) {
@@ -127,6 +131,7 @@ namespace IndieSpeedRun
 
             //reads in map data from XML
             MapParser.ReadInMapData(this, mapName);
+            viewArea.Register(currentMap);
 
             ChangeSpawn(0);
         }
@@ -190,7 +195,7 @@ namespace IndieSpeedRun
 
                 if (Input.KeyPressed(Keys.M))
                 {
-                    LoadMap("tutorial1");
+                    LoadNextMap();
                 }
 
                 // Allows the game to exit
