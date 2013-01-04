@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="128" height="64" tilewidth="32" tileheight="32">
  <tileset firstgid="1" source="../../../../../../../../../Assets/tiles2-01.tsx"/>
- <tileset firstgid="26" name="lantern-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="61" name="lantern-01" tilewidth="32" tileheight="32">
   <image source="../tiles/lantern-01.png" width="64" height="64"/>
   <tile id="0">
    <properties>
@@ -16,10 +16,10 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="30" name="background-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="65" name="background-01" tilewidth="32" tileheight="32">
   <image source="../tiles/background-01.png" width="192" height="192"/>
  </tileset>
- <tileset firstgid="66" name="furnace-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="101" name="furnace-01" tilewidth="32" tileheight="32">
   <image source="../tiles/furnace-01.png" width="32" height="32"/>
   <tile id="0">
    <properties>
@@ -28,7 +28,7 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="67" name="heatsink-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="102" name="heatsink-01" tilewidth="32" tileheight="32">
   <image source="../tiles/heatsink-01.png" width="32" height="32"/>
   <tile id="0">
    <properties>
@@ -37,26 +37,25 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="68" name="door-01" tilewidth="32" tileheight="32">
+ <tileset firstgid="103" name="door-01" tilewidth="32" tileheight="32">
   <image source="../tiles/door-01.png" width="32" height="96"/>
  </tileset>
- <tileset firstgid="71" source="../../../../../../../../../Assets/tiles2-01.tsx"/>
  <layer name="Background" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJzt2lluwjAUBdCoC+k8T3Sg4xfQ/e+pL4KqVtQqQCsT7HOk+5EIYtCF2Ak0DTTNYeQpMkrSt320eO55ZNLZP06OO8rxBljJrLN9u8Yx2t6/PhcXnf3TH/YzXOP+h1Cw9+b7fA6Uo53rPzb9IgAWdiN7kf3IQaYxnQOH4zhyEjmNnGUas+T+u9fzQ3cZuYpcR24yjVly/9ukvSd4F7mPPEQeM42r/81q7wdOmvk9wefIS+Q18pZpfP3Xrdb+h7I2mK2YZY6X6uu31v7hPw3lfALM+U4CsI6dX8L2W2ZtoP+66b9u+q+b/rfbX6//9V83/ddN/3XTf7n8NgAAZfLfNgAgZW0AAGUyxwMAKWsDACiTOR4ASFkbAECZzPEAAECfT8gAFKM=
+   eJzt2tlOwkAYBtDGN3PfN1xwvUJ8/0fwb8Q4aTQFNEM7c07yXbSBDuSDdjrQNNA0+5GHyCRJ3/bB4rmnkVln/zQ57iTLO2AV88729RrHaHv/+lycdfa//bCf4Zr2P4SCvTbf53OgHO21/n3TLwJgYTuyE9mN7GUa0zlwOA4jR5HjyEmmMUvuv3s/P3TnkYvIZeQq05gl9z8m7ZrgTeQ2che5zzSu/jerXQ9s14nbNcHHyFPkOfKSaXz9163W/ocyN5ivmGWOl+rrt9b+4T8N5XwCfPKdBGAdW7+E8VtmbqD/uum/bvqvm/7H7a/3//qvm/7rpv+66b9cfhsAgDL5bxsAkDI3AIAyucYDAClzAwAok2s8AJAyNwCAMrnGAwAAfT4AvAEhww==
   </data>
  </layer>
  <layer name="Gameplay" width="128" height="64">
   <data encoding="base64" compression="zlib">
-   eJztnItOwzAMRVO28RogHuMhxNfA//8TrVhF5Dlt08WJE98jWRq0a9oegu1sauec6xCmY+PkucswxkgXsd/FMULvkbjfqVlz3K3L6z8nKf3XwBr/3+7U/2fKkyqIRf+HyPdw/r9SnlRB4H8e6t/PT9dnns8lOd6+j6tj5AD+//yOMeT6XR8/ZLvv/ynx+WxIdInHmBt/6X6t+qfbh5jyn/p8OP+5CI1F//9Y8X9wMv4fAq9L+w/1mvQeteR/6vxT+R/zyMhL4HVp/yFa9j+48XO+Tyr/N33c9vHWx3sfH8zrnOsesbTsX2r+01o+Zk0R8z8PkvmfuuTccq7hPx+S9X9K/zGxX3DdsVjyT/t/Df4vImJHroEL/zOMzv2vcYRiy1xbq/7p9pT+tQRdT3qO3N+K/9T5fzexf0205F+q/uf80/6yVlryL9X/t+5/XNOq3T/mfzy0PqiV3Pm/Jf9jb9Cy/9T1P+d/7Tph6WjVv2T/z/mf6rtriNb80+05/Jeey+dGrWjI/7XPoZqZ+/uF/7YZ7nvp/h/+y4H5bxvkf9toqv9BfrT0//BfBg3zH5RDQ/4H5dBQ/4NyjP2/v57tA/9tk3v+t7Ju3gq58z/9GZQld/0P/7rg/Pu1gOT3/+G/PJLz/9Gd5nv414Vk/ufGgn9dSNb/3FjwrwvJ/p8bC/51gflvmxT5n1vXGYI+Cw7+9ZGi/l/6bDb414dk/8+NBf+6kOz/uWPBvy7Q/9tGqv6/9/bB+p9ecvX/4/NV4F8X6P9tg/xvG9T/tknR/y9Z+3MO/jWC9T/bIP/bBvW/bfD5v22G7+i9Tmxf6z/0TC/4r4u1/qnrDfM7+NcP/NsG/m0z5x9hN34Be/JScQ==
+   eJztnNtOwzAMhlO2XXKSdgPslsMth1vE08D7PwKtWEXkOevaxYlj/59kUald0+4jcuxV7UIIHcJ1rII89wXGGOlmHHexj9RnJL7v3Cw57zqU9V+SnP5bYIn/73Do/zPnRVXEo//tzM9w/r9yXlRF4H8a6j/OT9dnXs8lOd9dH1f7vyWA/z+/Ywy5ftPHD9kf+3/KfD0rEl3mMabGP/U4q/7p/iGO+c99PZz/UqTG2jHHefC/DTL+d4nt2v5TtSb9jiz5P3b9ufyPeWTkJbFd238Ky/4HN3HOj8nl/6aP2z7e+njv4yOxXarvMRfL/qXmP13Lz+kpYv6XQTL/U5ecW841/JdDcv2f0/+ckOgVePJP638N/i9mxIbcAxfxbxhd+O9xpGLN3JtV/3R/Tv9agvaTnieOf2XuzYP/3Pl/c+T4lrDkX2r9z/mn9WWrWPIvVf9b9z/2tFr3j/k/H7o+aJXS+d+S/7E2sOw/9/qf87+0T1g7rPqXrP85/8fq7hbCmn+6v4T/2nP53GgVDfm/9TnUMlP/v/Bvm+F7r13/w389MP99g/zvG03rf1AeLfU//NdBw/wH9dCQ/0E9NKz/QT3G+j/uZ8fAv21Kz38rfXMrlM7/2p7r907p9T/864LzT597h3+7SM7/x3CY7+FfF5L5nxsL/nUhuf7nxoJ/XUjW/9xY8K8LzH/f5Mj/XF9nCPouOPjXR471/6nvZoN/fUjW/9xY8K8LyfqfOxf86wL1v2+k1v8P0THo/+mlVP0/vl8F/nWB+t83yP++wfrfNznq/1N6fyHAv0bQ//MN8r9vsP73DX7/983wjB59t23MUv+pd3rBf1ss9U9d4/nfNoF/38C/b6b8I/zGLz9VeFk=
   </data>
  </layer>
  <objectgroup name="Interactive" width="128" height="64">
   <object name="SpawnPoint1" type="spawn" x="83" y="1904" width="65" height="104"/>
-  <object name="Door01" type="door" gid="68" x="832" y="96" width="32" height="32"/>
-  <object name="Door01" type="door" gid="69" x="832" y="128" width="32" height="32"/>
-  <object name="Door01" type="door" gid="70" x="832" y="160" width="32" height="32"/>
-  <object name="Lantern01" type="lantern" gid="27" x="96" y="128" width="32" height="32">
+  <object name="Door01" type="door" gid="103" x="832" y="96" width="32" height="32"/>
+  <object name="Door01" type="door" gid="104" x="832" y="128" width="32" height="32"/>
+  <object name="Door01" type="door" gid="105" x="832" y="160" width="32" height="32"/>
+  <object name="Lantern01" type="lantern" gid="62" x="96" y="128" width="32" height="32">
    <properties>
     <property name="target" value="Door01"/>
    </properties>
@@ -74,12 +73,12 @@
     <property name="value" value="-4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="416" y="544" width="32" height="576">
+  <object name="HeatingPad01" type="thermal" x="416" y="544" width="38" height="576">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="576" y="704" width="32" height="288">
+  <object name="CoolingPad01" type="thermal" x="570" y="704" width="38" height="288">
    <properties>
     <property name="value" value="-4"/>
    </properties>
@@ -155,12 +154,12 @@
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="HeatingPad01" type="thermal" x="4032" y="64" width="32" height="1952">
+  <object name="HeatingPad01" type="thermal" x="4026" y="64" width="38" height="1952">
    <properties>
     <property name="value" value="4"/>
    </properties>
   </object>
-  <object name="CoolingPad01" type="thermal" x="3936" y="160" width="32" height="1856">
+  <object name="CoolingPad01" type="thermal" x="3936" y="160" width="38" height="1856">
    <properties>
     <property name="value" value="-4"/>
    </properties>
