@@ -9,11 +9,11 @@ namespace IndieSpeedRun
 {
     class Parallax : ViewAreaUpdatable
     {
-        private const float backFactor = 0.8f;
+        private const float backFactor = 0.5f;
         private Texture2D backLayer;
         private Rectangle backSourceRect = Rectangle.Empty;
 
-        private const float frontFactor = 0.6f;
+        private const float frontFactor = 0.65f;
         private Rectangle frontSourceRect = Rectangle.Empty;
         private Texture2D frontLayer;
 
