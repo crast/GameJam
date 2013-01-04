@@ -116,7 +116,7 @@ namespace IndieSpeedRun
 
 
 
-            ChangeSpawn(1);
+            ChangeSpawn(0);
             //player.PositionX = 5 * TILE_SIZE;
             //player.PositionY = 10 * TILE_SIZE;
 
