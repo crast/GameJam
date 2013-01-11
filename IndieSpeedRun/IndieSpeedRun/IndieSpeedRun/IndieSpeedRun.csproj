@@ -13,7 +13,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <XnaProfile>HiDef</XnaProfile>
+    <XnaProfile>Reach</XnaProfile>
     <XnaCrossPlatformGroupID>54b5446f-6151-4963-b044-c650835027a7</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
@@ -146,10 +146,6 @@
     <ProjectReference Include="..\IndieSpeedRunContent\IndieSpeedRunContent.contentproj">
       <Name>IndieSpeedRunContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
-    <ProjectReference Include="..\TiledLib\TiledLib.csproj">
-      <Project>{EC3F6988-459C-4783-89E9-F34C0CC731C7}</Project>
-      <Name>TiledLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
